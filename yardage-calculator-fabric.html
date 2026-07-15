@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Yardage Calculator For Fabric - Home Decor Yardage Estimator | YardageCalculator.com</title>
+    <meta name="description" content="Free yardage calculator for fabric home decor projects. Calculate exact yardage for curtains, drapery, upholstery, tablecloths, and bedding with project-specific tips.">
+    <link rel="canonical" href="https://yardagecalculator.com/yardage-calculator-fabric.html">
+    <meta property="og:title" content="Yardage Calculator For Fabric - Home Decor Yardage Estimator">
+    <meta property="og:description" content="Calculate exact fabric yardage for home decor projects: curtains, upholstery, tablecloths, and bedding.">
+    <meta property="og:url" content="https://yardagecalculator.com/yardage-calculator-fabric.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Yardage Calculator For Fabric — Home Decor Edition",
+        "description": "Calculate exact fabric yardage for curtains, upholstery, tablecloths, and bedding with project-specific tips.",
+        "url": "https://yardagecalculator.com/yardage-calculator-fabric.html"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Yardage Calculator For Fabric — Home Decor</h1>
+                <p>Get the exact yards for curtains, drapery, upholstery, tablecloths, and bedding. Includes project-specific allowances and tips.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Yardage Calculator For Fabric — Home Decor</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="16" height="16" rx="2"/>
+                        <line x1="4" y1="10" x2="20" y2="10"/>
+                        <line x1="10" y1="4" x2="10" y2="20"/>
+                    </svg>
+                    <h1>Home Decor Yardage Calculator</h1>
+                </div>
+                <p>Enter your project dimensions below. Optimized for curtains, upholstery, and table linens.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ycfLen">Project Length <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="ycfLen" value="84" min="0.5" step="0.5" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="ycfWid">Project Width <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="ycfWid" value="48" min="0.5" step="0.5" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ycfQty">Number of Panels / Pieces</label>
+                        <input type="number" id="ycfQty" value="2" min="1" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="ycfFw">Fabric Width</label>
+                        <select id="ycfFw">
+                            <option value="36">36" — Quilting cotton</option>
+                            <option value="45">45" — Lightweight apparel</option>
+                            <option value="54">54" — Home decor</option>
+                            <option value="60" selected>60" — Upholstery / Drapery</option>
+                            <option value="108">108" — Wide drapery</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ycfSeam">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="ycfSeam" value="0.5" min="0" step="0.125" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="ycfWaste">Waste %</label>
+                        <input type="number" id="ycfWaste" value="10" min="0" max="100" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" data-calc-btn onclick="calcYcfYardage()">Calculate Yards</button>
+                </div>
+
+                <div id="ycfResultBox" class="result-box">
+                    <div class="result-value" id="ycfResult"></div>
+                    <div class="result-detail" id="ycfDetail"></div>
+                </div>
+                <div id="ycfErrorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>Curtain Yardage — Special Considerations</h2>
+                <p>Curtains are the most common home decor sewing project. Here is what affects yardage beyond basic dimensions:</p>
+                <ul>
+                    <li><strong>Fullness ratio</strong> — Curtain fabric should be 2–2.5× the window width. A 48" window needs 96–120" of fabric width before hemming. Our calculator assumes 1 panel per width; for fuller curtains, increase the number of panels.</li>
+                    <li><strong>Header and hem</strong> — Add 6–8" per panel for top hem (header) and 4–6" for bottom hem. Pocket rods need extra for the rod casing (2–3" at the top).</li>
+                    <li><strong>Pattern repeat matching</strong> — Large floral or geometric curtain patterns need extra yardage. Add one full pattern repeat per panel if matching across panels.</li>
+                    <li><strong>Lining fabric</strong> — Curtain lining takes the same yardage as the face fabric. Order matching amounts if lining your curtains.</li>
+                </ul>
+                <p>Use the <a href="/">main fabric yardage calculator</a> for curtains with custom hems and pattern repeats. See our <a href="/upholstery-yardage-chart.html">upholstery yardage chart</a> for seating projects.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Upholstery Yardage for Common Furniture</h2>
+                <table>
+                    <tr><th>Furniture Piece</th><th>Fabric Width</th><th>Yardage</th><th>Notes</th></tr>
+                    <tr><td>Armchair (standard)</td><td>54"</td><td>5–6 yd</td><td>Includes seat, back, arms</td></tr>
+                    <tr><td>Armchair (oversized)</td><td>54"</td><td>6–8 yd</td><td>Matching pattern adds +1 yd</td></tr>
+                    <tr><td>Loveseat (2-seat)</td><td>54"</td><td>8–10 yd</td><td>Includes cushions</td></tr>
+                    <tr><td>Sofa (3-seat, standard)</td><td>54"</td><td>10–14 yd</td><td>T-cushions need more</td></tr>
+                    <tr><td>Sofa (oversized / section)</td><td>54"</td><td>14–18 yd</td><td>Always buy full bolt if matching</td></tr>
+                    <tr><td>Ottoman (standard)</td><td>54"</td><td>2–3 yd</td><td>With or without tufting</td></tr>
+                    <tr><td>Dining chair seat</td><td>54"</td><td>½–1 yd</td><td>Per chair, slipcover style</td></tr>
+                </table>
+                <div class="callout warning">
+                    <strong>Upholstery rule:</strong> Always buy ½–1 yard extra for pattern matching on furniture with cushions. Stripes and large plaids can require 20–30% more fabric. See the full <a href="/upholstery-yardage-chart.html">upholstery yardage chart</a> for detailed guidance.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Tablecloth Yardage by Table Size</h2>
+                <p>Tablecloth yardage depends on your table dimensions and desired drop length. Drop = how far the cloth hangs below the table edge.</p>
+                <table>
+                    <tr><th>Table Size</th><th>Drop 6–8" (casual)</th><th>Drop 10–12" (formal)</th><th>Drop 15" (floor)</th></tr>
+                    <tr><td>36×54" (small dining)</td><td>1½ yd</td><td>2 yd</td><td>2½ yd</td></tr>
+                    <tr><td>42×60" (medium dining)</td><td>2 yd</td><td>2½ yd</td><td>3 yd</td></tr>
+                    <tr><td>48×72" (large dining)</td><td>2½ yd</td><td>3 yd</td><td>3½ yd</td></tr>
+                    <tr><td>60×84" (extra large)</td><td>3 yd</td><td>3½ yd</td><td>4 yd</td></tr>
+                    <tr><td>Round, 60" diameter</td><td>2 yd</td><td>2½ yd</td><td>3 yd</td></tr>
+                </table>
+                <p>For 60" wide fabric. If using 45" wide, add ½–1 yard. Use the <a href="/fabric-converter.html">fabric converter</a> to work in metric if needed.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Bedding Yardage Guide</h2>
+                <table>
+                    <tr><th>Item</th><th>Width × Length</th><th>Fabric Width</th><th>Yardage</th></tr>
+                    <tr><td>Twin flat sheet</td><td>66×96"</td><td>72" (sheeting)</td><td>2¾ yd</td></tr>
+                    <tr><td>Full flat sheet</td><td>81×96"</td><td>90" (wide sheeting)</td><td>2¾ yd</td></tr>
+                    <tr><td>Queen flat sheet</td><td>90×102"</td><td>90" (wide sheeting)</td><td>3 yd</td></tr>
+                    <tr><td>King flat sheet</td><td>108×102"</td><td>108" (extra wide)</td><td>3 yd</td></tr>
+                    <tr><td>Duvet cover (twin)</td><td>68×86"</td><td>90"</td><td>4 yd (front + back)</td></tr>
+                    <tr><td>Duvet cover (queen)</td><td>88×90"</td><td>90"</td><td>5 yd (front + back)</td></tr>
+                    <tr><td>Duvet cover (king)</td><td>106×90"</td><td>108"</td><td>5½ yd (front + back)</td></tr>
+                </table>
+                <p>Sheeting fabric is typically sold at wider widths (90–108") specifically for bedding. Check your fabric store's sheeting section before buying standard-width decor fabric.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-q">How do I calculate yardage for pinch-pleated curtains?</div>
+                    <div class="faq-a">Pinch-pleated curtains need 2.5× the window width (vs 2× for standard). Each pleat takes 4–6" of fabric. Add 12–18" total per panel for pleating beyond standard fullness.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Do I need different yardage for upholstery with a pattern?</div>
+                    <div class="faq-a">Yes. Large patterns (12"+ repeat) on sofas can require 20–30% more fabric. Striped upholstery may need extra if centering stripes on cushions. Always buy an extra yard for patterned upholstery.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What fabric width is best for curtains?</div>
+                    <div class="faq-a">54" is standard for most curtain panels. 108" wide drapery fabric allows seamless panels for tall windows (no horizontal seams needed). 60" upholstery fabric also works well for curtains.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+<script src="/js/common.js"></script>
+<script>
+function calcYcfYardage() {
+    const len = parseFloat($('ycfLen').value);
+    const wid = parseFloat($('ycfWid').value);
+    const qty = parseInt($('ycfQty').value);
+    const fw = parseFloat($('ycfFw').value);
+    const seam = parseFloat($('ycfSeam').value);
+    const wastePct = parseFloat($('ycfWaste').value) || 0;
+    const errEl = $('ycfErrorBox');
+    hide(errEl); hide($('ycfResultBox'));
+    if (isNaN(len) || len <= 0 || isNaN(wid) || wid <= 0) { errEl.textContent = 'Enter valid project dimensions.'; show(errEl); return; }
+    if (isNaN(qty) || qty < 1) { errEl.textContent = 'Enter a valid number of pieces.'; show(errEl); return; }
+    const result = computeYardage({ pieceLen: len, pieceWid: wid, qty, fw, seam, wastePct });
+    $('ycfResult').textContent = result.yards + ' yards';
+    let d = qty + ' piece(s), cut each: ' + result.adjLen.toFixed(1) + '" × ' + (wid + seam * 2).toFixed(1) + '"';
+    if (result.piecesPerWidth > 1) d += '<br>' + result.piecesPerWidth + ' fit per ' + fw + '" width = ' + result.totalAdjPieces + ' row(s)';
+    d += '<br>' + result.totalInches.toFixed(1) + ' total inches + ' + wastePct + '% waste';
+    $('ycfDetail').innerHTML = d;
+    show($('ycfResultBox'));
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upholstery Fabric Yardage Calculator - Sofa, Chair & Cushion Yardage | YardageCalculator.com</title>
+    <meta name="description" content="Calculate upholstery fabric yardage for sofas, dining chairs, armchairs, and ottomans. Free sofa fabric yardage calculator with easy preset buttons and detailed yardage charts.">
+    <link rel="canonical" href="https://yardagecalculator.com/upholstery-fabric-yardage.html">
+    <meta property="og:title" content="Upholstery Fabric Yardage Calculator - Sofa & Chair Fabric Calculator">
+    <meta property="og:description" content="Calculate exact upholstery fabric yardage for sofas, love seats, armchairs, dining chairs, and ottomans. Free fabric yardage calculator with preset furniture sizes.">
+    <meta property="og:url" content="https://yardagecalculator.com/upholstery-fabric-yardage.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Upholstery Fabric Yardage Calculator",
+        "url": "https://yardagecalculator.com/upholstery-fabric-yardage.html",
+        "description": "Calculate upholstery fabric yardage for sofas, dining chairs, armchairs, and ottomans. Enter dimensions and get exact yards for your upholstery project.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/upholstery-fabric-yardage.html" class="curr" title="Upholstery Fabric Yardage Calculator">Upholstery</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Upholstery Fabric Yardage Calculator</h1>
+                <p>Estimate how much fabric you need to reupholster a sofa, loveseat, armchair, dining chair, or ottoman. Enter your piece dimensions or use the preset buttons for standard furniture sizes.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Upholstery Fabric Yardage</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 7V4h16v3"/>
+                        <rect x="2" y="7" width="20" height="10" rx="2"/>
+                        <path d="M6 17v3"/>
+                        <path d="M18 17v3"/>
+                        <path d="M9 10h6"/>
+                        <path d="M9 13h4"/>
+                    </svg>
+                    <h1>Calculate Upholstery Yardage</h1>
+                </div>
+                <p>Enter your furniture dimensions, or click a preset to quickly estimate upholstery fabric yardage for standard pieces.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Quick Presets — Standard Furniture Sizes</label>
+                    <div class="quick-presets" id="upholsteryPresets">
+                        <div class="quick-preset-card" data-len="84" data-wid="35" data-cush="3" data-name="3-Seat Sofa">
+                            <div class="qpc-name">Standard 3-Seat Sofa</div>
+                            <div class="qpc-desc">84" long, 35" deep, 3 cushions</div>
+                        </div>
+                        <div class="quick-preset-card" data-len="60" data-wid="32" data-cush="2" data-name="Loveseat">
+                            <div class="qpc-name">Loveseat</div>
+                            <div class="qpc-desc">60" long, 32" deep, 2 cushions</div>
+                        </div>
+                        <div class="quick-preset-card" data-len="30" data-wid="28" data-cush="1" data-name="Armchair">
+                            <div class="qpc-name">Armchair</div>
+                            <div class="qpc-desc">30" wide, 28" deep, 1 cushion</div>
+                        </div>
+                        <div class="quick-preset-card" data-len="20" data-wid="18" data-cush="6" data-name="Dining Chair x6">
+                            <div class="qpc-name">Dining Chair (x6)</div>
+                            <div class="qpc-desc">6 chairs, 20" x 18" each</div>
+                        </div>
+                        <div class="quick-preset-card" data-len="24" data-wid="24" data-cush="1" data-name="Ottoman">
+                            <div class="qpc-name">Ottoman</div>
+                            <div class="qpc-desc">24" x 24", 1 cushion top</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="upholsteryLen">Seat Length <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="upholsteryLen" value="84" min="1" step="0.5" oninput="calcUpholsteryFabric()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="upholsteryDepth">Seat Depth <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="upholsteryDepth" value="35" min="1" step="0.5" oninput="calcUpholsteryFabric()" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="upholsteryCushions">Number of Cushions</label>
+                        <input type="number" id="upholsteryCushions" value="3" min="0" step="1" oninput="calcUpholsteryFabric()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="upholsteryWidth">Fabric Width</label>
+                        <select id="upholsteryWidth">
+                            <option value="54" selected>54" - Standard upholstery</option>
+                            <option value="60">60" - Wide upholstery</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="upholsterySeam">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="upholsterySeam" value="0.5" min="0" step="0.125" oninput="calcUpholsteryFabric()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="upholsteryWaste">Waste %</label>
+                        <input type="number" id="upholsteryWaste" value="15" min="0" max="100" oninput="calcUpholsteryFabric()" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="callout info">
+                    <strong>How this estimate works:</strong> The calculator estimates fabric for the seat surface, backrest (same area), and separate cushion panels. It does not include arms, skirts, or decking — add 1–3 yards for those depending on your furniture style. For sofas with fully upholstered sides and back, add 50–100% more.
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calcUpholsteryFabric()">Calculate Upholstery Fabric</button>
+                </div>
+
+                <div id="resultBox" class="result-box">
+                    <div class="result-value" id="upholsteryResult"></div>
+                    <div class="result-detail" id="upholsteryDetail"></div>
+                </div>
+                <div id="errorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>How Much Upholstery Fabric Do You Need?</h2>
+                <p>Estimating upholstery fabric yardage is different from sewing a garment or a pillow. You are covering a three-dimensional object, so you need enough fabric for the seat deck, the backrest, the outside back, the arms (if any), the cushion tops and bottoms, the skirt or kick pleat, and the welt cord. The total depends on the piece's dimensions, its shape complexity, and how the fabric is laid out.</p>
+
+                <h3>The Basic Formula</h3>
+                <p>For a simple sofa or chair with separate cushions, the general formula is:</p>
+                <div class="formula-box">
+                    <strong>Total Yardage</strong> = Seat area + Back area + Cushion panels + Waste allowance<br>
+                    <strong>Each panel</strong> = (Length + seam) × (Width + seam) ÷ 36 × number of panels × (1 + waste%)
+                </div>
+                <p>This calculator handles the seat deck, backrest, and cushion panels. For a 3-seat sofa (84" × 35") with three loose cushions on 54" fabric, you typically need 12–16 yards. A loveseat takes 8–11 yards, and a standard armchair requires 6–8 yards. Dining chair seats are much smaller — a set of six uses about 3–5 yards depending on whether you upholster just the seat or the full chair back.</p>
+
+                <p><strong>Pro tip:</strong> Always buy at least 0.5–1 yard extra for pattern matching, especially if your fabric has a large print, a distinct direction, or a stripe that must line up across cushions and seams. If you are matching a plaid or a bold geometric pattern, add 1–2 yards.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Upholstery Fabric Yardage Chart</h2>
+                <p>Use this quick-reference chart as a starting point. Actual yardage varies by furniture dimensions, fabric width, and how much of the frame is exposed.</p>
+                <table>
+                    <tr><th>Furniture Type</th><th>Typical Dimensions</th><th>54" Fabric</th><th>60" Fabric</th></tr>
+                    <tr><td>3-Seat Sofa (loose cushions)</td><td>84" × 35"</td><td>14–16 yards</td><td>12–14 yards</td></tr>
+                    <tr><td>3-Seat Sofa (tight seat, no cushions)</td><td>84" × 35"</td><td>10–12 yards</td><td>9–11 yards</td></tr>
+                    <tr><td>Loveseat</td><td>60" × 32"</td><td>9–11 yards</td><td>8–10 yards</td></tr>
+                    <tr><td>Armchair (fully upholstered)</td><td>30" × 28"</td><td>6–8 yards</td><td>5–7 yards</td></tr>
+                    <tr><td>Dining Chair (seat only)</td><td>18" × 18"</td><td>0.5 yard per chair</td><td>0.5 yard per chair</td></tr>
+                    <tr><td>Dining Chair (full back + seat)</td><td>20" × 18"</td><td>1–1.5 yards per chair</td><td>1 yard per chair</td></tr>
+                    <tr><td>Ottoman (padded top only)</td><td>24" × 24"</td><td>1–1.5 yards</td><td>1 yard</td></tr>
+                    <tr><td>Headboard (twin/full)</td><td>42" × 30"</td><td>1.5–2 yards</td><td>1.5 yards</td></tr>
+                    <tr><td>Headboard (queen/king)</td><td>62" × 36"</td><td>2.5–3 yards</td><td>2–2.5 yards</td></tr>
+                </table>
+                <p class="price-note">Chart values assume standard upholstery-grade fabric with no large pattern repeat. Add 10–20% for striped or large-scale prints that require pattern matching.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Factors That Affect Upholstery Yardage</h2>
+                <p>Several variables can significantly change how much fabric your upholstery project needs. Understanding them before you buy will save you from running short mid-project.</p>
+
+                <h3>Pattern Repeat</h3>
+                <p>Fabrics with a large pattern repeat (12" or more) require extra yardage because each cut length must start at the same point in the repeat so the pattern lines up across cushions and panels. A 24" repeat can add 20–30% to your total yardage. Stripes running vertically need careful alignment across the seat and back, while horizontal stripes must match along the front edge. Always ask your supplier for the vertical repeat measurement before calculating.</p>
+
+                <h3>Fabric Width</h3>
+                <p>Upholstery fabric typically comes in 54" (the standard) or 60" widths. The wider the fabric, the fewer panels you need to piece together. On a large sofa, switching from 54" to 60" fabric can save 1–3 yards. However, some furniture pieces have components (like the outside back or arms) that require a full panel width anyway, so the savings depend on your specific dimensions.</p>
+
+                <h3>Cushion vs. Solid Seat</h3>
+                <p>Furniture with loose cushions requires significantly more fabric than a tight seat. Each cushion needs fabric for both the top and bottom face plus boxing (the side strip that gives the cushion its thickness). A 3-seat sofa with loose cushions uses roughly 3–5 more yards than the same sofa with a tight (attached) seat. Reversible cushions — where the bottom must also look good — double the cushion fabric requirement.</p>
+
+                <h3>Furniture Style and Details</h3>
+                <p>Tuffed backs, rolled arms, gathered skirts, and piping all consume extra fabric. A tufted backrest uses 10–15% more because the fabric must be pulled into the tufts. A gathered skirt around the base of a sofa adds roughly 1–2 yards depending on the drop length. Piped (welt cord) seams use thin bias strips, but when cut from the same fabric, they consume about 0.25–0.5 yard for an average sofa.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much fabric do I need to reupholster a 3-seat sofa?</div>
+                    <div class="faq-a">A standard 3-seat sofa (84 inches long, 35 inches deep) typically requires 14–16 yards of 54-inch-wide upholstery fabric if it has loose cushions. The same sofa with a tight seat (no separate cushions) uses 10–12 yards. Always measure your specific sofa and account for pattern repeat.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is the best fabric width for upholstery projects?</div>
+                    <div class="faq-a">54-inch wide fabric is the industry standard for upholstery and works well for most furniture pieces. 60-inch wide fabric can save yardage on larger items like sofas and sectionals, but it is less commonly available and may have fewer pattern options. For small projects like dining chair seats or ottomans, 54-inch fabric is more than sufficient.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much extra fabric should I buy for pattern matching?</div>
+                    <div class="faq-a">For fabric with a pattern repeat of 6 inches or less, add 0.5 yard. For a 12-inch repeat, add 1 yard. For large repeats of 24 inches or more, add 1.5–2 yards. Striped and plaid fabrics require careful alignment across cushions — buy at least one extra yard and lay out all pieces before cutting to ensure the pattern flows continuously across the furniture.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Can I use this calculator for outdoor upholstery fabric?</div>
+                    <div class="faq-a">Yes. The yardage calculation works the same for indoor and outdoor upholstery fabrics. Outdoor fabrics (Sunbrella and similar) typically come in the same widths (54" or 60") and require the same seam allowances. Just note that outdoor furniture often has more exposed metal or sling-style construction, so your actual fabric need may be lower. Measure each panel of your outdoor piece individually for the most accurate estimate.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How do I measure my existing furniture for upholstery fabric?</div>
+                    <div class="faq-a">Measure each visible surface separately: seat width and depth, backrest height and width, arm height and width (if upholstered), inside and outside back panels, cushion length, width, and thickness, and any skirt or trim. Write down each measurement in inches. Add 2 inches per panel for seam allowances. Then add up all panel areas and divide by 36 (inches per yard) multiplied by your fabric width factor. When in doubt, sketch your piece and label every panel — this prevents costly underestimates.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/upholstery-fabric-yardage.html" title="Upholstery Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 17v3"/><path d="M18 17v3"/><path d="M9 10h6"/><path d="M9 13h4"/></svg> Upholstery</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+// Preset handler
+document.getElementById('upholsteryPresets').addEventListener('click', function(e) {
+    var card = e.target.closest('.quick-preset-card');
+    if (!card) return;
+    document.querySelectorAll('#upholsteryPresets .quick-preset-card').forEach(function(c) { c.classList.remove('active'); });
+    card.classList.add('active');
+    $('upholsteryLen').value = card.dataset.len;
+    $('upholsteryDepth').value = card.dataset.wid;
+    $('upholsteryCushions').value = card.dataset.cush;
+    if (typeof storeImperialVal === 'function') {
+        storeImperialVal('upholsteryLen');
+        storeImperialVal('upholsteryDepth');
+    }
+    calcUpholsteryFabric();
+});
+
+function calcUpholsteryFabric() {
+    var len = parseFloat($('upholsteryLen').value);
+    var depth = parseFloat($('upholsteryDepth').value);
+    var cushions = parseInt($('upholsteryCushions').value) || 0;
+    var fw = parseFloat($('upholsteryWidth').value);
+    var seam = parseFloat($('upholsterySeam').value) || 0;
+    var wastePct = parseFloat($('upholsteryWaste').value) || 0;
+    var errEl = $('errorBox');
+    hide(errEl);
+
+    if (isNaN(len) || len <= 0 || isNaN(depth) || depth <= 0) {
+        errEl.textContent = 'Enter valid furniture dimensions.';
+        show(errEl);
+        return;
+    }
+
+    // Estimate: seat deck + backrest = 2 panels at (len x depth)
+    // Cushions: each cushion has top + bottom + boxing
+    // Use computeYardage for the main body (seat + back)
+    var bodyQty = 2; // seat + back
+    var bodyResult = computeYardage({
+        pieceLen: len,
+        pieceWid: depth,
+        qty: bodyQty,
+        fw: fw,
+        seam: seam,
+        wastePct: 0
+    });
+
+    var cushionYards = 0;
+    var cushionDetail = '';
+    if (cushions > 0) {
+        // Each cushion: top face + bottom face + boxing strip
+        // Boxing: 2 x (cushionLen + cushionWid) x standard thickness (~4")
+        var cushionThick = 4;
+        var cushionLen = len / cushions; // approximate cushion width
+        // Top and bottom panels (2 per cushion)
+        var cushionPanelQty = cushions * 2;
+        var cushionResult = computeYardage({
+            pieceLen: depth,
+            pieceWid: cushionLen,
+            qty: cushionPanelQty,
+            fw: fw,
+            seam: seam,
+            wastePct: 0
+        });
+        cushionYards += cushionResult.yards;
+
+        // Boxing strip for each cushion
+        var boxingLen = cushionThick + seam * 2;
+        var boxingTotalWid = 2 * (depth + cushionLen) + seam * 2;
+        var boxingQty = cushions;
+        // For boxing, treat as narrow strips - use pieceLen for the strip height, pieceWid for the perimeter
+        var boxResult = computeYardage({
+            pieceLen: boxingLen,
+            pieceWid: boxingTotalWid,
+            qty: boxingQty,
+            fw: fw,
+            seam: 0,
+            wastePct: 0
+        });
+        cushionYards += boxResult.yards;
+
+        cushionYards = Math.ceil(cushionYards * 4) / 4;
+        cushionDetail = cushions + ' cushion' + (cushions > 1 ? 's' : '') + ' (top + bottom + boxing) = ' + cushionYards.toFixed(2) + ' yards';
+    }
+
+    var totalYards = bodyResult.yards + cushionYards;
+    // Apply overall waste
+    totalYards = totalYards * (1 + wastePct / 100);
+    totalYards = Math.ceil(totalYards * 4) / 4;
+
+    var totalInches = bodyResult.totalInches || 0;
+
+    $('upholsteryResult').textContent = totalYards + ' yards';
+
+    var detail = '<strong>Seat + Back:</strong> ' + bodyResult.yards.toFixed(2) + ' yards (2 panels at ' + len + '″ x ' + depth + '″ each)';
+    if (cushionYards > 0) {
+        detail += '<br><strong>Cushions:</strong> ' + cushionYards.toFixed(2) + ' yards (' + cushions + ' cushion' + (cushions > 1 ? 's' : '') + ')';
+    }
+    detail += '<br><strong>Total before waste:</strong> ' + (bodyResult.yards + cushionYards).toFixed(2) + ' yards';
+    detail += '<br><strong>Waste allowance:</strong> ' + wastePct + '%';
+    detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ' + (totalYards * 0.9144).toFixed(2) + ' m | ' + (totalYards * 36).toFixed(1) + ' total inches</span>';
+    detail += '<div class="callout warning" style="margin-top:12px;"><strong>Note:</strong> This estimate covers the seat deck, backrest, and cushion panels. It does not include <strong>arms, outside back, skirt, or welt cord</strong>. For a fully upholstered piece, add 2–5 yards depending on style and size.</div>';
+
+    $('upholsteryDetail').innerHTML = detail;
+    show($('resultBox'));
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initPage === 'function') initPage();
+});
+</script>
+</body>
+</html>

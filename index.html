@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Yardage Calculator - Calculate How Much Fabric You Need | YardageCalculator.com</title>
+    <meta name="description" content="Free fabric yardage calculator with real-time results. Enter project dimensions and fabric width to get exact yards. Includes cost estimator, metric conversion, and project presets.">
+    <link rel="canonical" href="https://yardagecalculator.com/">
+    <meta property="og:title" content="Fabric Yardage Calculator - Calculate How Much Fabric You Need">
+    <meta property="og:description" content="Free fabric yardage calculator — real-time results, cost estimator, metric/imperial toggle, and project presets for pillows, curtains, clothing, and quilts.">
+    <meta property="og:url" content="https://yardagecalculator.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Fabric Yardage Calculator",
+        "url": "https://yardagecalculator.com/",
+        "description": "Calculate how much fabric you need for your sewing project. Real-time results with cost estimator and unit conversion.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" class="curr" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Fabric Yardage Calculator</h1>
+                <p>Get the exact yards of fabric needed for your sewing project. Real-time results as you type — no button clicking needed.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Fabric Yardage Calculator</span>
+            </div>
+
+            <div class="tool-card" id="mainCalc">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 3l18 18"/>
+                        <path d="M3 7l14 0"/>
+                        <path d="M7 3l0 4"/>
+                        <path d="M17 7l0 4"/>
+                        <path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/>
+                        <path d="M14 14l4 4"/>
+                        <path d="M18 14l4 4"/>
+                    </svg>
+                    <h1>Calculate Fabric Yardage</h1>
+                </div>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="realtime-badge">Real-time results as you type</div>
+
+                <p>Select a project for preset values, or enter custom dimensions.</p>
+
+                <div class="quick-presets">
+                    <div class="quick-preset-card" onclick="applyPreset(18,18,2,54,0.5,50,'Throw Pillow')"><div class="qpc-name">18×18" Throw Pillow</div><div class="qpc-desc">front + back, 54" fabric</div></div>
+                    <div class="quick-preset-card" onclick="applyPreset(20,20,2,54,0.5,40,'Euro Pillow')"><div class="qpc-name">20×20" Euro Pillow</div><div class="qpc-desc">front + back, 54" fabric</div></div>
+                    <div class="quick-preset-card" onclick="applyPreset(92,48,2,54,0.5,40,'Curtain Panel')"><div class="qpc-name">84" Curtain Panel</div><div class="qpc-desc">2 panels, 54" fabric</div></div>
+                    <div class="quick-preset-card" onclick="applyPreset(90,45,1,45,0.625,30,'Knee-Length Dress')"><div class="qpc-name">Knee-Length Dress</div><div class="qpc-desc">main body piece, 45" fabric</div></div>
+                    <div class="quick-preset-card" onclick="applyPreset(96,90,1,45,0.25,1,'Queen Quilt Top')"><div class="qpc-name">Queen Quilt Top</div><div class="qpc-desc">90×96", 45" quilting cotton</div></div>
+                    <div class="quick-preset-card" onclick="applyPreset(72,48,1,60,0.5,30,'Tablecloth')"><div class="qpc-name">Tablecloth</div><div class="qpc-desc">48×72" table, 12" drop, 60" fabric</div></div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Fabric Width <span class="hint" data-unit="in">inches</span></label>
+                        <div class="form-row" style="grid-template-columns: 1fr 1fr; gap: 8px;">
+                            <select id="fabricWidth" data-realtime="1">
+                                <option value="36">36" — Quilting cotton</option>
+                                <option value="45">45" — Lightweight fabrics</option>
+                                <option value="54" selected>54" — Home decor</option>
+                                <option value="60">60" — Upholstery</option>
+                                <option value="108">108" — Wide drapery</option>
+                            </select>
+                            <input type="number" id="customWidth" value="54" min="1" max="240" step="0.5" data-realtime="1" placeholder="Custom">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Fabric Price <span class="hint">$ per yard</span></label>
+                        <input type="number" id="pricePerYard" value="0" min="0" step="0.5" data-realtime="1" placeholder="Optional">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Piece Length <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="pieceLength" value="36" min="0.1" step="0.5" data-realtime="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Piece Width <span class="hint" data-unit="in">inches</span> <span class="hint">(0 = single piece)</span></label>
+                        <input type="number" id="pieceWidth" value="0" min="0" step="0.5" data-realtime="1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Number of Pieces</label>
+                        <input type="number" id="numPieces" value="1" min="1" step="1" data-realtime="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Pattern Repeat <span class="hint" data-unit="in">inches</span> <span class="hint">(optional)</span></label>
+                        <input type="number" id="patternRepeat" value="0" min="0" step="0.5" data-realtime="1">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="seamAllowance" value="0.5" min="0" step="0.125" data-realtime="1">
+                    </div>
+                    <div class="form-group">
+                        <label>Waste % <span class="hint">(shrinkage, mistakes)</span></label>
+                        <input type="number" id="wastePercent" value="10" min="0" max="100" step="1" data-realtime="1">
+                    </div>
+                </div>
+
+                <div id="resultBox" class="result-box show">
+                    <div class="result-value" id="yardsResult"></div>
+                    <div class="result-detail" id="resultDetail"></div>
+                    <div class="multi-unit-row" id="multiUnitRow"></div>
+                    <div class="cost-row" id="costRow">
+                        <div>
+                            <div class="cost-result"><span class="cost-label">Estimated Cost</span><span id="costDisplay">$0.00</span></div>
+                            <div class="price-note">Enter price per yard above to calculate total cost</div>
+                        </div>
+                        <div>
+                            <div class="cost-result"><span class="cost-label">Suggested Buy</span><span id="suggestedBuyDisplay">—</span></div>
+                            <div class="price-note">Rounded up to nearest standard cut (¼ yd increments)</div>
+                        </div>
+                    </div>
+                    <div class="action-btns">
+                        <button class="action-btn" onclick="shareYardageResult()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share</button>
+                        <button class="action-btn" onclick="printYardageResult()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg> Print</button>
+                        <button class="action-btn" onclick="resetMainForm()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg> Reset</button>
+                    </div>
+                    <div id="toastMsg" class="toast-msg"></div>
+                </div>
+                <div id="errorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section scene-nav">
+                <h2>Fabric Yardage by Project</h2>
+                <p>Need fabric for a specific project? Use our specialized calculators:</p>
+                <div class="scene-grid">
+                    <a href="/upholstery-fabric-yardage.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M6 6V4a1 1 0 011-1h10a1 1 0 011 1v2"/></svg>
+                        <span>Upholstery</span>
+                        <small>Sofas, chairs, dining seats</small>
+                    </a>
+                    <a href="/curtain-fabric-yardage.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3v18M20 3v18M4 12h16M4 6h16"/></svg>
+                        <span>Curtains & Drapery</span>
+                        <small>Window panels, fullness ratio</small>
+                    </a>
+                    <a href="/cushion-fabric-yardage.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12a4 4 0 014-4h12a4 4 0 014 4v4a4 4 0 01-4 4H6a4 4 0 01-4-4v-4z"/></svg>
+                        <span>Cushions</span>
+                        <small>Seat pads, bench, outdoor</small>
+                    </a>
+                    <a href="/quilt-fabric-calculator.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                        <span>Quilts</span>
+                        <small>Top + backing yardage</small>
+                    </a>
+                    <a href="/clothing-fabric-yardage.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 2h10l3 6-4 3-2-9M17 2l3 6-4 3-2-9M7 2L4 8l4 3 2-9"/></svg>
+                        <span>Clothing</span>
+                        <small>Dresses, skirts, pants</small>
+                    </a>
+                    <a href="/pillow-fabric-calculator.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg>
+                        <span>Pillows</span>
+                        <small>Throw, lumbar, floor cushions</small>
+                    </a>
+                    <a href="/what-can-you-make-with-1-yard.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        <span>1 Yard Projects</span>
+                        <small>What fits in 1 yard?</small>
+                    </a>
+                    <a href="/fabric-cost-calculator.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                        <span>Cost Calculator</span>
+                        <small>Budget your project</small>
+                    </a>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>How to Use the Fabric Yardage Calculator</h2>
+                <ol>
+                    <li><strong>Select fabric width</strong> — Common widths from 36" quilting cotton to 108" wide drapery. Enter custom width if yours isn't listed.</li>
+                    <li><strong>Enter piece dimensions</strong> — Length and width of each piece you need to cut from the fabric.</li>
+                    <li><strong>Adjust seam and waste</strong> — Standard seam allowance is ½". Beginners should use 10-15% waste.</li>
+                    <li><strong>Optional: enter price</strong> — Add the price per yard to see your total fabric cost instantly.</li>
+                    <li><strong>Read the result</strong> — Results update in real time. Shows yards needed, multi-unit conversions, and estimated cost.</li>
+                </ol>
+                <div class="callout info">
+                    <strong>Pro tip:</strong> Use the quick preset cards above to instantly calculate common projects. Select "Pillow" for front-and-back yardage, "Curtain" for panel pairs, or "Quilt" for quilt tops.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>How Yardage Is Calculated</h2>
+                <div class="formula-box">
+                    <strong>Step 1:</strong> Adjusted piece size = dimension + seam allowance × 2 + hem + pattern repeat<br>
+                    <strong>Step 2:</strong> Pieces per width = fabric width ÷ adjusted piece width (round down)<br>
+                    <strong>Step 3:</strong> Rows needed = total pieces ÷ pieces per width (round up)<br>
+                    <strong>Step 4:</strong> Total inches = rows × adjusted piece length<br>
+                    <strong>Step 5:</strong> Yards = (total inches ÷ 36) × (1 + waste %)
+                </div>
+                <p>Example: an <strong>18×18" pillow</strong> needs 2 pieces (front + back). On 54" fabric with ½" seam allowance: each piece is 19" × 19". Two pieces fit side by side across 54", so only 1 row of 19" = 19" total. With 10% waste: <strong>19" ÷ 36 × 1.1 = 0.58 → round up to ⅔ yard</strong>.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Standard Fabric Widths</h2>
+                <table>
+                    <tr><th>Width</th><th>Common Uses</th></tr>
+                    <tr><td>36" (91 cm)</td><td>Quilting cotton, lightweight prints</td></tr>
+                    <tr><td>45" (115 cm)</td><td>Blouses, shirts, dresses, light curtains</td></tr>
+                    <tr><td>54" (140 cm)</td><td>Home decor, medium upholstery, pants</td></tr>
+                    <tr><td>60" (150 cm)</td><td>Upholstery, drapery, coats</td></tr>
+                    <tr><td>108" (275 cm)</td><td>Wide drapery, sheers, seamless bedding</td></tr>
+                </table>
+            </div>
+
+            <div class="content-section">
+                <h2>Yardage by Project Type</h2>
+                <p>Rough yardage estimates for common projects on 54" fabric (use the calculator above for exact results):</p>
+                <table>
+                    <tr><th>Project</th><th>Yardage (54")</th><th>Notes</th></tr>
+                    <tr><td>Throw pillow (18×18")</td><td>½ yd</td><td>Front + back, 2 fit per width</td></tr>
+                    <tr><td>Euro pillow (20×20")</td><td>⅔ yd</td><td>Front + back, 2 per width</td></tr>
+                    <tr><td>Lumbar pillow (12×20")</td><td>½ yd</td><td>Front + back</td></tr>
+                    <tr><td>Curtain panel (84" drop)</td><td>2½ yd</td><td>Per panel, includes hem</td></tr>
+                    <tr><td>Knee-length skirt</td><td>1 yd</td><td>Straight, 45" fabric</td></tr>
+                    <tr><td>Simple dress (knee)</td><td>2–2½ yd</td><td>Varies by size and style</td></tr>
+                    <tr><td>Queen quilt top</td><td>6½ yd</td><td>45" quilting cotton</td></tr>
+                    <tr><td>Tablecloth (48×72", 12" drop)</td><td>3 yd</td><td>60" fabric recommended</td></tr>
+                </table>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-q">How do I calculate fabric yardage for curtains?</div>
+                    <div class="faq-a">Measure your window width and multiply by 2–2.5× for fullness. Add 6–8" for hems. Use the Curtain preset card above — it defaults to two panels on 54" fabric with standard allowances.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How many yards for a dress?</div>
+                    <div class="faq-a">A knee-length dress in 45" fabric typically needs 2–2½ yards. Enter the dress length as piece length and the widest pattern piece width (usually the bodice or skirt width) in the calculator above.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Does fabric width affect yardage?</div>
+                    <div class="faq-a">Yes. 60" fabric requires about 25% less yardage than 45" for the same project. Try switching the fabric width in the calculator above to see the difference instantly.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How much extra fabric should I buy?</div>
+                    <div class="faq-a">Add 10–15% for shrinkage, cutting mistakes, and pattern matching. Beginners should use 15%, experienced sewers can use 5–10%. Set the waste percentage field above accordingly.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Is the calculator accurate for metric measurements?</div>
+                    <div class="faq-a">Yes — click "Switch to Metric" at the top of the calculator. Enter dimensions in centimeters and get results in meters and centimeters.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Fabric Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                        Width Converter — Inches to CM
+                    </a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
+                        Fabric Converter — Yards, Inches, CM
+                    </a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg>
+                        Pillow Fabric Calculator — Cushion Yardage
+                    </a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        Nylon vs Polyester — Fabric Guide
+                    </a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        How Much Fabric Do I Need?
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+let activePreset = 'General';
+
+function getFabricWidth() {
+    return parseFloat($('fabricWidth').value) || parseFloat($('customWidth').value) || 54;
+}
+
+function showToast(msg) {
+    const t = $('toastMsg');
+    if (!t) return;
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._hide);
+    t._hide = setTimeout(() => t.classList.remove('show'), 2000);
+}
+
+function applyPreset(len, wid, qty, fw, seam, waste, label) {
+    $('fabricWidth').value = fw.toString();
+    $('customWidth').value = fw.toString();
+    $('pieceLength').value = len;
+    $('pieceWidth').value = wid;
+    $('numPieces').value = qty;
+    $('seamAllowance').value = seam;
+    $('wastePercent').value = waste;
+    document.querySelectorAll('.quick-preset-card').forEach(c => c.classList.remove('active'));
+    if (label) {
+        for (const c of document.querySelectorAll('.quick-preset-card')) {
+            if (c.textContent.includes(label)) { c.classList.add('active'); break; }
+        }
+    }
+    calcYardage();
+}
+
+function calcYardage() {
+    const width = getFabricWidth();
+    const pLen = parseFloat($('pieceLength').value);
+    const pWid = parseFloat($('pieceWidth').value) || 0;
+    const qty = parseInt($('numPieces').value);
+    const seam = parseFloat($('seamAllowance').value);
+    const wastePct = parseFloat($('wastePercent').value) || 0;
+    const repeat = parseFloat($('patternRepeat').value) || 0;
+    const price = parseFloat($('pricePerYard').value) || 0;
+    const errEl = $('errorBox');
+    hide(errEl);
+
+    if (isNaN(width) || width <= 0) { showResult('—', 'Enter a valid fabric width.'); return; }
+    if (isNaN(pLen) || pLen <= 0) { showResult('—', 'Enter a valid piece length.'); return; }
+    if (isNaN(qty) || qty < 1) { showResult('—', 'Enter a valid number of pieces.'); return; }
+
+    const result = computeYardage({ pieceLen: pLen, pieceWid: pWid, qty, fw: width, seam, repeat, wastePct });
+
+    // Main result
+    const label = unitSystem === 'imperial' ? result.yards + ' yards' : result.meters.toFixed(2) + ' meters';
+    $('yardsResult').textContent = label;
+
+    // Detail
+    let detail = result.totalInches.toFixed(1) + ' total inches needed (' + result.adjLen.toFixed(1) + '" per piece × ' + result.totalAdjPieces + ' rows)';
+    if (result.piecesPerWidth > 1) {
+        detail += '<br>' + result.piecesPerWidth + ' pieces fit per fabric width';
+    }
+    detail += '<br>Includes ' + wastePct + '% waste / shrinkage buffer';
+    if (repeat > 0) detail += '<br>Pattern repeat: ' + repeat + '" (added to each piece)';
+    $('resultDetail').innerHTML = detail;
+
+    // Multi-unit row
+    const cm = result.totalInches * 2.54;
+    const m = result.yards * 0.9144;
+    const inchesOnly = result.totalInches;
+    $('multiUnitRow').innerHTML =
+        '<span class="multi-unit-item"><strong>' + result.yards.toFixed(2) + '</strong> yards</span>' +
+        '<span class="multi-unit-item"><strong>' + inchesOnly.toFixed(1) + '</strong> inches</span>' +
+        '<span class="multi-unit-item"><strong>' + cm.toFixed(1) + '</strong> cm</span>' +
+        '<span class="multi-unit-item"><strong>' + m.toFixed(2) + '</strong> meters</span>';
+
+    // Cost
+    if (price > 0) {
+        const totalCost = result.yards * price;
+        $('costDisplay').textContent = '$' + totalCost.toFixed(2);
+        const buyYards = Math.ceil(result.yards * 4) / 4;
+        $('suggestedBuyDisplay').textContent = buyYards + ' yds ($' + (buyYards * price).toFixed(2) + ')';
+    } else {
+        $('costDisplay').textContent = '—';
+        $('suggestedBuyDisplay').textContent = Math.ceil(result.yards * 4) / 4 + ' yds';
+    }
+}
+
+function showResult(yards, detail) {
+    $('yardsResult').textContent = yards;
+    $('resultDetail').innerHTML = detail;
+    $('multiUnitRow').innerHTML = '';
+    $('costDisplay').textContent = '$0.00';
+    $('suggestedBuyDisplay').textContent = '—';
+}
+
+function resetMainForm() {
+    $('fabricWidth').value = '54';
+    $('customWidth').value = '54';
+    $('pieceLength').value = '36';
+    $('pieceWidth').value = '0';
+    $('numPieces').value = '1';
+    $('patternRepeat').value = '0';
+    $('seamAllowance').value = '0.5';
+    $('wastePercent').value = '10';
+    $('pricePerYard').value = '0';
+    document.querySelectorAll('.quick-preset-card').forEach(c => c.classList.remove('active'));
+    calcYardage();
+    showToast('Form reset to defaults');
+}
+
+function shareYardageResult() {
+    const text = 'Fabric yardage: ' + $('yardsResult').textContent + ' — ' + $('resultDetail').textContent.replace(/<br>/g, ', ');
+    shareResult(text);
+    showToast('Result copied to clipboard');
+}
+
+function printYardageResult() {
+    const html = '<h2>Fabric Yardage Result</h2><p><strong>' + $('yardsResult').textContent + '</strong></p><p>' + $('resultDetail').innerHTML.replace(/<br>/g, '</p><p>') + '</p><p>' + $('multiUnitRow').textContent + '</p><p>Cost: ' + $('costDisplay').textContent + '</p>';
+    printResult(html);
+}
+
+// Realtime binding
+document.querySelectorAll('#mainCalc [data-realtime]').forEach(el => {
+    el.addEventListener('input', calcYardage);
+    el.addEventListener('change', calcYardage);
+});
+
+// Init on load
+document.addEventListener('DOMContentLoaded', calcYardage);
+</script>
+</body>
+</html>

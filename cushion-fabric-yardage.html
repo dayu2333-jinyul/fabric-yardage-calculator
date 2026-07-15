@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cushion Fabric Calculator - Seat Pad Yardage Estimator | YardageCalculator.com</title>
+    <meta name="description" content="Calculate fabric yardage for cushions and seat pads. Enter cushion dimensions, number of cushions, and fabric width to get exact yards for chair pads, bench cushions, and more.">
+    <link rel="canonical" href="https://yardagecalculator.com/cushion-fabric-yardage.html">
+    <meta property="og:title" content="Cushion Fabric Calculator - Seat Pad Yardage Estimator">
+    <meta property="og:description" content="Calculate exact fabric yardage for cushions and seat pads.">
+    <meta property="og:url" content="https://yardagecalculator.com/cushion-fabric-yardage.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Cushion Fabric Calculator",
+        "url": "https://yardagecalculator.com/cushion-fabric-yardage.html",
+        "description": "Calculate fabric yardage for cushions and seat pads.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/cushion-fabric-yardage.html" class="curr" title="Cushion Fabric Calculator">Cushions</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Cushion Fabric Calculator</h1>
+                <p>Get the exact yardage for cushions and seat pads. Choose a standard cushion size or enter custom dimensions.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Cushion Fabric Calculator</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/>
+                        <path d="M8 12h8"/>
+                        <path d="M12 8v8"/>
+                    </svg>
+                    <h1>Calculate Cushion Yardage</h1>
+                </div>
+                <p>Select a standard cushion size or enter custom dimensions. For cushions with a boxing strip (side panel), check the box below.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Standard Cushion Sizes</label>
+                    <div class="presets" id="cushionPresets">
+                        <div class="preset-btn active" data-len="16" data-wid="18" data-dep="4" data-name="Chair Pad">Chair Pad 16x18"</div>
+                        <div class="preset-btn" data-len="48" data-wid="18" data-dep="4" data-name="Bench Cushion">Bench 48x18"</div>
+                        <div class="preset-btn" data-len="72" data-wid="20" data-dep="4" data-name="Window Seat">Window Seat 72x20"</div>
+                        <div class="preset-btn" data-len="72" data-wid="24" data-dep="5" data-name="Outdoor Chaise">Outdoor Chaise 72x24"</div>
+                        <div class="preset-btn" data-len="18" data-wid="18" data-dep="3" data-name="Boat Seat">Boat Seat 18x18"</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cushLen">Cushion Length <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="cushLen" value="16" min="1" step="0.5" oninput="calcCushionFabric()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="cushWid">Cushion Width <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="cushWid" value="18" min="1" step="0.5" oninput="calcCushionFabric()" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cushQty">Number of Cushions</label>
+                        <input type="number" id="cushQty" value="1" min="1" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="cushWidth">Fabric Width <span class="hint">(inches)</span></label>
+                        <select id="cushWidth">
+                            <option value="36">36" - Quilting cotton</option>
+                            <option value="45">45" - Lightweight</option>
+                            <option value="54" selected>54" - Home decor</option>
+                            <option value="60">60" - Upholstery</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cushSeam">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="cushSeam" value="0.5" min="0" step="0.125" oninput="calcCushionFabric()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="cushWaste">Waste %</label>
+                        <input type="number" id="cushWaste" value="10" min="0" max="100" oninput="calcCushionFabric()" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="hasBoxing" onchange="toggleBoxing()">
+                    <label for="hasBoxing">Add boxing strip (side panel)</label>
+                </div>
+
+                <div id="boxingGroup" style="display:none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cushDepth">Cushion Depth / Thickness <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="cushDepth" value="4" min="0.5" step="0.5" oninput="calcCushionFabric()" class="calc-on-enter">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calcCushionFabric()">Calculate Cushion Fabric</button>
+                </div>
+
+                <div id="resultBox" class="result-box">
+                    <div class="result-value" id="cushionResult"></div>
+                    <div class="result-detail" id="cushionDetail"></div>
+                </div>
+                <div id="errorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>How to Calculate Cushion Fabric Yardage</h2>
+                <p>Calculating fabric for a cushion involves three components: the top piece, the bottom piece, and (optionally) the boxing strip that wraps around the sides. The wider the fabric, the fewer rows you need.</p>
+                <div class="formula-box">
+                    <strong>Without boxing strip:</strong><br>
+                    Piece size = (Length + seam x 2) x (Width + seam x 2) — cut 2 per cushion (top + bottom)<br><br>
+                    <strong>With boxing strip:</strong><br>
+                    Top/Bottom = (Length + seam x 2) x (Width + seam x 2) — cut 2 per cushion<br>
+                    Boxing strip = (Length x 2 + Width x 2 + seam allowance) x Depth — cut 1 per cushion<br><br>
+                    <strong>Total rows</strong> = Total inches needed / Fabric width (rounded up)<br>
+                    <strong>Yardage</strong> = Rows x piece length / 36
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Cushion Yardage Chart by Type</h2>
+                <p>Estimated yardage for common cushion types using 54" decor fabric with 0.5" seam allowance and 4" depth (where boxing applies).</p>
+                <table>
+                    <tr><th>Cushion Type</th><th>Dimensions</th><th>Boxing Strip</th><th>Yardage (1 cushion)</th></tr>
+                    <tr><td>Chair Pad</td><td>16x18"</td><td>No</td><td>1/2 yard</td></tr>
+                    <tr><td>Chair Pad</td><td>16x18"</td><td>Yes (4")</td><td>3/4 yard</td></tr>
+                    <tr><td>Dining Bench</td><td>48x18"</td><td>No</td><td>1 yard</td></tr>
+                    <tr><td>Dining Bench</td><td>48x18"</td><td>Yes (4")</td><td>1 1/4 yards</td></tr>
+                    <tr><td>Window Seat</td><td>72x20"</td><td>No</td><td>1 1/2 yards</td></tr>
+                    <tr><td>Window Seat</td><td>72x20"</td><td>Yes (4")</td><td>2 yards</td></tr>
+                    <tr><td>Outdoor Chaise</td><td>72x24"</td><td>Yes (5")</td><td>2 1/4 yards</td></tr>
+                    <tr><td>Boat Seat</td><td>18x18"</td><td>Yes (3")</td><td>7/8 yard</td></tr>
+                </table>
+            </div>
+
+            <div class="content-section">
+                <h2>With vs Without Boxing Strip</h2>
+                <p><strong>Without a boxing strip</strong>, the top and bottom pieces are sewn directly together — ideal for flat, thin seat pads like basic chair pads or lightweight cushions. The yardage is simply two identical rectangles per cushion.</p>
+                <p><strong>With a boxing strip</strong>, a separate side panel wraps around the cushion's thickness. This adds a rectangular strip around the perimeter: (Length + Width) x 2, plus seam allowance, multiplied by the cushion depth. Boxing strips give cushions a professional, finished look and accommodate thicker foam padding for comfort. For deep cushions (4" or more), the boxing strip can require as much fabric as the top piece itself.</p>
+                <p>As a rule of thumb, adding a 4" boxing strip increases fabric needs by 30–50% compared to a flat cushion of the same size.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-q">How much extra fabric should I buy for cushion seams?</div>
+                    <div class="faq-a">A 1/2" seam allowance is standard for most cushion projects. This adds 1" to both the length and width of each piece. If you are a beginner, consider using a 5/8" seam allowance for easier handling. Always add seam allowance to both the top and bottom pieces, and to boxing strips as well.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Do I need a boxing strip for outdoor cushion covers?</div>
+                    <div class="faq-a">Yes, outdoor cushions almost always use boxing strips because they are typically 4–6" thick to provide comfort on hard patio furniture surfaces. A boxing strip also helps the cover fit snugly over thick foam. Use outdoor-rated fabric (typically 54" wide, solution-dyed acrylic or polyester) for best durability.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">What is the best fabric width for cushion making?</div>
+                    <div class="faq-a">54" wide decorator fabric is the most common choice for cushion projects. It allows most cushion sizes to fit 2 pieces side by side across the width, minimizing waste. For large bench or window seat cushions (72" or longer), 60" upholstery fabric may be more efficient as it can often fit the entire length in one row.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How do I calculate yardage for a bench cushion?</div>
+                    <div class="faq-a">Measure the bench seat length (front to back) and width (side to side). Multiply by 2 for the top and bottom pieces, then add the boxing strip: (length + width) x 2 x depth. Divide the total inches by the fabric width to get the number of rows needed, then multiply rows by the piece length and divide by 36 to get yards. Our calculator above does this automatically for you.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Should I buy extra yardage for pattern matching?</div>
+                    <div class="faq-a">Yes, if your fabric has a repeating pattern (stripes, plaids, or large motifs), add 15–25% to the calculated yardage. Pattern matching requires aligning the design across seams, which uses more fabric. For solid fabrics or small-scale prints, the standard 10% waste allowance is usually sufficient.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+document.getElementById('cushionPresets').addEventListener('click', function(e) {
+    const btn = e.target.closest('.preset-btn');
+    if (!btn) return;
+    document.querySelectorAll('#cushionPresets .preset-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    $('cushLen').value = btn.dataset.len;
+    $('cushWid').value = btn.dataset.wid;
+    $('cushDepth').value = btn.dataset.dep;
+    if (typeof storeImperialVal === 'function') { storeImperialVal('cushLen'); storeImperialVal('cushWid'); storeImperialVal('cushDepth'); }
+});
+
+function toggleBoxing() {
+    $('boxingGroup').style.display = $('hasBoxing').checked ? 'block' : 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initPage === 'function') initPage();
+});
+
+function calcCushionFabric() {
+    const len = parseFloat($('cushLen').value);
+    const wid = parseFloat($('cushWid').value);
+    const qty = parseInt($('cushQty').value);
+    const fw = parseFloat($('cushWidth').value);
+    const seam = parseFloat($('cushSeam').value);
+    const wastePct = parseFloat($('cushWaste').value) || 0;
+    const hasBoxing = $('hasBoxing').checked;
+    const depth = hasBoxing ? (parseFloat($('cushDepth').value) || 0) : 0;
+    const errEl = $('errorBox');
+    hide(errEl);
+
+    if (isNaN(len) || len <= 0 || isNaN(wid) || wid <= 0) { errEl.textContent = 'Enter valid cushion dimensions.'; show(errEl); return; }
+    if (isNaN(qty) || qty < 1) { errEl.textContent = 'Enter valid quantity.'; show(errEl); return; }
+    if (hasBoxing && (isNaN(depth) || depth <= 0)) { errEl.textContent = 'Enter a valid cushion depth for the boxing strip.'; show(errEl); return; }
+
+    // Top and bottom pieces: 2 pieces per cushion
+    const pieceLen = len + seam * 2;
+    const pieceWid = wid + seam * 2;
+    const topBotPieces = qty * 2;
+
+    // Boxing strip: one piece per cushion, wraps around perimeter
+    // Boxing strip dimensions: strip length = (len + wid) * 2 + seam allowance for closure, strip width = depth + seam * 2
+    const boxingStripLen = (len + wid) * 2 + seam * 2; // + seam for joining ends
+    const boxingStripWid = depth + seam * 2;
+
+    // Compute yardage for top + bottom pieces
+    const resultTopBot = computeYardage({ pieceLen, pieceWid, qty: topBotPieces, fw, seam: 0, wastePct: 0 });
+
+    // Compute total inches: top/bottom + boxing
+    let totalInches = resultTopBot.totalInches;
+
+    if (hasBoxing) {
+        // For boxing strip, piecesPerWidth = floor(fw / boxingStripWid) — the strip width is the smaller dimension
+        const boxingPiecesPerWidth = Math.floor(fw / boxingStripWid);
+        const boxingPerPieceRows = boxingPiecesPerWidth >= 1 ? Math.ceil(qty / boxingPiecesPerWidth) : qty;
+        const boxingInches = boxingPerPieceRows * boxingStripLen;
+        totalInches += boxingInches;
+    }
+
+    // Apply waste on total
+    const wasteFactor = 1 + wastePct / 100;
+    const adjustedInches = totalInches * wasteFactor;
+
+    // Recalculate yardage distribution across fabric width rows
+    // The layout is more complex with boxing, so we use a simplified row-based approach
+    const totalYards = adjustedInches / 36;
+
+    const yardsVal = totalYards;
+    const displayYards = yardsVal < 0.125 ? '< 1/8' : (yardsVal < 1 ? yardsVal.toFixed(2) : yardsVal.toFixed(2));
+    const yardsFraction = yardsVal < 1 ? '' : '';
+
+    $('cushionResult').textContent = yardsVal.toFixed(2) + ' yards';
+
+    let detail = qty + ' cushion' + (qty > 1 ? 's' : '');
+    detail += '<br>Top & bottom: ' + topBotPieces + ' pieces at ' + pieceLen.toFixed(1) + '" x ' + pieceWid.toFixed(1) + '" (including seam)';
+
+    if (hasBoxing) {
+        detail += '<br>Boxing strip: ' + qty + ' piece' + (qty > 1 ? 's' : '') + ' at ' + boxingStripLen.toFixed(1) + '" (perimeter) x ' + boxingStripWid.toFixed(1) + '" (depth + seam)';
+    }
+
+    detail += '<br>Total: ' + totalInches.toFixed(1) + ' inches + ' + wastePct + '% waste = ' + adjustedInches.toFixed(1) + ' inches needed';
+
+    // Pieces per width for top/bottom
+    const ppw = Math.floor(fw / pieceWid);
+    if (ppw > 0) {
+        const rowsNeeded = Math.ceil(topBotPieces / ppw);
+        detail += '<br>' + ppw + ' top/bottom piece' + (ppw > 1 ? 's' : '') + ' fit per ' + fw + '" width, ' + rowsNeeded + ' row' + (rowsNeeded > 1 ? 's' : '') + ' needed';
+    }
+
+    detail += '<br>Total yardage: ' + yardsVal.toFixed(2) + ' yards';
+
+    if (typeof unitSystem !== 'undefined' && unitSystem === 'metric') {
+        const metersVal = yardsVal * 0.9144;
+        $('cushionResult').textContent = metersVal.toFixed(2) + ' meters';
+    } else {
+        const cmVal = yardsVal * 91.44;
+        const metersVal = yardsVal * 0.9144;
+        detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ' + cmVal.toFixed(1) + ' cm | ' + metersVal.toFixed(2) + ' meters</span>';
+    }
+
+    $('cushionDetail').innerHTML = detail;
+    show($('resultBox'));
+}
+</script>
+</body>
+</html>

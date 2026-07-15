@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pillow Fabric Calculator - Cushion Yardage Estimator | YardageCalculator.com</title>
+    <meta name="description" content="Calculate fabric yardage for pillows and cushions. Enter pillow dimensions, seam allowance, and fabric width to get exact yards for throw pillows, seat cushions, and more.">
+    <link rel="canonical" href="https://yardagecalculator.com/pillow-fabric-calculator.html">
+    <meta property="og:title" content="Pillow Fabric Calculator - Cushion Yardage Estimator">
+    <meta property="og:description" content="Calculate exact fabric yardage for pillows and cushions.">
+    <meta property="og:url" content="https://yardagecalculator.com/pillow-fabric-calculator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Pillow Fabric Calculator",
+        "url": "https://yardagecalculator.com/pillow-fabric-calculator.html",
+        "description": "Calculate fabric yardage for pillows and cushions.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" class="curr" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Pillow Fabric Calculator</h1>
+                <p>Get the exact yardage for pillows and cushions. Choose a standard pillow size or enter custom dimensions.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Pillow Fabric Calculator</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/>
+                    </svg>
+                    <h1>Calculate Pillow Yardage</h1>
+                </div>
+                <p>Select a standard pillow size or enter custom dimensions.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Standard Pillow Sizes</label>
+                    <div class="presets" id="pillowPresets">
+                        <div class="preset-btn active" data-len="16" data-wid="16" data-name="16x16 Throw">16x16" Throw</div>
+                        <div class="preset-btn" data-len="18" data-wid="18" data-name="18x18 Throw">18x18" Throw</div>
+                        <div class="preset-btn" data-len="20" data-wid="20" data-name="20x20 Euro">20x20" Euro</div>
+                        <div class="preset-btn" data-len="12" data-wid="20" data-name="12x20 Lumbar">12x20" Lumbar</div>
+                        <div class="preset-btn" data-len="26" data-wid="26" data-name="26x26 Floor">26x26" Floor</div>
+                        <div class="preset-btn" data-len="18" data-wid="36" data-name="Body Pillow">18x36" Body</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pillowLen">Pillow Length <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="pillowLen" value="16" min="1" step="0.5" oninput="calcPillowFabric()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="pillowWid">Pillow Width <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="pillowWid" value="16" min="1" step="0.5" oninput="calcPillowFabric()" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pillowQty">Number of Pillows</label>
+                        <input type="number" id="pillowQty" value="1" min="1" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="pillowWidth">Fabric Width <span class="hint">(inches)</span></label>
+                        <select id="pillowWidth">
+                            <option value="36">36" - Quilting cotton</option>
+                            <option value="45">45" - Lightweight</option>
+                            <option value="54" selected>54" - Home decor</option>
+                            <option value="60">60" - Upholstery</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pillowSeam">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="pillowSeam" value="0.5" min="0" step="0.125" oninput="calcPillowFabric()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="pillowWaste">Waste %</label>
+                        <input type="number" id="pillowWaste" value="10" min="0" max="100" oninput="calcPillowFabric()" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="hasFlange" onchange="toggleFlange()">
+                    <label for="hasFlange">Include flange (decorative border)</label>
+                </div>
+
+                <div id="flangeGroup" style="display:none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="flangeWidth">Flange Width <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="flangeWidth" value="2" min="0.5" step="0.5" oninput="calcPillowFabric()" class="calc-on-enter">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calcPillowFabric()">Calculate Pillow Fabric</button>
+                </div>
+
+                <div id="resultBox" class="result-box">
+                    <div class="result-value" id="pillowResult"></div>
+                    <div class="result-detail" id="pillowDetail"></div>
+                </div>
+                <div id="errorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>How Pillow Yardage Is Calculated</h2>
+                <p>Each pillow requires fabric for a front and back piece, plus seam allowances. The formula accounts for:</p>
+                <ul>
+                    <li><strong>Pillow face</strong>: Length + seam x 2, Width + seam x 2 (front piece)</li>
+                    <li><strong>Pillow back</strong>: Same as front, or 2 overlapping pieces for an envelope closure</li>
+                    <li><strong>Flange</strong>: Adds the flange width x 2 to both dimensions</li>
+                    <li><strong>Fabric width</strong>: Determines how many pieces fit side by side</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Common Pillow Sizes and Yardage Chart</h2>
+                <table>
+                    <tr><th>Pillow Size</th><th>Fabric Width</th><th>Yardage (1 pillow)</th></tr>
+                    <tr><td>12x20" Lumbar</td><td>45"</td><td>1/2 yard</td></tr>
+                    <tr><td>16x16" Throw</td><td>45"</td><td>5/8 yard</td></tr>
+                    <tr><td>18x18" Throw</td><td>45"</td><td>3/4 yard</td></tr>
+                    <tr><td>18x18" Throw</td><td>54"</td><td>1/2 yard</td></tr>
+                    <tr><td>20x20" Euro</td><td>54"</td><td>2/3 yard</td></tr>
+                    <tr><td>12x36" Body Pillow</td><td>45"</td><td>1 yard</td></tr>
+                    <tr><td>26x26" Floor Cushion</td><td>54"</td><td>1 1/2 yards</td></tr>
+                </table>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+document.getElementById('pillowPresets').addEventListener('click', function(e) {
+    const btn = e.target.closest('.preset-btn');
+    if (!btn) return;
+    document.querySelectorAll('#pillowPresets .preset-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    $('pillowLen').value = btn.dataset.len;
+    $('pillowWid').value = btn.dataset.wid;
+    if (typeof storeImperialVal === 'function') { storeImperialVal('pillowLen'); storeImperialVal('pillowWid'); }
+});
+
+function toggleFlange() {
+    $('flangeGroup').style.display = $('hasFlange').checked ? 'block' : 'none';
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initPage === 'function') initPage();
+});
+
+function calcPillowFabric() {
+    const len = parseFloat($('pillowLen').value);
+    const wid = parseFloat($('pillowWid').value);
+    const qty = parseInt($('pillowQty').value);
+    const fw = parseFloat($('pillowWidth').value);
+    const seam = parseFloat($('pillowSeam').value);
+    const wastePct = parseFloat($('pillowWaste').value) || 0;
+    const hasFlange = $('hasFlange').checked;
+    const flange = hasFlange ? (parseFloat($('flangeWidth').value) || 0) : 0;
+    const errEl = $('errorBox');
+    hide(errEl);
+
+    if (isNaN(len) || len <= 0 || isNaN(wid) || wid <= 0) { errEl.textContent = 'Enter valid pillow dimensions.'; show(errEl); return; }
+    if (isNaN(qty) || qty < 1) { errEl.textContent = 'Enter valid quantity.'; show(errEl); return; }
+
+    const extra = flange * 2;
+    const pieceLen = len + seam * 2 + extra;
+    const pieceWid = wid + seam * 2 + extra;
+    const totalPieces = qty * 2;
+
+    const result = computeYardage({ pieceLen, pieceWid, qty: totalPieces, fw, seam: 0, wastePct });
+
+    $('pillowResult').textContent = result.yards + ' yards';
+    let detail = qty + ' pillow' + (qty > 1 ? 's' : '') + ' x 2 pieces (front + back) = ' + totalPieces + ' pieces';
+    detail += '<br>Cut each: ' + pieceLen.toFixed(1) + '" x ' + pieceWid.toFixed(1) + '" (including seam + flange)';
+    if (result.piecesPerWidth > 1) detail += '<br>' + result.piecesPerWidth + ' pieces fit per ' + fw + '" width, ' + result.totalAdjPieces + ' row' + (result.totalAdjPieces > 1 ? 's' : '');
+    detail += '<br>' + result.totalInches.toFixed(1) + ' total inches + ' + wastePct + '% waste';
+    if (hasFlange) detail += '<br>Flange: ' + flange + '" (added to all sides)';
+    if (typeof unitSystem !== 'undefined' && unitSystem === 'metric') {
+        $('pillowResult').textContent = result.meters + ' meters';
+    } else {
+        detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ' + result.totalCm + ' cm | ' + result.meters + ' meters</span>';
+    }
+    $('pillowDetail').innerHTML = detail;
+    show($('resultBox'));
+}
+</script>
+</body>
+</html>

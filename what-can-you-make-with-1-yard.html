@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>What Can You Make With 1 Yard of Fabric? Project Ideas & Calculator | YardageCalculator.com</title>
+    <meta name="description" content="See exactly what you can make with 1 yard of fabric. Interactive calculator checks common projects — pillows, bags, scarves, skirts, and more. Complete project guide with yardage charts.">
+    <link rel="canonical" href="https://yardagecalculator.com/what-can-you-make-with-1-yard.html">
+    <meta property="og:title" content="What Can You Make With 1 Yard of Fabric? Project Ideas & Calculator">
+    <meta property="og:description" content="Interactive 1-yard fabric calculator. Check if your project fits in 1 yard — pillows, tote bags, scarves, aprons, placemats, and more.">
+    <meta property="og:url" content="https://yardagecalculator.com/what-can-you-make-with-1-yard.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "1 Yard Fabric Project Calculator",
+        "url": "https://yardagecalculator.com/what-can-you-make-with-1-yard.html",
+        "description": "Check which sewing projects fit in 1 yard of fabric. Interactive calculator for common project types.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        .yard-area-display {
+            background: var(--linen);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .yard-area-display .area-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--green-deep);
+        }
+        .yard-area-display .area-label {
+            font-size: 13px;
+            color: var(--warm-gray-light);
+        }
+        .yard-area-visual {
+            width: 100%;
+            max-width: 360px;
+            height: 10px;
+            background: var(--border);
+            border-radius: 5px;
+            margin: 12px auto 0;
+            overflow: hidden;
+        }
+        .yard-area-visual .bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--green-light), var(--green-deep));
+            border-radius: 5px;
+            width: 100%;
+        }
+        .project-result-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        @media (max-width: 640px) {
+            .project-result-list { grid-template-columns: 1fr; }
+        }
+        .project-result-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            background: var(--linen-light);
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .project-result-item .check {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .project-result-item .check.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .project-result-item .check.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .project-result-item .project-name {
+            font-weight: 600;
+            color: var(--text);
+            flex: 1;
+        }
+        .project-result-item .project-yardage {
+            font-size: 12px;
+            color: var(--warm-gray-light);
+            text-align: right;
+            white-space: nowrap;
+        }
+        .highlight-pass {
+            color: var(--green-deep);
+            font-weight: 600;
+        }
+        .highlight-fail {
+            color: var(--terracotta);
+            font-weight: 600;
+        }
+        .width-note {
+            font-size: 12px;
+            color: var(--warm-gray-light);
+            margin-top: 8px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>What Can You Make With 1 Yard of Fabric?</h1>
+                <p>See which projects fit in a single yard. Pick a fabric width and browse common sewing projects to check compatibility.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>1 Yard Fabric Guide</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="6" width="18" height="12" rx="2"/>
+                        <path d="M3 10h18"/>
+                        <path d="M7 6V4"/>
+                        <path d="M17 6V4"/>
+                    </svg>
+                    <h1>1 Yard Project Checker</h1>
+                </div>
+                <p>1 yard of fabric = 36 inches long. Select your fabric width to see the available area and which projects fit.</p>
+
+                <div class="form-group">
+                    <label for="fabricWidth">Fabric Width</label>
+                    <select id="fabricWidth" onchange="updateYardDisplay()">
+                        <option value="36">36" — Quilting cotton</option>
+                        <option value="45" selected>45" — Lightweight / Apparel</option>
+                        <option value="54">54" — Home decor</option>
+                        <option value="60">60" — Upholstery / Wide</option>
+                    </select>
+                </div>
+
+                <div class="yard-area-display">
+                    <div class="area-value" id="yardAreaDisplay">1 yard = 36" x 45"</div>
+                    <div class="area-label" id="yardSqInDisplay">1,620 sq in available</div>
+                    <div class="yard-area-visual">
+                        <div class="bar-fill"></div>
+                    </div>
+                    <div class="width-note" id="widthNote">Wider fabric means more usable area for larger projects.</div>
+                </div>
+
+                <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px;">Common Projects — do they fit in 1 yard?</p>
+                <div class="project-result-list" id="projectList"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>What Can You Make With 1 Yard of Fabric?</h2>
+                <p>One yard of fabric is more versatile than most beginners realize. A yard (36 inches by your chosen fabric width) can produce a surprising range of finished projects. Here are common items that typically fit within a single yard:</p>
+                <ul>
+                    <li><strong>Throw pillow covers (18x18")</strong> — A single yard of 45"+ wide fabric makes one standard throw pillow cover with envelope closure.</li>
+                    <li><strong>Tote bags</strong> — One yard yields a medium-sized tote bag with handles, suitable for grocery runs or library trips.</li>
+                    <li><strong>Scarves</strong> — At 45" or wider, 1 yard makes a generous infinity scarf or a long rectangular wrap scarf.</li>
+                    <li><strong>Child's dress or top</strong> — Simple A-line dresses for toddlers and small children require roughly 1 yard of 45" fabric.</li>
+                    <li><strong>Placemats (set of 4)</strong> — Standard 12x18" placemats fit comfortably in 1 yard of 45"+ fabric.</li>
+                    <li><strong>Aprons</strong> — A half-apron or waist apron needs about 3/4 yard; a full bib apron may require slightly more at narrower widths.</li>
+                    <li><strong>Short skirts</strong> — A simple gathered or A-line mini skirt takes roughly 1/2 to 3/4 yard of 54" or 60" fabric.</li>
+                    <li><strong>Doll clothes</strong> — 1 yard provides enough fabric for multiple outfits for standard 18" dolls.</li>
+                    <li><strong>Cushion covers</strong> — Small seat cushions and bench pads (up to about 16x16") work within 1 yard at 54" width.</li>
+                    <li><strong>Baby items</strong> — Bibs, burp cloths, receiving blankets, and small changing mats can all come from a single yard.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>1 Yard Conversion Guide</h2>
+                <p>Understanding what 1 yard of fabric looks like in different measurement systems helps when following patterns from international sources.</p>
+                <table>
+                    <tr><th>Measurement</th><th>Value</th><th>Notes</th></tr>
+                    <tr><td>Inches</td><td>36 inches</td><td>Standard length of 1 yard</td></tr>
+                    <tr><td>Feet</td><td>3 feet</td><td>1 yard = 3 linear feet</td></tr>
+                    <tr><td>Centimeters</td><td>91.44 cm</td><td>Rounded to 91 cm for cutting</td></tr>
+                    <tr><td>Meters</td><td>0.914 meters</td><td>About 9 cm shy of 1 meter</td></tr>
+                    <tr><td>Square inches (45" wide)</td><td>1,620 sq in</td><td>36 × 45" common apparel width</td></tr>
+                    <tr><td>Square inches (54" wide)</td><td>1,944 sq in</td><td>36 × 54" decorator width</td></tr>
+                    <tr><td>Square inches (60" wide)</td><td>2,160 sq in</td><td>36 × 60" upholstery width</td></tr>
+                    <tr><td>Approximate visual</td><td>About as long as a baseball bat</td><td>36" is roughly the length from your shoulder to fingertips</td></tr>
+                </table>
+                <div class="callout">
+                    <strong>Quick tip:</strong> When a pattern calls for "1 yard of 45" wide fabric," switching to 60" fabric gives you roughly 33% more usable area — enough to squeeze out an extra project piece or reduce waste.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>1 Yard Project Ideas by Fabric Width</h2>
+                <p>Your fabric width dramatically changes what fits in 1 yard. Here is a breakdown by common widths:</p>
+                <table>
+                    <tr><th>Fabric Width</th><th>Usable Area (sq in)</th><th>Best 1-Yard Projects</th></tr>
+                    <tr><td>36" — Quilting cotton</td><td>1,296</td><td>Scarves, doll clothes, small placemats, baby bibs, patchwork squares, fabric baskets</td></tr>
+                    <tr><td>45" — Apparel / Lightweight</td><td>1,620</td><td>Tote bags, throw pillows, child's dress, aprons, short skirts, placemats (set of 4)</td></tr>
+                    <tr><td>54" — Home decor / Medium</td><td>1,944</td><td>Larger throw pillows, cushion covers, mini skirts, tunics, table runners, gift wrap</td></tr>
+                    <tr><td>60" — Upholstery / Wide</td><td>2,160</td><td>Cushion covers, gathered skirts, larger tote bags, laptop sleeves, small wall hangings</td></tr>
+                </table>
+                <p>For example, a 45" width gives you enough for a simple tote bag, while 54" or 60" lets you make a short gathered skirt with a waistband. The wider the fabric, the more layout options you have for larger pattern pieces.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Tips for Buying Fabric by the Yard</h2>
+                <p>Getting the most from your fabric purchase involves a few key considerations:</p>
+                <ul>
+                    <li><strong>Always buy a little extra</strong> — Adding 1/4 to 1/2 yard for shrinkage, pattern matching, and cutting errors is standard practice, especially for plaid or striped fabrics where you need to match the pattern repeat.</li>
+                    <li><strong>Check the fabric width before buying</strong> — A yard of 36" cotton has only 60% of the area of a yard of 60" upholstery fabric. Never assume the width — always check the bolt label or product description.</li>
+                    <li><strong>Consider remnants</strong> — Many fabric stores sell remnants (odd-length pieces under 1 yard) at a discount. If your project needs less than a yard, remnants can be a budget-friendly option.</li>
+                    <li><strong>Pre-wash your fabric</strong> — Cotton and linen can shrink 3-5% on the first wash. Pre-washing ensures your finished project won't shrink after you make it.</li>
+                    <li><strong>Ordering online</strong> — When ordering fabric online, ask for a cut swatch first or check the store's return policy on cut fabric. Colors on screen can differ significantly from the actual material.</li>
+                    <li><strong>Know your directional prints</strong> — If your fabric has a one-way print (like stripes or nap), you may need extra yardage because pattern pieces must all face the same direction.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">How many inches is 1 yard of fabric?</div>
+                    <div class="faq-a">One yard of fabric equals exactly 36 inches (91.44 cm or 0.914 meters) in length. The width varies by fabric type — common widths are 36", 45", 54", and 60". When someone says "1 yard of fabric," they mean a piece that is 36 inches long along the selvage edge.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Can I make a dress with 1 yard of fabric?</div>
+                    <div class="faq-a">A simple child's dress or toddler dress can be made from 1 yard of 45" fabric. For adult dresses, 1 yard is generally not enough — a simple adult mini dress requires about 2-3 yards depending on size and style. However, a very short skirt, crop top, or fitted bodice top is possible from 1 yard of wider fabric (54" or 60").</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How many pillows can I make from 1 yard of fabric?</div>
+                    <div class="faq-a">At 45" width, 1 yard makes one 18x18" throw pillow cover (front and back pieces). At 54" width, you can squeeze two smaller 14x14" pillow covers from 1 yard. For 20x20" or larger pillows, you will need 1.5 to 2 yards. Always check your fabric width — wider fabric lets you fit more pieces side by side.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Is 1 yard of fabric enough for a tote bag?</div>
+                    <div class="faq-a">Yes, 1 yard of 45" fabric is sufficient for a medium-sized tote bag (roughly 14x14" with handles). The body requires two 14x14" pieces (front and back) and the handles need two strips, all of which fit comfortably in 1 yard. For larger or lined tote bags, 1.5 yards is safer.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is the smallest project I can make with 1 yard of fabric?</div>
+                    <div class="faq-a">With 1 yard you can make many small projects: several scarves, 4-6 placemats, multiple fabric baskets, dozens of cloth napkins, multiple doll outfits, a bundle of hair scrunchies, or a set of reusable produce bags. For very small items like scrunchies or mug rugs, 1 yard can yield 10-20 items.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much fabric is half a yard vs 1 yard?</div>
+                    <div class="faq-a">Half a yard is 18 inches by the fabric width. So half a yard of 45" fabric is 18x45" (810 sq in) versus 1 yard at 36x45" (1,620 sq in). Half-yard cuts are great for small projects like scarves, placemats, small craft projects, or sample pieces. Many fabric stores offer pre-cut half-yard pieces in their remnant section.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+// Project definitions: {name, pieceLen, pieceWid, qty, desc}
+// pieceLen/pieceWid are cut dimensions (no seam — computeYardage adds it)
+const PROJECTS = [
+    { name: 'Throw Pillow 18x18"',  pieceLen: 19, pieceWid: 19, qty: 2, desc: 'Front + back pieces' },
+    { name: 'Child\'s Dress',       pieceLen: 22, pieceWid: 22, qty: 2, desc: 'Front + back bodice' },
+    { name: 'Tote Bag',             pieceLen: 15, pieceWid: 15, qty: 2, desc: 'Bag body panels; handles need ~8" extra' },
+    { name: 'Scarf',                pieceLen: 36, pieceWid: 10, qty: 1, desc: 'Single long panel' },
+    { name: 'Placemats (set of 4)', pieceLen: 13, pieceWid: 19, qty: 4, desc: 'Each 12x18" + seam' },
+    { name: 'Cushion Cover 16x16"', pieceLen: 17, pieceWid: 17, qty: 2, desc: 'Front + back' },
+    { name: 'Apron (half)',         pieceLen: 22, pieceWid: 28, qty: 1, desc: 'Single panel + straps' },
+    { name: 'Skirt (short)',        pieceLen: 16, pieceWid: 30, qty: 1, desc: 'Single gathered panel' },
+];
+
+function updateYardDisplay() {
+    const fw = parseInt($('fabricWidth').value);
+    const sqIn = 36 * fw;
+
+    $('yardAreaDisplay').textContent = '1 yard = 36" x ' + fw + '"';
+    $('yardSqInDisplay').textContent = sqIn.toLocaleString() + ' sq in available';
+
+    // Rebuild project list
+    const list = $('projectList');
+    list.innerHTML = '';
+    PROJECTS.forEach(p => {
+        const result = computeYardage({ pieceLen: p.pieceLen, pieceWid: p.pieceWid, qty: p.qty, fw: fw, seam: 0.5, wastePct: 10 });
+        const fits = result.yards <= 1;
+        const item = document.createElement('div');
+        item.className = 'project-result-item';
+        item.innerHTML = `
+            <div class="check ${fits ? 'pass' : 'fail'}">${fits ? '&#10003;' : '&#10007;'}</div>
+            <span class="project-name">${p.name}</span>
+            <span class="project-yardage">${fits ? 'Fits in 1 yd' : 'Need ' + result.yards + ' yds'}</span>
+        `;
+        list.appendChild(item);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initPage === 'function') initPage();
+    updateYardDisplay();
+});
+</script>
+</body>
+</html>

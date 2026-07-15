@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Curtain Fabric Yardage Calculator - Formula & Chart | YardageCalculator.com</title>
+    <meta name="description" content="Calculate exact fabric yardage for curtains and drapes. Use our curtain fabric yardage calculator with formula, fullness ratio guide, and window size chart for perfect drapery.">
+    <link rel="canonical" href="https://yardagecalculator.com/curtain-fabric-yardage.html">
+    <meta property="og:title" content="Curtain Fabric Yardage Calculator - Drapery Fabric Estimator">
+    <meta property="og:description" content="Calculate exact fabric yardage for curtains and drapes. Step-by-step formula, fullness ratio guide, and common window size chart.">
+    <meta property="og:url" content="https://yardagecalculator.com/curtain-fabric-yardage.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Curtain Fabric Yardage Calculator",
+        "url": "https://yardagecalculator.com/curtain-fabric-yardage.html",
+        "description": "Calculate fabric yardage for curtains and drapes with fullness ratio, multiple panels, and hem allowances.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/curtain-fabric-yardage.html" class="curr" title="Curtain Fabric Calculator">Curtains</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Curtain Fabric Yardage Calculator</h1>
+                <p>Get the exact yardage for curtains and drapes. Adjust fullness ratio, panel count, and allowances for a perfect fit.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Curtain Fabric Yardage</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                        <path d="M3 9h18"/>
+                        <path d="M9 3v18"/>
+                        <path d="M16 3v6"/>
+                    </svg>
+                    <h1>Drapery Fabric Yardage Calculator</h1>
+                </div>
+                <p>Calculate how much fabric you need for curtains and drapes. Select a preset or enter custom window dimensions.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Common Window Presets</label>
+                    <div class="quick-presets" id="curtainPresets">
+                        <div class="quick-preset-card" data-w="36" data-h="60" data-panels="1" data-name="Standard Window">
+                            <div class="qpc-name">Standard Window</div>
+                            <div class="qpc-desc">36" x 60"</div>
+                        </div>
+                        <div class="quick-preset-card" data-w="72" data-h="80" data-panels="2" data-name="Patio Door">
+                            <div class="qpc-name">Patio Door</div>
+                            <div class="qpc-desc">72" x 80"</div>
+                        </div>
+                        <div class="quick-preset-card" data-w="48" data-h="96" data-panels="1" data-name="Floor-to-Ceiling">
+                            <div class="qpc-name">Floor-to-Ceiling</div>
+                            <div class="qpc-desc">48" x 96"</div>
+                        </div>
+                        <div class="quick-preset-card" data-w="102" data-h="84" data-panels="3" data-name="Bay Window">
+                            <div class="qpc-name">Bay Window (3 panels)</div>
+                            <div class="qpc-desc">102" x 84"</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="windowWidth">Window Width <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="windowWidth" value="36" min="1" step="0.5" class="calc-on-enter" oninput="calcCurtainFabric()">
+                    </div>
+                    <div class="form-group">
+                        <label for="windowHeight">Window Height <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="windowHeight" value="60" min="1" step="0.5" class="calc-on-enter" oninput="calcCurtainFabric()">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fullnessRatio">Fullness Ratio</label>
+                        <select id="fullnessRatio" onchange="calcCurtainFabric()">
+                            <option value="1.5">1.5x (Flat / Light gather)</option>
+                            <option value="2" selected>2.0x (Standard gather)</option>
+                            <option value="2.5">2.5x (Full gather)</option>
+                            <option value="3">3.0x (Luxurious gather)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numPanels">Number of Panels</label>
+                        <input type="number" id="numPanels" value="1" min="1" step="1" class="calc-on-enter" oninput="calcCurtainFabric()">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="curtainFabricWidth">Fabric Width</label>
+                        <select id="curtainFabricWidth" onchange="calcCurtainFabric()">
+                            <option value="54">54" - Standard decor</option>
+                            <option value="60">60" - Wide decor</option>
+                            <option value="108">108" - Extra-wide (no seam)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="hemAllowance">Hem Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="hemAllowance" value="4" min="0" step="0.25" class="calc-on-enter" oninput="calcCurtainFabric()">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="headerAllowance">Header Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="headerAllowance" value="3" min="0" step="0.25" class="calc-on-enter" oninput="calcCurtainFabric()">
+                    </div>
+                    <div class="form-group">
+                        <label for="curtainWaste">Waste %</label>
+                        <input type="number" id="curtainWaste" value="10" min="0" max="100" class="calc-on-enter" oninput="calcCurtainFabric()">
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calcCurtainFabric()">Calculate Curtain Fabric</button>
+                </div>
+
+                <div id="resultBox" class="result-box">
+                    <div class="result-value" id="curtainResult"></div>
+                    <div class="result-detail" id="curtainDetail"></div>
+                </div>
+                <div id="errorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>How to Calculate Fabric Yardage for Curtains</h2>
+                <p>Calculating curtain fabric yardage involves two steps: determining how many fabric widths you need across the window, then calculating the length per panel. Here is the formula:</p>
+
+                <div class="formula-box">
+                    <strong>Step 1 — Width Calculation:</strong><br>
+                    (Window Width × Fullness Ratio) &divide; Fabric Width = Panels Needed per Width (round up)<br><br>
+                    <strong>Step 2 — Yardage Calculation:</strong><br>
+                    (Finished Length + Hem Allowance + Header Allowance) × Number of Panels = Total Inches &divide; 36 = Yards
+                </div>
+
+                <p>For example, a 36-inch wide window with 2x fullness using 54-inch fabric: (36 × 2) &divide; 54 = 1.33, so you need 2 fabric widths. If your finished length is 60 inches with 4-inch hem and 3-inch header, each panel is 67 inches. For 2 panels: 134 total inches &divide; 36 = 3.75 yards (rounded to the nearest quarter yard).</p>
+
+                <h3>How to Use the Curtain Fabric Calculator</h3>
+                <ol>
+                    <li><strong>Measure your window</strong> — Record the exact width and desired finished length of your curtain.</li>
+                    <li><strong>Choose fullness ratio</strong> — 2x is standard for most drapes. Use 1.5x for flat panels or 2.5x-3x for luxurious gathered curtains.</li>
+                    <li><strong>Select fabric width</strong> — Most decor fabric comes in 54 inches. Extra-wide 108-inch fabric can eliminate seams for large windows.</li>
+                    <li><strong>Add allowances</strong> — Include hem allowance (typically 4 inches for a double hem) and header allowance (2-4 inches for rod pocket or header tape).</li>
+                    <li><strong>Click calculate</strong> — The drapery fabric yardage calculator outputs yards per panel and total yards needed.</li>
+                </ol>
+            </div>
+
+            <div class="content-section">
+                <h2>Curtain Yardage Chart by Window Size</h2>
+                <p>Use this quick reference table for common standard window sizes. Yardage is calculated with 2x fullness, 54-inch fabric, 4-inch hem, and 3-inch header unless noted.</p>
+                <table>
+                    <tr><th>Window Size</th><th>Panels</th><th>Fabric Width</th><th>Yardage Needed</th><th>Notes</th></tr>
+                    <tr><td>24" x 36" (Small)</td><td>1</td><td>54"</td><td>1.25 yards</td><td>1 width per panel</td></tr>
+                    <tr><td>36" x 60" (Standard)</td><td>1</td><td>54"</td><td>2 yards</td><td>1 width per panel</td></tr>
+                    <tr><td>48" x 84" (Tall)</td><td>1</td><td>54"</td><td>2.5 yards</td><td>1 width per panel</td></tr>
+                    <tr><td>60" x 60" (Wide)</td><td>2</td><td>54"</td><td>4 yards</td><td>2 widths per panel</td></tr>
+                    <tr><td>72" x 80" (Patio Door)</td><td>2</td><td>54"</td><td>5 yards</td><td>2 widths per panel</td></tr>
+                    <tr><td>96" x 96" (Large Window)</td><td>2</td><td>54"</td><td>6 yards</td><td>2 widths per panel</td></tr>
+                    <tr><td>108" x 84" (Sliding Door)</td><td>3</td><td>54"</td><td>7.5 yards</td><td>2 widths per panel</td></tr>
+                    <tr><td>120" x 96" (Wall of Windows)</td><td>4</td><td>60"</td><td>11 yards</td><td>2 widths per panel</td></tr>
+                    <tr><td>60" x 84" (Tall Wide)</td><td>1</td><td>108"</td><td>2.5 yards</td><td>1 extra-wide width</td></tr>
+                    <tr><td>96" x 96" (Extra-Wide)</td><td>1</td><td>108"</td><td>3 yards</td><td>1 extra-wide width</td></tr>
+                </table>
+                <p>Yardage is rounded up to the nearest quarter yard and includes 10% waste factor. Actual needs may vary based on pattern repeat and fabric layout.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Fullness Ratio Guide: How Much Gather Do You Need?</h2>
+                <p>The fullness ratio determines how gathered your curtains look when closed. It is one of the most important factors in the curtain fabric yardage formula — more fullness requires more fabric.</p>
+
+                <table>
+                    <tr><th>Ratio</th><th>Gather Amount</th><th>Best For</th><th>Fabric Multiplier</th></tr>
+                    <tr><td><strong>1.5x</strong></td><td>Light / Flat</td><td>Modern drapes, sheers, Roman shades, tailored looks</td><td>1.5 &times; window width</td></tr>
+                    <tr><td><strong>2.0x</strong></td><td>Standard</td><td>Most curtains, living rooms, bedrooms</td><td>2 &times; window width</td></tr>
+                    <tr><td><strong>2.5x</strong></td><td>Full</td><td>Formal drapes, dining rooms, heavy fabrics</td><td>2.5 &times; window width</td></tr>
+                    <tr><td><strong>3.0x</strong></td><td>Luxurious</td><td>Theatrical drapes, grand windows, lightweight fabrics</td><td>3 &times; window width</td></tr>
+                </table>
+
+                <h3>Choosing the Right Fullness</h3>
+                <p>For most residential curtains, <strong>2x fullness</strong> is the sweet spot. It provides gentle, natural gathers without using excessive fabric. Use <strong>1.5x</strong> for flat curtain panels, roman shades, or when working with very stiff or heavy fabrics like velvet. Choose <strong>2.5x</strong> or <strong>3x</strong> for lightweight fabrics like sheer or linen where you want dramatic, billowy gathers. Keep in mind that higher fullness also increases your total curtain fabric yardage proportionally.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">How do I calculate fabric for curtains with a pattern repeat?</div>
+                    <div class="faq-a">When your fabric has a pattern repeat (e.g., floral or geometric), add the repeat length to each panel height before multiplying. For example, if the pattern repeat is 12 inches and your panel length is 67 inches, calculate as 67 + 12 = 79 inches per panel. Some crafters add an extra 10-15% to account for matching patterns across widths. Always buy extra when working with large repeat patterns.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is a fabric width and why does it matter for curtains?</div>
+                    <div class="faq-a">Fabric width is the measurement from selvage to selvage — the usable width of the fabric roll. Standard decor fabrics are 54 inches wide, while drapery-specific fabrics often come in 60 inches. Extra-wide fabrics at 108 inches allow you to cover large windows without vertical seams. Your fabric width directly affects how many fabric lengths you need per curtain panel, which is a key part of the drapery fabric yardage calculation.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much extra fabric should I buy for curtain hems?</div>
+                    <div class="faq-a">A standard hem allowance for curtains is 4 inches per panel — 2 inches for a double-fold hem (fold up 2 inches, then another 2 inches). This gives a clean, professional finish. For heavier drapery fabrics, you might want a 3-4 inch double hem. Add a header allowance of 2-4 inches for the rod pocket or pleat tape at the top. The curtain fabric calculator includes both hem and header allowances in the total yardage.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Do I need two panels per window?</div>
+                    <div class="faq-a">Not necessarily. A single curtain panel works well for small windows, sliding doors, or when you only need to cover one side. For a traditional look with curtains on both sides, use two panels (one for each side). When calculating fabric yardage for curtains in pairs, simply double the yardage per panel or set the number of panels to 2 in the calculator above.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is the difference between curtain yardage and drapery yardage?</div>
+                    <div class="faq-a">In practical terms, curtain and drapery yardage calculations use the same formula. The difference is in the details: curtains are typically unlined and use lighter fabrics with a simpler hem, while drapes often include lining, interlining, heavier fabrics, and more complex header treatments (pleats, buckram, etc.). For lined drapes, buy the same yardage for both the face fabric and lining fabric separately.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/curtain-fabric-yardage.html" title="Curtain Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/><path d="M16 3v6"/></svg> Curtains</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+document.getElementById('curtainPresets').addEventListener('click', function(e) {
+    const card = e.target.closest('.quick-preset-card');
+    if (!card) return;
+    document.querySelectorAll('#curtainPresets .quick-preset-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    $('windowWidth').value = card.dataset.w;
+    $('windowHeight').value = card.dataset.h;
+    $('numPanels').value = card.dataset.panels || 1;
+    if (typeof storeImperialVal === 'function') { storeImperialVal('windowWidth'); storeImperialVal('windowHeight'); storeImperialVal('numPanels'); }
+    calcCurtainFabric();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initPage === 'function') initPage();
+});
+
+function calcCurtainFabric() {
+    const winW = parseFloat($('windowWidth').value);
+    const winH = parseFloat($('windowHeight').value);
+    const fullness = parseFloat($('fullnessRatio').value) || 2;
+    const panels = parseInt($('numPanels').value) || 1;
+    const fw = parseFloat($('curtainFabricWidth').value) || 54;
+    const hem = parseFloat($('hemAllowance').value) || 0;
+    const header = parseFloat($('headerAllowance').value) || 0;
+    const wastePct = parseFloat($('curtainWaste').value) || 0;
+    const errEl = $('errorBox');
+    hide(errEl);
+
+    if (isNaN(winW) || winW <= 0 || isNaN(winH) || winH <= 0) {
+        errEl.textContent = 'Enter valid window width and height.';
+        show(errEl);
+        return;
+    }
+    if (isNaN(panels) || panels < 1) {
+        errEl.textContent = 'Enter a valid number of panels.';
+        show(errEl);
+        return;
+    }
+
+    // Total fabric width needed across the window
+    const totalWidthNeeded = winW * fullness;
+
+    // Number of fabric widths per panel
+    const widthsPerPanel = Math.ceil(totalWidthNeeded / fw);
+
+    // Finished length per panel
+    const finishedLen = winH + hem + header;
+
+    // Total inches of fabric needed: per panel length * widths per panel * number of panels
+    const totalInches = finishedLen * widthsPerPanel * panels;
+
+    // Convert to yards with waste
+    let yards = (totalInches / 36) * (1 + wastePct / 100);
+    yards = Math.ceil(yards * 4) / 4;
+
+    const meters = yards * 0.9144;
+    const totalCm = totalInches * 2.54;
+
+    $('curtainResult').textContent = yards + ' yards';
+
+    let detail = '';
+    detail += 'Window: ' + winW.toFixed(1) + '" &times; ' + winH.toFixed(1) + '"';
+    detail += '<br>Fullness: ' + fullness.toFixed(1) + 'x | ' + panels + ' panel' + (panels > 1 ? 's' : '') + ' | Fabric: ' + fw + '" wide';
+    detail += '<br>Each panel needs ' + widthsPerPanel + ' fabric width' + (widthsPerPanel > 1 ? 's' : '');
+    detail += '<br>Cut length per panel: ' + finishedLen.toFixed(1) + '" (finished ' + winH.toFixed(1) + '" + hem ' + hem.toFixed(1) + '" + header ' + header.toFixed(1) + '")';
+    detail += '<br>' + totalInches.toFixed(1) + ' total inches + ' + wastePct + '% waste = ' + yards + ' yards';
+
+    if (typeof unitSystem !== 'undefined' && unitSystem === 'metric') {
+        $('curtainResult').textContent = meters.toFixed(2) + ' meters';
+    } else {
+        detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ' + totalCm.toFixed(1) + ' cm | ' + meters.toFixed(2) + ' meters</span>';
+    }
+
+    // Per panel breakdown
+    const yardsPerPanel = yards / panels;
+    detail += '<br><br><strong>Per panel:</strong> ' + yardsPerPanel.toFixed(2) + ' yards';
+
+    // Cost estimate (optional info)
+    detail += '<br><br><em>Tip: For lined drapes, buy the same yardage in lining fabric.</em>';
+
+    $('curtainDetail').innerHTML = detail;
+    show($('resultBox'));
+}
+</script>
+</body>
+</html>

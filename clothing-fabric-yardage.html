@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Yardage Calculator for Clothing - Dresses, Pants, Skirts & Tops | YardageCalculator.com</title>
+    <meta name="description" content="Calculate fabric yardage for clothing. Free calculator and yardage charts for dresses, pants, skirts, tops, jackets, and coats by garment type and fabric width.">
+    <link rel="canonical" href="https://yardagecalculator.com/clothing-fabric-yardage.html">
+    <meta property="og:title" content="Fabric Yardage Calculator for Clothing - Dresses, Pants, Skirts & Tops">
+    <meta property="og:description" content="Calculate fabric yardage for clothing. Free calculator and yardage charts for dresses, pants, skirts, tops, jackets, and coats.">
+    <meta property="og:url" content="https://yardagecalculator.com/clothing-fabric-yardage.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Clothing Fabric Yardage Calculator",
+        "url": "https://yardagecalculator.com/clothing-fabric-yardage.html",
+        "description": "Calculate fabric yardage for clothing. Enter garment piece dimensions, fabric width, and quantity to get exact yards needed for dresses, pants, skirts, tops, jackets, and coats.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Clothing Fabric Yardage Calculator</h1>
+                <p>Calculate the exact yardage of fabric needed for dresses, tops, pants, skirts, jackets, and coats. Works for any garment — just enter your pattern piece dimensions.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Clothing Fabric Yardage Calculator</span>
+            </div>
+
+            <div class="tool-card" id="mainCalc">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <h1>Calculate Clothing Yardage</h1>
+                </div>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <p>Enter the dimensions of your main pattern piece (e.g., front bodice) and the calculator will estimate total yardage.</p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clLen">Piece Length <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="clLen" value="30" min="1" step="0.5" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="clWid">Piece Width <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="clWid" value="24" min="1" step="0.5" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clQty">Number of Pieces</label>
+                        <input type="number" id="clQty" value="4" min="1" step="1" class="calc-on-enter">
+                        <span class="hint">e.g., front + back = 2, with sleeves = 4</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="clFw">Fabric Width <span class="hint" data-unit="in">inches</span></label>
+                        <select id="clFw">
+                            <option value="36">36" - Quilting cotton</option>
+                            <option value="45" selected>45" - Standard apparel</option>
+                            <option value="54">54" - Wide apparel</option>
+                            <option value="60">60" - Extra wide</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clSeam">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="clSeam" value="0.625" min="0" step="0.125" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="clWaste">Waste Percentage</label>
+                        <input type="number" id="clWaste" value="15" min="0" max="100" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" id="clCalcBtn" data-calc-btn onclick="calcClothingYardage()">Calculate Yardage</button>
+                </div>
+
+                <div id="clResultBox" class="result-box">
+                    <div class="result-value" id="clResult"></div>
+                    <div class="result-detail" id="clDetail"></div>
+                </div>
+                <div id="clErrorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>Clothing Yardage Reference Charts</h2>
+                <p>Use these quick-reference charts to estimate yardage for standard garments. Actual yardage varies by size, style, and fabric width. These estimates assume average adult sizes (US 8-12 / M).</p>
+
+                <h3>Women's Clothing Yardage</h3>
+                <table>
+                    <tr><th>Garment Type</th><th>45" Fabric</th><th>60" Fabric</th></tr>
+                    <tr><td>Top, short sleeves</td><td>1 - 1.5 yd</td><td>0.75 - 1 yd</td></tr>
+                    <tr><td>Top, long sleeves</td><td>1.5 - 2 yd</td><td>1 - 1.5 yd</td></tr>
+                    <tr><td>Skirt, straight / knee-length</td><td>1.5 yd</td><td>1 yd</td></tr>
+                    <tr><td>Skirt, full / midi</td><td>2.5 yd</td><td>1.75 yd</td></tr>
+                    <tr><td>Dress, short sleeves / knee-length</td><td>2.5 yd</td><td>2 yd</td></tr>
+                    <tr><td>Dress, long sleeves / knee-length</td><td>3 yd</td><td>2.5 yd</td></tr>
+                    <tr><td>Dress, full-length gown</td><td>4 yd</td><td>3 yd</td></tr>
+                    <tr><td>Pants, straight-leg</td><td>2.75 yd</td><td>2 yd</td></tr>
+                    <tr><td>Jacket, lined</td><td>3 yd</td><td>2.5 yd</td></tr>
+                    <tr><td>Coat, mid-length</td><td>3.5 yd</td><td>3 yd</td></tr>
+                </table>
+
+                <h3>Men's Clothing Yardage</h3>
+                <table>
+                    <tr><th>Garment Type</th><th>45" Fabric</th><th>60" Fabric</th></tr>
+                    <tr><td>Shirt, short sleeves</td><td>2 - 2.5 yd</td><td>1.5 - 2 yd</td></tr>
+                    <tr><td>Shirt, long sleeves</td><td>2.5 - 3 yd</td><td>2 - 2.5 yd</td></tr>
+                    <tr><td>Pants</td><td>2.75 yd</td><td>2 yd</td></tr>
+                    <tr><td>Jacket</td><td>3.5 yd</td><td>2.75 yd</td></tr>
+                    <tr><td>Coat</td><td>4 yd</td><td>3 yd</td></tr>
+                    <tr><td>Vest</td><td>1.5 yd</td><td>1 yd</td></tr>
+                </table>
+
+                <p class="price-note">Charts assume US size M (8-12 women's, 40R men's). Larger sizes may require additional yardage — always use the calculator above with your actual pattern pieces for best accuracy.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Tips for Buying Clothing Fabric</h2>
+
+                <h3>Body Measurements vs. Pattern Measurements</h3>
+                <p>Your body measurements and your pattern piece measurements are different. Patterns include wearing ease (extra room for movement) and design ease (for the garment silhouette). Always measure the <strong>pattern pieces</strong> themselves, not your body, when calculating yardage. A dress pattern may list 38" hips on the envelope, but the actual front bodice piece could be 44" wide including ease and seam allowances.</p>
+
+                <h3>Buying Extra for Pattern Matching</h3>
+                <p>If your fabric has a directional print, plaid, or stripe, you'll need extra fabric to match the pattern at the seams. Add <strong>1/4 to 1/2 yard</strong> for simple matching, and up to <strong>1 full yard</strong> for large plaids or complex matching at multiple seam lines (like princess seams or center front/back). The same applies to nap fabrics (velvet, corduroy) where all pieces must be cut in the same direction.</p>
+
+                <div class="callout warning">
+                    <strong>Shrinkage Allowance:</strong> Natural fibers like cotton, linen, and wool can shrink 3-5% after the first wash. Pre-wash your fabric before cutting, and add 5-10% to your yardage if you're pre-washing a dry-clean-only recommendation. For the calculator, set waste to 15% or add an extra 1/4 yard manually.
+                </div>
+
+                <p>For a detailed guide on reading pattern envelopes and converting measurements to yardage, see our <a href="/calculate-fabric-yardage.html">how to calculate fabric yardage</a> guide.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much fabric do I need for a dress?</div>
+                    <div class="faq-a">
+                        <p>A knee-length dress with short sleeves typically requires 2-2.5 yards of 45" fabric or 1.5-2 yards of 60" fabric. A full-length gown needs 3-4 yards depending on the width and design. Longer sleeves, fuller skirts, and larger sizes all increase yardage. Always check your pattern envelope and use the calculator above with your actual pattern piece dimensions.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much fabric do I need for pants?</div>
+                    <div class="faq-a">
+                        <p>Straight-leg pants need about 2.75 yards of 45" fabric or 2 yards of 60" fabric for average sizes. Wide-leg or palazzo styles may require 3-3.5 yards. Taller individuals or larger sizes will need additional length. Measure from waist to hem plus hem allowance to get your piece length.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much fabric for a jacket?</div>
+                    <div class="faq-a">
+                        <p>An unlined jacket needs about 2.5-3 yards of 45" fabric. A lined jacket requires 3-3.5 yards for the outer fabric plus matching yardage for the lining fabric. Men's jackets typically need more: 3.5 yards of 45" fabric. Fabric width significantly impacts yardage — wider fabrics (54-60") can reduce requirements by 0.5-1 yard.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How does clothing size affect yardage?</div>
+                    <div class="faq-a">
+                        <p>Larger sizes require more fabric because pattern pieces are wider and sometimes longer. Moving from size M to XL typically adds 0.25-0.5 yards. Plus sizes may add 0.5-1 yard depending on the garment. Size affects yardage most in fitted garments (dresses, jackets) and least in loose styles or A-line silhouettes where width differences matter less.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Does fabric width affect clothing yardage?</div>
+                    <div class="faq-a">
+                        <p>Yes, significantly. Wider fabric (54-60") allows you to fit more pattern pieces side by side, reducing total yardage. For example, a dress that needs 2.5 yards of 45" fabric may only need 2 yards of 60" fabric. Wider fabric is especially beneficial for garments with large pattern pieces like full skirts, wide-leg pants, and coats. Narrow fabric (36") is rarely used for clothing due to severe yardage increases.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is standard seam allowance for clothing?</div>
+                    <div class="faq-a">
+                        <p>The standard seam allowance for most commercial sewing patterns is 5/8 inch (0.625"). Some pattern brands use 1/2 inch (0.5") or 3/8 inch (0.375") for specific seams. Always check your pattern instructions. The calculator defaults to 5/8" which covers most apparel sewing.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+(function() {
+    function calcClothingYardage() {
+        const len = parseFloat($('clLen').value);
+        const wid = parseFloat($('clWid').value);
+        const qty = parseInt($('clQty').value);
+        const fw = parseFloat($('clFw').value);
+        const seam = parseFloat($('clSeam').value);
+        const wastePct = parseFloat($('clWaste').value) || 0;
+        const errEl = $('clErrorBox');
+        hide(errEl);
+
+        if (isNaN(len) || len <= 0) { errEl.textContent = 'Enter a valid piece length.'; show(errEl); return; }
+        if (isNaN(wid) || wid <= 0) { errEl.textContent = 'Enter a valid piece width.'; show(errEl); return; }
+        if (isNaN(qty) || qty < 1) { errEl.textContent = 'Enter a valid number of pieces.'; show(errEl); return; }
+
+        const result = computeYardage({
+            pieceLen: len,
+            pieceWid: wid,
+            qty: qty,
+            fw: fw,
+            seam: seam,
+            wastePct: wastePct
+        });
+
+        $('clResult').textContent = result.yards + ' yards' + (unitSystem === 'metric' ? ' / ' + result.meters.toFixed(2) + ' m' : '');
+        let detail = qty + ' piece' + (qty > 1 ? 's' : '');
+        if (result.piecesPerWidth > 1) {
+            detail += ', ' + result.piecesPerWidth + ' fit per ' + fw + '" width';
+        } else {
+            detail += ', 1 per fabric width';
+        }
+        detail += '<br>Cut length: ' + result.adjLen.toFixed(1) + '" (inc. seam allowance)';
+        detail += '<br>' + result.totalInches.toFixed(1) + ' total inches needed + ' + wastePct + '% waste';
+        detail += '<br><span class="multi-unit-item"><strong>' + result.yards + ' yd</strong> = ' + (result.yards * 3).toFixed(2) + ' ft = ' + result.meters.toFixed(2) + ' m</span>';
+        $('clDetail').innerHTML = detail;
+        show($('clResultBox'));
+    }
+
+    window.calcClothingYardage = calcClothingYardage;
+
+    bindEnterKey('mainCalc', 'clCalcBtn');
+})();
+</script>
+</body>
+</html>

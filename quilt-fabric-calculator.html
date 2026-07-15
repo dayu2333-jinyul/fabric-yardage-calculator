@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quilt Fabric Calculator - Yardage for Quilt Top & Backing | YardageCalculator.com</title>
+    <meta name="description" content="Calculate fabric yardage for quilts — quilt top and backing. Enter quilt size, block size, and fabric width to get exact yards for your next quilting project.">
+    <link rel="canonical" href="https://yardagecalculator.com/quilt-fabric-calculator.html">
+    <meta property="og:title" content="Quilt Fabric Calculator - Yardage for Quilt Top & Backing">
+    <meta property="og:description" content="Free quilt fabric yardage calculator. Calculate fabric for quilt tops and backing. Preset bed sizes, block math, and piecing guidance.">
+    <meta property="og:url" content="https://yardagecalculator.com/quilt-fabric-calculator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Quilt Fabric Calculator",
+        "url": "https://yardagecalculator.com/quilt-fabric-calculator.html",
+        "description": "Calculate fabric yardage for quilt tops and backing. Supports standard quilt sizes and custom dimensions.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        /* Mode tabs */
+        .mode-tabs {
+            display: flex;
+            gap: 0;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+        }
+        .mode-tab {
+            flex: 1;
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: var(--linen);
+            color: var(--warm-gray);
+            border: none;
+            transition: all 0.2s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .mode-tab:not(:last-child) {
+            border-right: 1px solid var(--border);
+        }
+        .mode-tab:hover {
+            background: #f0ebe3;
+            color: var(--text);
+        }
+        .mode-tab.active {
+            background: var(--green-deep);
+            color: #fff;
+        }
+        .mode-panel {
+            display: none;
+        }
+        .mode-panel.active {
+            display: block;
+        }
+        .backing-info {
+            padding: 12px 16px;
+            background: #fefcf8;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+            font-size: 13px;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+        .backing-info strong {
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" class="curr" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Quilt Fabric Calculator</h1>
+                <p>Calculate fabric yardage for quilt tops and quilt backing. Choose a standard bed size or enter custom dimensions.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Quilt Fabric Calculator</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                    </svg>
+                    <h1>Calculate Quilt Fabric Yardage</h1>
+                </div>
+                <p>Enter your quilt dimensions or select a preset bed size.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <!-- Mode Tabs -->
+                <div class="mode-tabs" id="modeTabs">
+                    <button class="mode-tab active" data-mode="top">Quilt Top</button>
+                    <button class="mode-tab" data-mode="backing">Quilt Backing</button>
+                </div>
+
+                <!-- Mode 1: Quilt Top -->
+                <div class="mode-panel active" id="panelTop">
+                    <div class="form-group">
+                        <label>Standard Quilt Sizes</label>
+                        <div class="presets" id="quiltPresets">
+                            <div class="preset-btn" data-len="36" data-wid="52" data-name="Crib">Crib (36x52")</div>
+                            <div class="preset-btn" data-len="70" data-wid="90" data-name="Twin">Twin (70x90")</div>
+                            <div class="preset-btn" data-len="84" data-wid="90" data-name="Full">Full/Double (84x90")</div>
+                            <div class="preset-btn" data-len="90" data-wid="108" data-name="Queen">Queen (90x108")</div>
+                            <div class="preset-btn" data-len="108" data-wid="108" data-name="King">King (108x108")</div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quiltLen">Quilt Length <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="quiltLen" value="90" min="1" step="0.5" oninput="calcQuiltFabric()" class="calc-on-enter">
+                        </div>
+                        <div class="form-group">
+                            <label for="quiltWid">Quilt Width <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="quiltWid" value="108" min="1" step="0.5" oninput="calcQuiltFabric()" class="calc-on-enter">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="blockSize">Block Size <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="blockSize" value="12" min="1" step="0.5" oninput="calcQuiltFabric()" class="calc-on-enter">
+                        </div>
+                        <div class="form-group">
+                            <label for="fabWidth">Fabric Width <span class="hint">(inches)</span></label>
+                            <select id="fabWidth">
+                                <option value="42" selected>42" - Quilting cotton</option>
+                                <option value="44">44" - Quilting cotton</option>
+                                <option value="45">45" - Cotton</option>
+                                <option value="54">54" - Wide cotton</option>
+                                <option value="60">60" - Wide backing</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="seamAllow">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="seamAllow" value="0.25" min="0" step="0.125" oninput="calcQuiltFabric()" class="calc-on-enter">
+                        </div>
+                        <div class="form-group">
+                            <label for="bindWidth">Binding Width <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="bindWidth" value="2.5" min="0.5" step="0.25" oninput="calcQuiltFabric()" class="calc-on-enter">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="topWaste">Waste %</label>
+                        <input type="number" id="topWaste" value="10" min="0" max="100" oninput="calcQuiltFabric()" class="calc-on-enter">
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary" onclick="calcQuiltFabric()">Calculate Quilt Top Fabric</button>
+                    </div>
+
+                    <div id="resultBoxTop" class="result-box">
+                        <div class="result-value" id="topResult"></div>
+                        <div class="result-detail" id="topDetail"></div>
+                    </div>
+                    <div id="errorBoxTop" class="error-box"></div>
+                </div>
+
+                <!-- Mode 2: Quilt Backing -->
+                <div class="mode-panel" id="panelBacking">
+                    <div class="form-group">
+                        <label>Standard Quilt Sizes</label>
+                        <div class="presets" id="backingPresets">
+                            <div class="preset-btn" data-len="36" data-wid="52" data-name="Crib">Crib (36x52")</div>
+                            <div class="preset-btn" data-len="70" data-wid="90" data-name="Twin">Twin (70x90")</div>
+                            <div class="preset-btn" data-len="84" data-wid="90" data-name="Full">Full/Double (84x90")</div>
+                            <div class="preset-btn" data-len="90" data-wid="108" data-name="Queen">Queen (90x108")</div>
+                            <div class="preset-btn" data-len="108" data-wid="108" data-name="King">King (108x108")</div>
+                        </div>
+                    </div>
+
+                    <div class="backing-info">
+                        <strong>Tip:</strong> Backing fabric should be at least 4" wider and 4" longer than your quilt top (2" extra on each side) to allow for quilting and trimming.
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="backLen">Quilt Length <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="backLen" value="90" min="1" step="0.5" oninput="calcBacking()" class="calc-on-enter">
+                        </div>
+                        <div class="form-group">
+                            <label for="backWid">Quilt Width <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="backWid" value="108" min="1" step="0.5" oninput="calcBacking()" class="calc-on-enter">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="backFabWidth">Backing Fabric Width <span class="hint">(inches)</span></label>
+                            <select id="backFabWidth" onchange="calcBacking()">
+                                <option value="42">42" - Standard quilting cotton</option>
+                                <option value="108" selected>108" - Wide quilt backing</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="backOver">Extra on Each Side <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="backOver" value="2" min="0" step="0.5" oninput="calcBacking()" class="calc-on-enter">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="backSeam">Seam Allowance (if piecing) <span class="hint" data-unit="in">inches</span></label>
+                            <input type="number" id="backSeam" value="0.5" min="0" step="0.125" oninput="calcBacking()" class="calc-on-enter">
+                        </div>
+                        <div class="form-group">
+                            <label for="backWaste">Waste %</label>
+                            <input type="number" id="backWaste" value="5" min="0" max="100" oninput="calcBacking()" class="calc-on-enter">
+                        </div>
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="btn btn-primary" onclick="calcBacking()">Calculate Backing Fabric</button>
+                    </div>
+
+                    <div id="resultBoxBack" class="result-box">
+                        <div class="result-value" id="backResult"></div>
+                        <div class="result-detail" id="backDetail"></div>
+                    </div>
+                    <div id="errorBoxBack" class="error-box"></div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>How to Calculate Quilt Fabric Yardage</h2>
+                <p>Calculating fabric yardage for a quilt involves two separate estimates: the quilt top (the pieced design) and the quilt backing (the back layer). Each uses a different formula because the top is made of individual blocks while the backing is typically a single large piece.</p>
+
+                <h3>Quilt Top Yardage Calculation</h3>
+                <p>For the quilt top, the calculation starts with the block size. First determine how many blocks fit across and down your quilt. Divide the quilt width by the block size, then divide the quilt length by the block size — round each up to the nearest whole number. Multiply to get total blocks. Each block needs fabric equal to (block size + seam allowance) squared. Multiply by the number of blocks, then divide by the fabric width to determine how many strips of fabric you need, and multiply strip count by the block height to get total inches. Convert to yards by dividing by 36 and add waste (typically 10%).</p>
+
+                <div class="formula-box">
+                    <strong>Formula:</strong> Blocks across = ceil(Quilt Width / Block Size)<br>
+                    Blocks down = ceil(Quilt Length / Block Size)<br>
+                    Total blocks = Blocks across x Blocks down<br>
+                    Fabric inches = ceil((Total blocks x (Block Size + Seam)²) / Fabric Width) x (Block Size + Seam)<br>
+                    Yards = Fabric inches / 36 x (1 + Waste%)
+                </div>
+
+                <h3>Binding Yardage</h3>
+                <p>Binding is the fabric strip that finishes the raw edges of your quilt. Calculate the quilt perimeter: (length + width) x 2, add 10" for corners and joining, then divide by the fabric width to find how many binding strips you need. Multiply by your binding width (typically 2.5") to get total inches, then convert to yards.</p>
+
+                <p>If you are using a <strong><a href="/" title="fabric yardage calculator for quilts">fabric yardage calculator for quilts</a></strong>, simply enter your quilt dimensions and block size — the tool handles the math automatically, including seam allowances and waste percentage.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Quilt Sizes and Fabric Requirements Chart</h2>
+                <table>
+                    <tr>
+                        <th>Quilt Size</th>
+                        <th>Dimensions</th>
+                        <th>Blocks (12")</th>
+                        <th>Yardage (42" wide)</th>
+                        <th>Backing (42" wide)</th>
+                        <th>Backing (108" wide)</th>
+                    </tr>
+                    <tr>
+                        <td>Crib</td>
+                        <td>36 x 52"</td>
+                        <td>12</td>
+                        <td>1 1/4 yards</td>
+                        <td>2 1/2 yards (pieced)</td>
+                        <td>1 3/4 yards</td>
+                    </tr>
+                    <tr>
+                        <td>Twin</td>
+                        <td>70 x 90"</td>
+                        <td>42</td>
+                        <td>3 3/4 yards</td>
+                        <td>5 1/2 yards (pieced)</td>
+                        <td>2 3/4 yards</td>
+                    </tr>
+                    <tr>
+                        <td>Full/Double</td>
+                        <td>84 x 90"</td>
+                        <td>56</td>
+                        <td>5 yards</td>
+                        <td>5 1/2 yards (pieced)</td>
+                        <td>2 3/4 yards</td>
+                    </tr>
+                    <tr>
+                        <td>Queen</td>
+                        <td>90 x 108"</td>
+                        <td>63</td>
+                        <td>5 3/4 yards</td>
+                        <td>8 1/4 yards (pieced)</td>
+                        <td>3 1/4 yards</td>
+                    </tr>
+                    <tr>
+                        <td>King</td>
+                        <td>108 x 108"</td>
+                        <td>81</td>
+                        <td>7 1/2 yards</td>
+                        <td>9 1/2 yards (pieced)</td>
+                        <td>3 1/4 yards</td>
+                    </tr>
+                </table>
+                <p class="price-note">Yardage based on 12" blocks, 1/4" seam allowance, and 10% waste. Actual yardage may vary with block design and fabric pattern matching.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Quilt Backing Fabric Calculator Guide</h2>
+                <p>The quilt backing is the layer that goes on the back of your quilt. Calculating backing yardage is different from the top because you want a single continuous piece of fabric without seams showing on the back. The key factor is whether your backing fabric is wide enough to cover the quilt width without piecing.</p>
+
+                <h3>When to Use 108" Wide Backing Fabric</h3>
+                <p>Wide backing fabric (108" wide) is the easiest option. For queen and king size quilts, 108" wide backing covers the full width without any piecing. You only need the quilt length plus 4"-6" for overhang. For a queen quilt (90 x 108"), you need about 3 1/4 yards of 108" wide fabric. This eliminates seams on the back and reduces sewing time.</p>
+
+                <h3>Piecing 42" Wide Fabric for Backing</h3>
+                <p>If you are using standard 42" quilting cotton for backing, you will likely need to piece two or three widths together. For a twin quilt (70" wide), seam two 42" panels side by side (84" total width — enough for the 70" quilt plus overhang). For queen or king, you need three panels. When piecing, add 1/2" seam allowance per join, and trim the selvages first. Using a <strong><a href="/quilt-fabric-calculator.html" title="fabric yardage calculator for quilt backing">fabric yardage calculator for quilt backing</a></strong> handles the piecing math automatically.</p>
+
+                <div class="formula-box">
+                    <strong>Backing Yardage Formula:</strong><br>
+                    Backing width = Quilt width + (Extra on each side x 2)<br>
+                    Backing length = Quilt length + (Extra on each side x 2)<br>
+                    If Backing width > Fabric width: need pieced panels<br>
+                    Panels needed = ceil(Backing width / Fabric width)<br>
+                    Yardage = (Panels needed x Backing length) / 36 x (1 + Waste%)
+                </div>
+
+                <h3>Seam Allowance Tips for Backing</h3>
+                <p>When piecing backing fabric, use a 1/2" seam allowance (wider than the 1/4" used for the quilt top). This creates a stronger seam that can withstand the tension of machine quilting. Press the seams open rather than to one side to reduce bulk. If your quilt will be displayed on a bed, consider placing the seam off-center (one-third / two-thirds) so it doesn't run down the middle.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much fabric do I need for a queen size quilt?</div>
+                    <div class="faq-a">A queen size quilt (90 x 108") typically requires about 5 3/4 yards of 42" wide fabric for the quilt top (using 12" blocks) and either 8 1/4 yards of pieced 42" backing or 3 1/4 yards of 108" wide backing fabric. These estimates include 10% waste for cutting errors and pattern matching.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is the best fabric width for quilt backing?</div>
+                    <div class="faq-a">108" wide quilt backing fabric is the easiest choice for bed-size quilts because it eliminates piecing. However, 108" wide fabric often has a limited color and print selection. Standard 42" quilting cotton gives you more pattern options but requires piecing for any quilt wider than 40". For crib and small lap quilts, 42" wide fabric may be wide enough without piecing.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much overhang should I add for quilt backing?</div>
+                    <div class="faq-a">Add at least 4" to both the length and width of your backing fabric (2" extra on each side). This gives your longarm quilter enough fabric to load the quilt on the frame and accounts for any shifting during quilting. For machine quilting at home, 3"-4" of overhang on each side is recommended to allow for the quilt sandwiching process.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Do I need to prewash fabric before quilting?</div>
+                    <div class="faq-a">Prewashing is a personal choice. Prewashing removes sizing and prevents shrinkage after the quilt is finished. However, many quilters prefer not to prewash because the sizing gives fabric a crisp feel that makes cutting and piecing more accurate. If you prewash, account for 3-5% fabric shrinkage. If you do not prewash, use the same approach consistently — mixing prewashed and unwashed fabric can lead to uneven shrinkage later.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is a fat quarter and how many do I need for a quilt?</div>
+                    <div class="faq-a">A fat quarter is a piece of fabric measuring 18 x 22" (half a yard cut crosswise). Fat quarters are popular for quilting because the wider cut gives more flexibility for cutting blocks. For a crib quilt (36x52") using 6" squares, you need about 6-8 fat quarters. For a twin quilt, 12-16 fat quarters. For a queen, 20-24 fat quarters. Each fat quarter yields roughly 6 to 8 six-inch squares depending on your cutting layout.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+// === Mode Tabs ===
+(function() {
+    const tabs = document.querySelectorAll('#modeTabs .mode-tab');
+    const panels = {
+        top: document.getElementById('panelTop'),
+        backing: document.getElementById('panelBacking')
+    };
+    tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            tabs.forEach(function(t) { t.classList.remove('active'); });
+            tab.classList.add('active');
+            Object.keys(panels).forEach(function(k) { panels[k].classList.remove('active'); });
+            var mode = tab.dataset.mode;
+            if (panels[mode]) panels[mode].classList.add('active');
+            // Recalculate current panel
+            if (mode === 'top') calcQuiltFabric();
+            else calcBacking();
+        });
+    });
+})();
+
+// === Quilt Top Presets ===
+document.getElementById('quiltPresets').addEventListener('click', function(e) {
+    var btn = e.target.closest('.preset-btn');
+    if (!btn) return;
+    document.querySelectorAll('#quiltPresets .preset-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    $('quiltLen').value = btn.dataset.len;
+    $('quiltWid').value = btn.dataset.wid;
+    if (typeof storeImperialVal === 'function') { storeImperialVal('quiltLen'); storeImperialVal('quiltWid'); }
+    calcQuiltFabric();
+});
+
+// === Quilt Backing Presets ===
+document.getElementById('backingPresets').addEventListener('click', function(e) {
+    var btn = e.target.closest('.preset-btn');
+    if (!btn) return;
+    document.querySelectorAll('#backingPresets .preset-btn').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    $('backLen').value = btn.dataset.len;
+    $('backWid').value = btn.dataset.wid;
+    if (typeof storeImperialVal === 'function') { storeImperialVal('backLen'); storeImperialVal('backWid'); }
+    calcBacking();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initPage === 'function') initPage();
+    calcQuiltFabric();
+    calcBacking();
+});
+
+function calcQuiltFabric() {
+    var quiltLen = parseFloat($('quiltLen').value);
+    var quiltWid = parseFloat($('quiltWid').value);
+    var blockSize = parseFloat($('blockSize').value);
+    var fw = parseFloat($('fabWidth').value);
+    var seam = parseFloat($('seamAllow').value);
+    var bindW = parseFloat($('bindWidth').value);
+    var wastePct = parseFloat($('topWaste').value) || 0;
+    var errEl = $('errorBoxTop');
+    hide(errEl);
+
+    if (isNaN(quiltLen) || quiltLen <= 0 || isNaN(quiltWid) || quiltWid <= 0) {
+        errEl.textContent = 'Enter valid quilt dimensions.';
+        show(errEl);
+        return;
+    }
+    if (isNaN(blockSize) || blockSize <= 0) {
+        errEl.textContent = 'Enter a valid block size.';
+        show(errEl);
+        return;
+    }
+
+    var blockAdj = blockSize + seam;
+    var blocksAcross = Math.ceil(quiltWid / blockAdj);
+    var blocksDown = Math.ceil(quiltLen / blockAdj);
+    var totalBlocks = blocksAcross * blocksDown;
+
+    // Blocks per strip (how many blocks fit across fabric width)
+    var blocksPerStrip = Math.floor(fw / blockAdj) || 1;
+    var totalStrips = Math.ceil(totalBlocks / blocksPerStrip);
+    var totalInches = totalStrips * blockAdj;
+
+    // Binding
+    var perimeter = (quiltLen + quiltWid) * 2 + 10;
+    var bindingStrips = Math.ceil(perimeter / fw);
+    var bindingInches = bindingStrips * bindW;
+
+    var topYards = (totalInches / 36) * (1 + wastePct / 100);
+    topYards = Math.ceil(topYards * 4) / 4;
+    var bindYards = bindingInches / 36;
+    bindYards = Math.ceil(bindYards * 4) / 4;
+    var totalYards = topYards + bindYards;
+
+    $('topResult').textContent = topYards + ' yards (top) + ' + bindYards + ' yards (binding)';
+
+    var detail = 'Quilt: ' + quiltWid + '" x ' + quiltLen + '" | Block: ' + blockSize + '" with ' + seam + '" seam';
+    detail += '<br>Blocks: ' + blocksAcross + ' across x ' + blocksDown + ' down = ' + totalBlocks + ' total';
+    detail += '<br>Fabric: ' + blocksPerStrip + ' blocks per strip, ' + totalStrips + ' strip' + (totalStrips > 1 ? 's' : '') + ' = ' + totalInches.toFixed(1) + '"';
+    detail += '<br>Binding: ' + perimeter + '" perimeter, ' + bindingStrips + ' strip' + (bindingStrips > 1 ? 's' : '') + ' of ' + bindW + '" = ' + bindingInches.toFixed(1) + '"';
+    detail += '<br>Top fabric: ' + topYards + ' yds | Binding: ' + bindYards + ' yds';
+    detail += '<br>Total: ' + totalYards + ' yards (incl. ' + wastePct + '% waste)';
+    if (typeof unitSystem !== 'undefined' && unitSystem === 'metric') {
+        $('topResult').textContent = (topYards * 0.9144).toFixed(2) + ' meters (top) + ' + (bindYards * 0.9144).toFixed(2) + ' meters (binding)';
+    } else {
+        detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ~' + (topYards * 0.9144).toFixed(2) + ' meters (top) | ~' + (bindYards * 0.9144).toFixed(2) + ' meters (binding)</span>';
+    }
+    $('topDetail').innerHTML = detail;
+    show($('resultBoxTop'));
+}
+
+function calcBacking() {
+    var quiltLen = parseFloat($('backLen').value);
+    var quiltWid = parseFloat($('backWid').value);
+    var backFw = parseFloat($('backFabWidth').value);
+    var overhang = parseFloat($('backOver').value);
+    var seam = parseFloat($('backSeam').value);
+    var wastePct = parseFloat($('backWaste').value) || 0;
+    var errEl = $('errorBoxBack');
+    hide(errEl);
+
+    if (isNaN(quiltLen) || quiltLen <= 0 || isNaN(quiltWid) || quiltWid <= 0) {
+        errEl.textContent = 'Enter valid quilt dimensions.';
+        show(errEl);
+        return;
+    }
+
+    var backW = quiltWid + overhang * 2;
+    var backL = quiltLen + overhang * 2;
+
+    var panelsNeeded = 1;
+    var pieced = false;
+    var panelWidth = backFw;
+    if (backW > backFw) {
+        panelsNeeded = Math.ceil(backW / backFw);
+        pieced = true;
+        panelWidth = (backFw * panelsNeeded) - ((panelsNeeded - 1) * seam);
+    }
+
+    var totalInches = panelsNeeded * backL;
+    var yardsRaw = totalInches / 36;
+    var yards = yardsRaw * (1 + wastePct / 100);
+    yards = Math.ceil(yards * 4) / 4;
+
+    $('backResult').textContent = yards + ' yards';
+
+    var detail = 'Quilt: ' + quiltWid + '" x ' + quiltLen + '"';
+    detail += '<br>Backing needed: ' + backW + '" wide x ' + backL + '" long (with ' + overhang + '" overhang on each side)';
+    if (pieced) {
+        detail += '<br>Fabric width: ' + backFw + '" — piecing required';
+        detail += '<br>Panels: ' + panelsNeeded + ' panels of ' + backL + '" x ' + backFw + '" with ' + seam + '" seam allowance';
+    } else {
+        detail += '<br>Fabric width: ' + backFw + '" — fits without piecing';
+    }
+    detail += '<br>Total inches: ' + totalInches.toFixed(1) + '" | ' + yards + ' yards (incl. ' + wastePct + '% waste)';
+    if (typeof unitSystem !== 'undefined' && unitSystem === 'metric') {
+        $('backResult').textContent = (yards * 0.9144).toFixed(2) + ' meters';
+    } else {
+        detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ' + (totalInches * 2.54).toFixed(1) + ' cm | ' + (yards * 0.9144).toFixed(2) + ' meters</span>';
+    }
+    $('backDetail').innerHTML = detail;
+    show($('resultBoxBack'));
+}
+</script>
+</body>
+</html>

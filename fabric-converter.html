@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Converter - Yards, Inches, Centimeters, Meters | YardageCalculator.com</title>
+    <meta name="description" content="Free online fabric converter. Convert fabric measurements between yards, inches, feet, centimeters, and meters. Quick and accurate unit conversions for sewing.">
+    <link rel="canonical" href="https://yardagecalculator.com/fabric-converter.html">
+    <meta property="og:title" content="Fabric Converter - Yards, Inches, Centimeters, Meters">
+    <meta property="og:description" content="Convert fabric measurements between yards, inches, feet, centimeters, and meters.">
+    <meta property="og:url" content="https://yardagecalculator.com/fabric-converter.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Fabric Converter",
+        "url": "https://yardagecalculator.com/fabric-converter.html",
+        "description": "Convert fabric measurements between yards, inches, feet, centimeters, and meters.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" class="curr" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Fabric Converter</h1>
+                <p>Convert fabric length between yards, inches, feet, centimeters, and meters. Compare fabric amounts from different sellers.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Fabric Converter</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="17 1 21 1 21 5"/>
+                        <path d="M3 11V9a4 4 0 014-4h14"/>
+                        <polyline points="7 23 3 23 3 19"/>
+                        <path d="M21 13v2a4 4 0 01-4 4H3"/>
+                    </svg>
+                    <h1>Convert Fabric Units</h1>
+                </div>
+                <p>Convert between any fabric length units.</p>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fromUnit">From</label>
+                        <select id="fromUnit">
+                            <option value="yd">Yards</option>
+                            <option value="in" selected>Inches</option>
+                            <option value="ft">Feet</option>
+                            <option value="cm">Centimeters</option>
+                            <option value="m">Meters</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="toUnit">To</label>
+                        <select id="toUnit">
+                            <option value="yd" selected>Yards</option>
+                            <option value="in">Inches</option>
+                            <option value="ft">Feet</option>
+                            <option value="cm">Centimeters</option>
+                            <option value="m">Meters</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fromVal">Value</label>
+                    <input type="number" id="fromVal" value="1" min="0" step="0.25" oninput="convertFabric()" class="calc-on-enter">
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="convertFabric()">Convert</button>
+                </div>
+
+                <div id="resultBox" class="result-box">
+                    <div class="result-value" id="resultDisplay"></div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Quick Fabric Conversion Reference</h2>
+                <table>
+                    <tr><th>Yards</th><th>Inches</th><th>Feet</th><th>Centimeters</th><th>Meters</th></tr>
+                    <tr><td>1/4 yd</td><td>9"</td><td>0.75 ft</td><td>22.9 cm</td><td>0.23 m</td></tr>
+                    <tr><td>1/2 yd</td><td>18"</td><td>1.5 ft</td><td>45.7 cm</td><td>0.46 m</td></tr>
+                    <tr><td>2/3 yd</td><td>24"</td><td>2 ft</td><td>61 cm</td><td>0.61 m</td></tr>
+                    <tr><td>3/4 yd</td><td>27"</td><td>2.25 ft</td><td>68.6 cm</td><td>0.69 m</td></tr>
+                    <tr><td>1 yd</td><td>36"</td><td>3 ft</td><td>91.4 cm</td><td>0.91 m</td></tr>
+                    <tr><td>2 yd</td><td>72"</td><td>6 ft</td><td>183 cm</td><td>1.83 m</td></tr>
+                    <tr><td>3 yd</td><td>108"</td><td>9 ft</td><td>274 cm</td><td>2.74 m</td></tr>
+                    <tr><td>5 yd</td><td>180"</td><td>15 ft</td><td>457 cm</td><td>4.57 m</td></tr>
+                </table>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-q">How many inches are in a yard of fabric?</div>
+                    <div class="faq-a">There are 36 inches in 1 yard of fabric. Fabric is typically sold by the yard (36" length) at standard widths (45", 54", 60").</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How many centimeters in a yard of fabric?</div>
+                    <div class="faq-a">1 yard of fabric equals 91.44 centimeters. Many fabric stores outside the US sell fabric in meters, and 1 meter is slightly more than 1 yard (about 3" extra).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Is a meter of fabric the same as a yard?</div>
+                    <div class="faq-a">No, a meter is 100 cm (39.37") while a yard is 91.44 cm (36"). A meter is about 3" longer than a yard. Use this converter when buying fabric from international sellers.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+const CONV_TO_IN = { yd: 36, in: 1, ft: 12, cm: 1 / 2.54, m: 100 / 2.54 };
+
+function convertFabric() {
+    const from = $('fromUnit').value;
+    const to = $('toUnit').value;
+    const val = parseFloat($('fromVal').value);
+    if (isNaN(val) || val < 0) { $('resultDisplay').textContent = 'Enter a valid number'; show($('resultBox')); return; }
+    const inches = val * CONV_TO_IN[from];
+    const result = inches / CONV_TO_IN[to];
+    const fmt = result < 0.01 ? result.toExponential(2) : result < 1 ? result.toFixed(4) : result < 10 ? result.toFixed(2) : Math.round(result * 100) / 100;
+    const unitNames = { yd: 'yards', in: 'inches', ft: 'feet', cm: 'cm', m: 'meters' };
+    $('resultDisplay').textContent = val + ' ' + unitNames[from] + ' = ' + fmt + ' ' + unitNames[to];
+    show($('resultBox'));
+}
+</script>
+</body>
+</html>

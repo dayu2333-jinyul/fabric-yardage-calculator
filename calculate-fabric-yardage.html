@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculate Fabric Yardage from Sewing Patterns - Read Pattern Envelopes | YardageCalculator.com</title>
+    <meta name="description" content="Learn how to calculate fabric yardage from sewing pattern envelopes. Understand pattern yardage tables, adjust for your size, and decode fabric width recommendations.">
+    <link rel="canonical" href="https://yardagecalculator.com/calculate-fabric-yardage.html">
+    <meta property="og:title" content="Calculate Fabric Yardage from Sewing Patterns">
+    <meta property="og:description" content="Learn to read sewing pattern yardage tables and calculate fabric needs for any size.">
+    <meta property="og:url" content="https://yardagecalculator.com/calculate-fabric-yardage.html">
+    <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Calculate Fabric Yardage from Sewing Patterns",
+        "description": "Learn how to read sewing pattern yardage tables and calculate fabric needs for any garment size.",
+        "url": "https://yardagecalculator.com/calculate-fabric-yardage.html"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Calculate Fabric Yardage from Sewing Patterns</h1>
+                <p>How to read pattern envelopes, decode yardage tables, and calculate fabric yardage for your exact size.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Calculate Fabric Yardage from Patterns</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 22h16"/><path d="M4 2v20"/><polyline points="4 4 12 4 20 12 20 20"/>
+                    </svg>
+                    <h1>Quick Yardage Calculator</h1>
+                </div>
+                <p>Use this calculator to check pattern yardage tables against your actual dimensions.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cyfLen">Piece Length <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="cyfLen" value="84" min="0.5" step="0.5" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="cyfWid">Piece Width <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="cyfWid" value="48" min="0.5" step="0.5" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cyfQty">Number of Pieces</label>
+                        <input type="number" id="cyfQty" value="2" min="1" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="cyfFw">Fabric Width</label>
+                        <select id="cyfFw">
+                            <option value="36">36" — Quilting cotton</option>
+                            <option value="45">45" — Lightweight apparel</option>
+                            <option value="54" selected>54" — Home decor</option>
+                            <option value="60">60" — Upholstery</option>
+                            <option value="108">108" — Wide drapery</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cyfSeam">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="cyfSeam" value="0.5" min="0" step="0.125" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="cyfWaste">Waste %</label>
+                        <input type="number" id="cyfWaste" value="10" min="0" max="100" class="calc-on-enter">
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" data-calc-btn onclick="calcCyfYardage()">Calculate Yardage</button>
+                </div>
+
+                <div id="cyfResultBox" class="result-box">
+                    <div class="result-value" id="cyfResult"></div>
+                    <div class="result-detail" id="cyfDetail"></div>
+                    <div class="formula-box" id="cyfFormula"></div>
+                </div>
+                <div id="cyfErrorBox" class="error-box"></div>
+            </div>
+
+            <div class="content-section">
+                <h2>How to Read a Sewing Pattern Yardage Table</h2>
+                <p>Every commercial sewing pattern includes a yardage table on the envelope. Here is how to read it correctly:</p>
+                <ol>
+                    <li><strong>Find your size</strong> — Pattern envelopes list yardage by size (XS–XL or numbered). Circle your size column.</li>
+                    <li><strong>Check the view</strong> — Patterns include multiple "views" (A = dress, B = top, C = jacket). Each view has its own row.</li>
+                    <li><strong>Match fabric width</strong> — Yardage tables show amounts for 45" and 60" fabric. Choose the column matching your fabric.</li>
+                    <li><strong>Read the number</strong> — Yardage is given in decimal (1.25) or fractional (1¼) format. 0.5 = ½ yard, 1.75 = 1¾ yards.</li>
+                </ol>
+                <div class="callout warning">
+                    <strong>Common mistake:</strong> Pattern yardage tables assume standard fabric widths. If you're using 36" quilting cotton for a garment that recommends 45", you may need 25–50% more fabric. Always verify with the calculator above.
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Adjusting Pattern Yardage for Your Size</h2>
+                <p>Pattern envelopes list yardage for the straight size range. If you are between sizes or have graded between sizes, here is how to adjust:</p>
+                <ul>
+                    <li><strong>One size up</strong> — Add ¼ yard for most garments. The pattern piece width increases slightly.</li>
+                    <li><strong>Two sizes up</strong> — Add ½–1 yard depending on garment fullness (more for flared styles).</li>
+                    <li><strong>Tall/long adjustments</strong> — If you need to lengthen the pattern by 2"+ (longer torso, longer inseam), add ¼–½ yard.</li>
+                    <li><strong>Napped fabrics</strong> — Velvet, corduroy, and fleece require all pieces cut in the same direction. Add ¼–½ yard.</li>
+                </ul>
+                <p>The easiest way to verify: lay out your pattern pieces at the correct width and measure the longest piece plus seam allowance. Enter that into the calculator above.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Pattern Yardage by Garment Type</h2>
+                <p>Approximate yardage ranges for standard patterns (45" fabric, size M). Always check your specific pattern envelope:</p>
+                <table>
+                    <tr><th>Garment</th><th>Yardage (45")</th><th>Yardage (60")</th></tr>
+                    <tr><td>Top, short sleeve</td><td>1–1½ yd</td><td>¾–1 yd</td></tr>
+                    <tr><td>Top, long sleeve</td><td>1½–2 yd</td><td>1–1½ yd</td></tr>
+                    <tr><td>Dress, short sleeve</td><td>2–2½ yd</td><td>1½–2 yd</td></tr>
+                    <tr><td>Dress, long sleeve</td><td>2½–3 yd</td><td>2–2½ yd</td></tr>
+                    <tr><td>Pants, straight leg</td><td>2¼–2¾ yd</td><td>1¾–2¼ yd</td></tr>
+                    <tr><td>Pants, wide leg</td><td>2½–3 yd</td><td>2–2½ yd</td></tr>
+                    <tr><td>Jacket, unlined</td><td>2–2½ yd</td><td>1½–2 yd</td></tr>
+                    <tr><td>Jacket, lined</td><td>2½–3½ yd</td><td>2–3 yd</td></tr>
+                </table>
+                <p>Use our <a href="/">main fabric yardage calculator</a> for exact numbers based on your measurements. For pattern matching adjustments, see Sewing Pattern Layouts below.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Pattern Layouts and Fabric Width</h2>
+                <p>Your pattern envelope shows two layout diagrams: one for 45" fabric and one for 60". The layout determines how many yards you actually need:</p>
+                <ul>
+                    <li><strong>Narrow fabric (36–45")</strong> — Pieces are laid end-to-end, requiring more length. Common for quilting cottons and apparel fabrics.</li>
+                    <li><strong>Medium fabric (54")</strong> — Most home decor pieces fit side-by-side. Saves about 20% yardage vs 45".</li>
+                    <li><strong>Wide fabric (60")</strong> — Garment pieces often fit across the full width. Saves 25–33% yardage vs 45".</li>
+                </ul>
+                <p>When <a href="/">calculating fabric yardage</a>, always start with the width you plan to buy. The <a href="/fabric-width-converter.html">fabric width converter</a> helps compare options.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-item">
+                    <div class="faq-q">What if my fabric width doesn't match the pattern table?</div>
+                    <div class="faq-a">Use the calculator above. Enter your fabric width and the dimensions of your largest pattern pieces. Compare the result to the pattern table — if it differs by more than ¼ yard, buy the larger amount.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Does the pattern include extra for shrinkage?</div>
+                    <div class="faq-a">No. Pattern yardage assumes pre-washed fabric at its stable size. Pre-wash your fabric and add 5–10% (set waste % in the calculator) for natural fiber shrinkage.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How do I calculate yardage for a multi-size pattern?</div>
+                    <div class="faq-a">Trace the largest size you need. Measure the widest and longest pattern pieces (including seam allowance). Enter those into the calculator. Add ¼ yard if cutting multiple sizes from one layout.</div>
+                </div>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+<script src="/js/common.js"></script>
+<script>
+function calcCyfYardage() {
+    const len = parseFloat($('cyfLen').value);
+    const wid = parseFloat($('cyfWid').value);
+    const qty = parseInt($('cyfQty').value);
+    const fw = parseFloat($('cyfFw').value);
+    const seam = parseFloat($('cyfSeam').value);
+    const wastePct = parseFloat($('cyfWaste').value) || 0;
+    const errEl = $('cyfErrorBox');
+    hide(errEl); hide($('cyfResultBox'));
+    if (isNaN(len) || len <= 0 || isNaN(wid) || wid <= 0) { errEl.textContent = 'Enter valid project dimensions.'; show(errEl); return; }
+    if (isNaN(qty) || qty < 1) { errEl.textContent = 'Enter a valid number of pieces.'; show(errEl); return; }
+    const result = computeYardage({ pieceLen: len, pieceWid: wid, qty, fw, seam, wastePct: wastePct });
+    $('cyfResult').textContent = result.yards + ' yards (' + formatYards(result.yards) + ')';
+    $('cyfDetail').innerHTML = qty + ' piece(s) × ' + result.adjLen.toFixed(1) + '" each = ' + result.totalInches.toFixed(1) + ' total inches + ' + wastePct + '% waste';
+    let f = 'Formula: (' + qty + ' × ' + result.adjLen.toFixed(1) + '") / (' + fw + '" / ' + (wid + seam * 2).toFixed(1) + '") / 36" = ' + result.yards + ' yd';
+    if (result.piecesPerWidth > 1) f += '<br>' + result.piecesPerWidth + ' pieces fit per ' + fw + '" width, so only ' + result.totalAdjPieces + ' row(s) needed';
+    $('cyfFormula').innerHTML = f;
+    show($('cyfResultBox'));
+}
+</script>
+</body>
+</html>

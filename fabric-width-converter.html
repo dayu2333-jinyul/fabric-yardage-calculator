@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fabric Width Converter - Inches to Centimeters | YardageCalculator.com</title>
+    <meta name="description" content="Convert fabric width between inches and centimeters instantly. Standard widths include 36, 45, 54, 60, and 108 inches with exact centimeter equivalents.">
+    <link rel="canonical" href="https://yardagecalculator.com/fabric-width-converter.html">
+    <meta property="og:title" content="Fabric Width Converter - Inches to Centimeters">
+    <meta property="og:description" content="Convert fabric width between inches and centimeters instantly.">
+    <meta property="og:url" content="https://yardagecalculator.com/fabric-width-converter.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Fabric Width Converter",
+        "url": "https://yardagecalculator.com/fabric-width-converter.html",
+        "description": "Convert fabric width between inches and centimeters.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" class="curr" title="Fabric Width Converter">Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt Fab</a>
+                    <a href="/nylon-vs-polyester.html" title="Nylon vs Polyester">Nylon vs Polyester</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Fabric Guide</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Fabric Width Converter</h1>
+                <p>Convert fabric width between inches and centimeters. Select a standard width or enter your own measurement.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Fabric Width Converter</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14"/>
+                        <path d="M12 5l7 7-7 7"/>
+                    </svg>
+                    <h1>Convert Fabric Width</h1>
+                </div>
+                <p>Quickly convert fabric width between inches and centimeters.</p>
+
+                <div class="form-group">
+                    <label for="direction">Conversion Direction</label>
+                    <select id="direction" onchange="toggleDir()">
+                        <option value="toCm">Inches to Centimeters</option>
+                        <option value="toIn">Centimeters to Inches</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fromVal" id="fromLabel">Inches</label>
+                        <input type="number" id="fromVal" value="54" min="0.1" step="0.5" oninput="convertWidth()" class="calc-on-enter">
+                    </div>
+                    <div class="form-group">
+                        <label for="toVal" id="toLabel">Centimeters</label>
+                        <input type="text" id="toVal" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Quick Select Standard Widths</label>
+                    <div class="presets">
+                        <div class="preset-btn" data-val="36">36" (90 cm)</div>
+                        <div class="preset-btn" data-val="45">45" (115 cm)</div>
+                        <div class="preset-btn active" data-val="54">54" (140 cm)</div>
+                        <div class="preset-btn" data-val="60">60" (150 cm)</div>
+                        <div class="preset-btn" data-val="108">108" (275 cm)</div>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="convertWidth()">Convert</button>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>Standard Fabric Width Conversion Table</h2>
+                <table>
+                    <tr><th>Inches</th><th>Centimeters</th><th>Common Use</th></tr>
+                    <tr><td>36"</td><td>91.4 cm</td><td>Quilting cotton</td></tr>
+                    <tr><td>44-45"</td><td>112-115 cm</td><td>Apparel, dressmaking</td></tr>
+                    <tr><td>54"</td><td>137 cm</td><td>Home decor, medium upholstery</td></tr>
+                    <tr><td>60"</td><td>152 cm</td><td>Upholstery, drapery</td></tr>
+                    <tr><td>72"</td><td>183 cm</td><td>Bedding, wide drapery</td></tr>
+                    <tr><td>108"</td><td>274 cm</td><td>Wide drapery, seamless bedding</td></tr>
+                    <tr><td>118"</td><td>300 cm</td><td>European drapery, extra-wide</td></tr>
+                </table>
+            </div>
+
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg> Fabric Guide</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+function toggleDir() {
+    const dir = $('direction').value;
+    $('fromLabel').textContent = dir === 'toCm' ? 'Inches' : 'Centimeters';
+    $('toLabel').textContent = dir === 'toCm' ? 'Centimeters' : 'Inches';
+    $('fromVal').value = '';
+    $('toVal').value = '';
+}
+
+document.querySelector('.presets').addEventListener('click', function(e) {
+    const btn = e.target.closest('.preset-btn');
+    if (!btn) return;
+    document.querySelectorAll('.presets .preset-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    $('fromVal').value = btn.dataset.val;
+    convertWidth();
+});
+
+function convertWidth() {
+    const dir = $('direction').value;
+    const val = parseFloat($('fromVal').value);
+    if (isNaN(val) || val <= 0) { $('toVal').value = 'Enter a valid number'; return; }
+    if (dir === 'toCm') {
+        $('toVal').value = (val * 2.54).toFixed(1) + ' cm';
+    } else {
+        $('toVal').value = (val / 2.54).toFixed(2) + ' inches';
+    }
+}
+</script>
+</body>
+</html>
