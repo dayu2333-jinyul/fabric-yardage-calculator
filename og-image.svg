@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a3a2a"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="#2d6a4f"/>
+  <text x="600" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#ffffff">YardageCalculator.com</text>
+  <text x="600" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#a8d5ba">Free Fabric Yardage Calculator</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#6cb884">Real-time results · Cost estimator · Metric/Imperial</text>
+  <rect x="400" y="420" width="400" height="60" rx="30" fill="#1a3a2a"/>
+  <text x="600" y="458" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#ffffff">Calculate Fabric Yardage</text>
+</svg>
