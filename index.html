@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Fabric Yardage Calculator — Real-Time Fabric Calculator | YardageCalc</title>
-    <meta name="description" content="Calculate how much fabric you need in real time. Enter dimensions and fabric width to get exact yards. Includes cost estimator, metric toggle, and project presets.">
-    <link rel="canonical" href="https://yardage-calc.com/">
-    <meta property="og:title" content="Fabric Yardage Calculator - Calculate How Much Fabric You Need">
-    <meta property="og:description" content="Free fabric yardage calculator — real-time results, cost estimator, metric/imperial toggle, and project presets for pillows, curtains, clothing, and quilts.">
+    <title>Fabric Yardage Calculator — Real-Time Inches &amp; CM (Free, No Signup)</title>
+    <meta name="description" content="Free fabric yardage calculator — get real-time measurements in inches and cm for curtains, upholstery, quilts, and clothing. No signup, instant results.">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<style>/* ── Critical CSS: variables + reset only (zero CLS impact) ── */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--color-bg:#0b0b14;--color-surface:#14142a;--color-primary:#ff6b35;--color-text:#e0e0e0;--color-text-heading:#ffffff;--color-text-muted:#a0a0b0;--color-border:#2a2a3a;--accent:#14B8A6;--bg-secondary:#1e1e32;--bg-primary:#14142a;--text-primary:#e0e0e0;--border:#2a2a3a;--muted:#a0a0b0;--warm-gray:#a0a0b0}
+@media(prefers-color-scheme:light){:root{--color-bg:#f8f9fc;--color-surface:#ffffff;--color-primary:#ff6b35;--color-text:#1a1a2e;--color-text-heading:#1a1a2e;--color-text-muted:#888888;--color-border:#e8ecf1;--accent:#14B8A6;--bg-secondary:#ffffff;--bg-primary:#ffffff;--text-primary:#1a1a2e;--border:#e8ecf1;--muted:#888888;--warm-gray:#888888}}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.6;color:var(--color-text);background:var(--color-bg)}
+.back-to-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent,#14B8A6);color:#fff;border:none;font-size:1.2rem;cursor:pointer;box-shadow:0 4px 16px rgba(20,184,166,.35);transition:all .3s;z-index:999;display:flex;align-items:center;justify-content:center;opacity:0;transform:translateY(12px);pointer-events:none}.back-to-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+</style>
+<link rel="canonical" href="https://yardage-calc.com/">
+    <meta property="og:title" content="Fabric Yardage Calculator — Real-Time Inches &amp; CM (Free, No Signup)" />
+    <meta property="og:description" content="Free fabric yardage calculator — get real-time measurements in inches and cm for curtains, upholstery, quilts, and clothing. No signup." />
     <meta property="og:url" content="https://yardage-calc.com/">
-    <meta property="og:image" content="https://yardage-calc.com/og-image.svg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Fabric Yardage Calculator">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1578353022142-09264fd64295?w=1200&q=80&fm=webp">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebApplication",
-        "name": "Fabric Yardage Calculator",
+        "name": "Fabric Yardage Calculator with Cost Estimate",
         "url": "https://yardage-calc.com/",
-        "description": "Calculate how much fabric you need for your sewing project. Real-time results with cost estimator and unit conversion.",
+        "description": "Calculate how much fabric you need for your sewing project. Real-time results with cost breakdown, width comparison, and unit conversion.",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "All",
         "browserRequirements": "Requires JavaScript",
         "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
     }
     </script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+<link rel="dns-prefetch" href="//www.google-analytics.com">
+<link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <script type="application/ld+json">
@@ -97,20 +111,37 @@
     ]
 }
     </script>
+    <link rel="apple-touch-icon" href="/favicon.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/site.webmanifest">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SEN10KVXHH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-SEN10KVXHH");
+</script>
 </head>
 <body>
 <div class="wrapper">
-    <header>
-        <div class="container">
+    <header style="position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(11,11,20,0.92),rgba(20,20,42,0.85)),url('https://images.unsplash.com/photo-1578353022142-09264fd64295?w=1200&q=80&fm=webp') center/cover no-repeat;">
+  <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(11,11,20,0.88),rgba(20,20,42,0.8));z-index:0;"></div>
+  <div style="position:relative;z-index:1;">
+  <div class="container">
             <div class="header-top">
                 <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
                 <nav>
                     <a href="/" class="curr" title="Fabric Yardage Calculator">Yardage Calc</a>
                     <a href="/fabric-converter.html" title="Fabric Converter">Converter</a>
                     <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width</a>
+                    <a href="/bias-binding-fabric-calculator.html" title="Bias Binding Fabric Calculator">Bias</a>
                     <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow</a>
                     <a href="/cushion-fabric-yardage.html" title="Cushion Fabric Yardage">Cushion</a>
                     <a href="/curtain-fabric-yardage.html" title="Curtain Fabric Yardage">Curtains</a>
+                    <a href="/curtain-fabric-calculator-free.html" title="Free Curtain Fabric Calculator">Free Curtain</a>
+                    <a href="/curtain-calculation-formula.html" title="Curtain Calculation Formula">Formula</a>
                     <a href="/upholstery-fabric-yardage.html" title="Upholstery Fabric Yardage">Upholstery</a>
                     <a href="/clothing-fabric-yardage.html" title="Clothing Fabric Yardage">Clothing</a>
                     <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt</a>
@@ -122,16 +153,24 @@
                     <a href="/calculate-fabric-yardage.html" title="Calculate Fabric Yardage">Pattern</a>
                     <a href="/how-to-calculate-fabric-yardage.html" title="How to Calculate Fabric Yardage">Tutorial</a>
                     <a href="/yardage-calculator-fabric.html" title="Yardage Calculator Fabric">Home Decor</a>
+                    <a href="/fabric-yardage-reference-table.html" title="Fabric Yardage Reference Table">Yardage Ref</a>
                 </nav>
             </div>
             <div class="hero">
-                <h1>Fabric Yardage Calculator</h1>
-                <p>Get the exact yards of fabric needed for your sewing project. Built by a sewist of 12+ years — the formulas are the same ones I use for my own curtains, upholstery, and garment projects. Real-time results as you type.</p>
+                <h1>Fabric Yardage Calculator with Cost Estimate</h1>
+                <p>Get the exact yards of fabric needed for your sewing project — with cost breakdowns, width comparisons, and project presets. Built by a sewist of 12+ years; the formulas are the same ones I use for my own curtains, upholstery, and garment projects. Real-time results as you type.</p>
             </div>
         </div>
-    </header>
+  </div>
+</header>
 
-    <main>
+    
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1100px;margin:0 auto;padding:30px 20px;">
+  <img src="https://images.unsplash.com/photo-1523901839036-a3030662f220?w=540&q=80&fm=webp" alt="Tailor measuring tape close up" style="width:100%;border-radius:12px;aspect-ratio:16/9;object-fit:cover;" loading="lazy" class="anim-fade-in anim-delay-1">
+  <img src="https://images.unsplash.com/photo-1644530186995-27e46f340fb1?w=540&q=80&fm=webp" alt="Scissors and measuring tape on table" style="width:100%;border-radius:12px;aspect-ratio:16/9;object-fit:cover;" loading="lazy" class="anim-fade-in anim-delay-2">
+</div>
+
+<main>
         <div class="container">
             <div class="breadcrumb">
                 <a href="/">Home</a> / <span>Fabric Yardage Calculator</span>
@@ -167,10 +206,11 @@
                     <div class="quick-preset-card" onclick="applyPreset(96,90,1,45,0.25,1,'Queen Quilt Top')"><div class="qpc-name">Queen Quilt Top</div><div class="qpc-desc">90×96", 45" quilting cotton</div></div>
                     <div class="quick-preset-card" onclick="applyPreset(72,48,1,60,0.5,30,'Tablecloth')"><div class="qpc-name">Tablecloth</div><div class="qpc-desc">48×72" table, 12" drop, 60" fabric</div></div>
                 </div>
+                <p style="font-size:0.9rem;color:var(--warm-gray);margin-top:4px;"><strong>Preset guide:</strong> Each card loads the dimensions and fabric width for that project. For example, the <em>Throw Pillow</em> preset sets two 18×18" pieces (front + back) on 54" fabric with ½" seam allowance — click to see the yardage change instantly. The <em>Curtain Panel</em> preset uses 92" drop length to account for hemming and header. The <em>Knee-Length Dress</em> uses the widest pattern piece as the width input, which gives a conservative estimate.</p>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Fabric Width <span class="hint" data-unit="in">inches</span></label>
+                        <label for="fabricWidth">Fabric Width <span class="hint" data-unit="in">inches</span></label>
                         <div class="form-row" style="grid-template-columns: 1fr 1fr; gap: 8px;">
                             <select id="fabricWidth" data-realtime="1">
                                 <option value="36">36" — Quilting cotton</option>
@@ -183,40 +223,40 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Fabric Price <span class="hint">$ per yard</span></label>
+                        <label for="pricePerYard">Fabric Price <span class="hint">$ per yard</span></label>
                         <input type="number" id="pricePerYard" value="0" min="0" step="0.5" data-realtime="1" placeholder="Optional">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Piece Length <span class="hint" data-unit="in">inches</span></label>
+                        <label for="pieceLength">Piece Length <span class="hint" data-unit="in">inches</span></label>
                         <input type="number" id="pieceLength" value="36" min="0.1" step="0.5" data-realtime="1">
                     </div>
                     <div class="form-group">
-                        <label>Piece Width <span class="hint" data-unit="in">inches</span> <span class="hint">(0 = single piece)</span></label>
+                        <label for="pieceWidth">Piece Width <span class="hint" data-unit="in">inches</span> <span class="hint">(0 = single piece)</span></label>
                         <input type="number" id="pieceWidth" value="0" min="0" step="0.5" data-realtime="1">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Number of Pieces</label>
+                        <label for="numPieces">Number of Pieces</label>
                         <input type="number" id="numPieces" value="1" min="1" step="1" data-realtime="1">
                     </div>
                     <div class="form-group">
-                        <label>Pattern Repeat <span class="hint" data-unit="in">inches</span> <span class="hint">(optional)</span></label>
+                        <label for="patternRepeat">Pattern Repeat <span class="hint" data-unit="in">inches</span> <span class="hint">(optional)</span></label>
                         <input type="number" id="patternRepeat" value="0" min="0" step="0.5" data-realtime="1">
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Seam Allowance <span class="hint" data-unit="in">inches</span></label>
+                        <label for="seamAllowance">Seam Allowance <span class="hint" data-unit="in">inches</span></label>
                         <input type="number" id="seamAllowance" value="0.5" min="0" step="0.125" data-realtime="1">
                     </div>
                     <div class="form-group">
-                        <label>Waste % <span class="hint">(shrinkage, mistakes)</span></label>
+                        <label for="wastePercent">Waste % <span class="hint">(shrinkage, mistakes)</span></label>
                         <input type="number" id="wastePercent" value="10" min="0" max="100" step="1" data-realtime="1">
                     </div>
                 </div>
@@ -247,6 +287,23 @@
                     </div>
                     <div id="toastMsg" class="toast-msg"></div>
                 </div>
+                <div class="related-calc-links" style="margin-top:20px;padding:16px;background:var(--bg-secondary);border-radius:8px;font-size:0.9rem;">
+                    <strong style="display:block;margin-bottom:8px;color:var(--text-primary);">Need more fabric measurements?</strong>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+                        <a href="/fabric-cost-calculator.html" style="padding:6px 14px;background:var(--bg-primary);border-radius:6px;text-decoration:none;color:var(--text-primary);display:inline-flex;align-items:center;gap:6px;">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                            Fabric Cost Calculator
+                        </a>
+                        <a href="/fabric-width-converter.html" style="padding:6px 14px;background:var(--bg-primary);border-radius:6px;text-decoration:none;color:var(--text-primary);display:inline-flex;align-items:center;gap:6px;">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                            Width Converter — Inches to CM
+                        </a>
+                        <a href="/fabric-repeating-pattern-calculator.html" style="padding:6px 14px;background:var(--bg-primary);border-radius:6px;text-decoration:none;color:var(--text-primary);display:inline-flex;align-items:center;gap:6px;">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                            Repeating Pattern Calculator
+                        </a>
+                    </div>
+                </div>
                 <div id="calcHistory" class="calc-history" style="display:none;margin-top:16px;"></div>
                 <div id="errorBox" class="error-box"></div>
             </div>
@@ -263,7 +320,7 @@
                     <a href="/curtain-fabric-yardage.html" class="scene-card">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3v18M20 3v18M4 12h16M4 6h16"/></svg>
                         <span>Curtains & Drapery</span>
-                        <small>Window panels, fullness ratio</small>
+                        <small>Fullness ratio, panels, free calculator</small>
                     </a>
                     <a href="/cushion-fabric-yardage.html" class="scene-card">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12a4 4 0 014-4h12a4 4 0 014 4v4a4 4 0 01-4 4H6a4 4 0 01-4-4v-4z"/></svg>
@@ -284,6 +341,11 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg>
                         <span>Pillows</span>
                         <small>Throw, lumbar, floor cushions</small>
+                    </a>
+                    <a href="/curtain-fabric-calculator-free.html" class="scene-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 3v18"/><path d="M16 3v6"/></svg>
+                        <span>Free Curtain Calc</span>
+                        <small>No sign-up, real-time yardage</small>
                     </a>
                     <a href="/what-can-you-make-with-1-yard.html" class="scene-card">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -313,7 +375,19 @@
             </div>
 
             <div class="content-section">
-                <h2>How Yardage Is Calculated</h2>
+                <h2>How to Measure for Fabric Yardage — Step by Step</h2>
+                <p>Getting accurate measurements before you use the calculator saves time and prevents under-buying. Here's the method I use for every project:</p>
+                <ol>
+                    <li><strong>Measure the longest dimension</strong> — For a cushion, that's the length from front to back. For curtains, it's the finished drop from rod to hem. Enter this as "Piece Length."</li>
+                    <li><strong>Measure the widest dimension</strong> — The widest point of the piece your fabric needs to cover. For pillows and cushions this is the width; for clothing it's the widest pattern piece (usually the bodice or skirt panel). Enter this as "Piece Width."</li>
+                    <li><strong>Count how many identical pieces you need</strong> — A throw pillow needs 2 (front + back). Curtains need 2 panels. A dress may need 4–6 main pattern pieces — group the largest ones and enter the count.</li>
+                    <li><strong>Account for seam allowance</strong> — Standard is ½". If you're using a commercial pattern, check its seam allowance — European patterns often use ⅝" (1.5 cm).</li>
+                    <li><strong>Add waste for shrinkage</strong> — Cotton shrinks 3–5% on the first wash. Add 10% waste as a baseline; go to 15% if you're new to sewing or working with slippery fabrics like silk charmeuse.</li>
+                </ol>
+                <div class="callout info">
+                    <strong>My rule of thumb:</strong> For fabric with a one-way print (nap, directional pattern), treat each piece as needing its own length — you can't rotate pieces to save space. The calculator's "Pattern Repeat" field handles this automatically: enter the repeat distance, and it adds that to each piece's adjusted length.
+                </div>
+            </div>
                 <div class="formula-box">
                     <strong>Step 1:</strong> Adjusted piece size = dimension + seam allowance × 2 + hem + pattern repeat<br>
                     <strong>Step 2:</strong> Pieces per width = fabric width ÷ adjusted piece width (round down)<br>
@@ -321,8 +395,19 @@
                     <strong>Step 4:</strong> Total inches = rows × adjusted piece length<br>
                     <strong>Step 5:</strong> Yards = (total inches ÷ 36) × (1 + waste %)
                 </div>
-                <p>Example: an <strong>18×18" pillow</strong> needs 2 pieces (front + back). On 54" fabric with ½" seam allowance: each piece is 19" × 19". Two pieces fit side by side across 54", so only 1 row of 19" = 19" total. With 10% waste: <strong>19" ÷ 36 × 1.1 = 0.58 → round up to ⅔ yard</strong>.</p>
+                <p>Example: an <strong>18×18" pillow</strong> needs 2 pieces (front + back). On 54" fabric with ½" seam allowance: each piece is 19" × 19". Two pieces fit side by side across 54", so only 1 row of 19" = 19" total. With 10% waste: <strong>19" ÷ 36 × 1.1 = 0.58 <i data-lucide="arrow-right"></i> round up to ⅔ yard</strong>.</p>
                 <p style="font-size:0.9rem;color:var(--warm-gray);">Formula verified against <em>Reader's Digest Complete Guide to Sewing</em> and WCAA curtain fullness standards. Checked against real cutting layouts for all project types listed in the table below.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>How to Save on Fabric — Tips for Beginners</h2>
+                <p>Fabric is often the most expensive part of a sewing project. These strategies help you buy less without compromising your finished piece:</p>
+                <ul>
+                    <li><strong>Choose wider fabric when possible.</strong> Switching from 45" to 60" fabric reduces yardage by roughly 25% for the same project. The width comparison feature below the calculator shows you the difference instantly — try it before you buy.</li>
+                    <li><strong>Nest your pattern pieces.</strong> Before cutting, arrange all pattern pieces on the fabric width to find the most efficient layout. The calculator assumes ideal nesting; if you know your layout will be less efficient, add 5% to the waste percentage.</li>
+                    <li><strong>Buy whole-yard cuts for small projects.</strong> A throw pillow on 54" fabric needs only ½ yard, but fabric stores cut in ¼-yard increments. Buying a full yard gives you leftover fabric for matching accent pillows or small repairs — often cheaper per yard too.</li>
+                    <li><strong>Pre-wash to prevent post-sewing shrinkage.</strong> Cotton and linen fabrics shrink after the first wash. Pre-washing means your ½" seam allowance stays ½" and your finished project fits as intended — no extra fabric wasted on remakes.</li>
+                </ul>
             </div>
 
             <div class="content-section">
@@ -375,6 +460,14 @@
                     <div class="faq-q">Is the calculator accurate for metric measurements?</div>
                     <div class="faq-a">Yes — click "Switch to Metric" at the top of the calculator. Enter dimensions in centimeters and get results in meters and centimeters.</div>
                 </div>
+                <div class="faq-item">
+                    <div class="faq-q">What's the best fabric width for upholstery projects?</div>
+                    <div class="faq-a">Upholstery fabric is typically 54" or 60" wide. Sofas and armchairs with cushion seats need 54" minimum; wide-sectionals and headboards benefit from 60". Use the width comparison feature below the calculator result to see how switching widths changes your total yardage and cost.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Can I use this calculator for sewing multiple garments at once?</div>
+                    <div class="faq-a">Yes. Increase the "Number of Pieces" field to the total number of pattern pieces across all garments. Each piece's length should be the longest dimension of your pattern pieces. For bulk cutting, also add a pattern repeat value if your fabric has a directional print — this prevents shorting yourself on matching prints.</div>
+                </div>
             </div>
 
             <div class="content-section">
@@ -397,6 +490,10 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
                         Fabric Converter — Yards, Inches, CM
                     </a>
+                    <a href="/bias-binding-fabric-calculator.html" title="Bias Binding Fabric Calculator">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M6 17v3"/><path d="M18 17v3"/><path d="M9 10h6"/><path d="M9 13h4"/></svg>
+                        Bias Binding Calculator — Strip Yardage
+                    </a>
                     <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg>
                         Pillow Fabric Calculator — Cushion Yardage
@@ -416,11 +513,20 @@
 
     <footer>
         <div class="container">
-            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <span>&copy; 2026 <a href="/">Yardage-Calc.com</a>. All rights reserved.</span>
             <a href="/privacy.html">Privacy</a>
             <a href="/about.html">About</a>
+            <a href="/useful-tools.html">Useful Tools</a>
         </div>
-    </footer>
+    
+<section class="related-links" style="margin-top:32px;padding-top:24px;border-top:1px solid var(--border);text-align:center">
+<h3 style="color:var(--muted);font-size:0.85rem;margin-bottom:12px">EXPLORE MORE TOOLS</h3>
+<div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
+<a href="/curtain-fabric-calculator.html" style="color:var(--accent);font-size:0.85rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:8px">Curtain Fabric Calculator <i data-lucide="arrow-right"></i></a><a href="/quilt-yardage-calculator.html" style="color:var(--accent);font-size:0.85rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:8px">Quilt Yardage Calculator <i data-lucide="arrow-right"></i></a><a href="/upholstery-fabric-calculator.html" style="color:var(--accent);font-size:0.85rem;text-decoration:none;padding:6px 14px;border:1px solid var(--border);border-radius:8px">Upholstery Fabric Calculator <i data-lucide="arrow-right"></i></a>
+</div>
+</section>
+
+</footer>
 </div>
 
 <script src="/js/common.js"></script>
@@ -513,8 +619,19 @@ function calcYardage() {
 
 function saveCalcToHistory(yards, label) {
     try {
+        var snap = {
+            fabricWidth: document.getElementById('fabricWidth').value,
+            customWidth: document.getElementById('customWidth').value,
+            pieceLength: document.getElementById('pieceLength').value,
+            pieceWidth: document.getElementById('pieceWidth').value,
+            numPieces: document.getElementById('numPieces').value,
+            seamAllowance: document.getElementById('seamAllowance').value,
+            wastePercent: document.getElementById('wastePercent').value,
+            patternRepeat: document.getElementById('patternRepeat').value,
+            pricePerYard: document.getElementById('pricePerYard').value,
+        };
         var history = JSON.parse(localStorage.getItem('yardage_history') || '[]');
-        history.unshift({ yards: yards, label: label, time: new Date().toLocaleString(), preset: activePreset || 'Custom' });
+        history.unshift({ yards: yards, label: label, time: new Date().toLocaleString(), preset: activePreset || 'Custom', snap: snap });
         if (history.length > 5) history.length = 5;
         localStorage.setItem('yardage_history', JSON.stringify(history));
         renderCalcHistory();
@@ -540,9 +657,22 @@ function renderCalcHistory() {
 function restoreCalc(index) {
     try {
         var history = JSON.parse(localStorage.getItem('yardage_history') || '[]');
-        if (!history[index]) return;
-        // Can only restore the preset — the actual input values aren't saved in v1
-        showToast('Loaded: ' + history[index].label);
+        var entry = history[index];
+        if (!entry) return;
+        if (entry.snap) {
+            var s = entry.snap;
+            document.getElementById('fabricWidth').value = s.fabricWidth || '54';
+            document.getElementById('customWidth').value = s.customWidth || '54';
+            document.getElementById('pieceLength').value = s.pieceLength || '36';
+            document.getElementById('pieceWidth').value = s.pieceWidth || '0';
+            document.getElementById('numPieces').value = s.numPieces || '1';
+            document.getElementById('seamAllowance').value = s.seamAllowance || '0.5';
+            document.getElementById('wastePercent').value = s.wastePercent || '10';
+            document.getElementById('patternRepeat').value = s.patternRepeat || '0';
+            document.getElementById('pricePerYard').value = s.pricePerYard || '0';
+            calcYardage();
+        }
+        showToast('Restored: ' + entry.label);
     } catch(e) {}
 }
 
@@ -653,32 +783,62 @@ document.querySelectorAll('#mainCalc [data-realtime]').forEach(el => {
     el.addEventListener('change', calcYardage);
 });
 
-// Exit Intent - show related tools when mouse leaves window
-(function() {
-    var shown = false;
-    document.addEventListener('mouseleave', function(e) {
-        if (shown) return;
-        if (e.clientY > 0) return; // only when leaving from top
-        shown = true;
-        var overlay = document.createElement('div');
-        overlay.className = 'email-modal-overlay';
-        overlay.innerHTML = '<div class="email-modal exit-modal" onclick="event.stopPropagation()">' +
-            '<button class="email-modal-close" onclick="this.closest(\'.email-modal-overlay\').remove();shown=false;">&times;</button>' +
-            '<div class="email-modal-icon" style="color:var(--green-deep);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>' +
-            '<div class="email-modal-title">Need Fabric for a Different Project?</div>' +
-            '<div class="email-modal-desc" style="text-align:center;">Try our specialized calculators for your exact project:</div>' +
-            '<div class="exit-links"><a href="/upholstery-fabric-yardage.html" class="exit-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="14" rx="2"/></svg>Upholstery</a><a href="/curtain-fabric-yardage.html" class="exit-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 3v18M20 3v18"/></svg>Curtains</a><a href="/cushion-fabric-yardage.html" class="exit-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12a4 4 0 014-4h12a4 4 0 014 4v4a4 4 0 01-4 4H6a4 4 0 01-4-4v-4z"/></svg>Cushions</a><a href="/quilt-fabric-calculator.html" class="exit-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>Quilts</a></div>' +
-            '<button class="btn btn-secondary" onclick="this.closest(\'.email-modal-overlay\').remove();shown=false;" style="width:100%;justify-content:center;">Stay on Yardage Calculator</button>' +
-            '</div>';
-        document.body.appendChild(overlay);
-        setTimeout(function() { overlay.classList.add('show'); }, 10);
-    });
-})();
-
 // Init on load
 document.addEventListener('DOMContentLoaded', function() {
     calcYardage();
+document.addEventListener('DOMContentLoaded', function() {
+    calcYardage();
     renderCalcHistory();
+});
+</script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<button class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+<script>(function(){var b=document.querySelector('.back-to-top');if(b){window.addEventListener('scroll',function(){b.classList.toggle('visible',window.scrollY>500)})}})();</script>
+
+<!-- Copy result button -->
+<script>
+(function(){
+  var actions = document.querySelector('.action-btns');
+  if (!actions) return;
+  var copyBtn = document.createElement('button');
+  copyBtn.className = 'action-btn';
+  copyBtn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+  copyBtn.onclick = function() {
+    var text = 'Fabric yardage: ' + (document.getElementById('yardsResult')?.textContent || '') + ' — ' + (document.getElementById('resultDetail')?.textContent?.replace(/\s+/g, ' ').trim() || '');
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function(){ showToast('Result copied!'); }).catch(function(){});
+    }
+  };
+  actions.insertBefore(copyBtn, actions.querySelector('.action-btn[onclick*="share"]'));
+
+  var dlBtn = document.createElement('button');
+  dlBtn.className = 'action-btn';
+  dlBtn.innerHTML = '<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download';
+  dlBtn.onclick = function() {
+    var yards = document.getElementById('yardsResult')?.textContent || '';
+    var detail = document.getElementById('resultDetail')?.textContent?.replace(/\s+/g, ' ').trim() || '';
+    var cost = document.getElementById('costDisplay')?.textContent || '';
+    var lines = '=== Fabric Yardage Result ===\nDate: ' + new Date().toLocaleDateString() + '\n\nYards: ' + yards + '\nDetails: ' + detail + '\nCost: ' + cost + '\n\nGenerated by https://yardage-calc.com/';
+    var blob = new Blob([lines], {type:'text/plain;charset=utf-8'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'yardage-result.txt';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    showToast('Result downloaded!');
+  };
+  actions.insertBefore(dlBtn, actions.querySelector('.action-btn[onclick*="print"]'));
+})();
+</script>
+
+<!-- Ctrl+Enter keyboard shortcut -->
+<script>
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+    e.preventDefault();
+    calcYardage();
+    showToast('Re-calculated!');
+  }
 });
 </script>
 </body>

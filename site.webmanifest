@@ -1,0 +1,17 @@
+{
+    "name": "Yardage Calculator",
+    "short_name": "YardageCalc",
+    "description": "Free fabric yardage calculator. Real-time fabric calculator for pillows, curtains, upholstery, quilts.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#faf7f2",
+    "theme_color": "#2d6a4f",
+    "icons": [
+        {
+            "src": "/favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

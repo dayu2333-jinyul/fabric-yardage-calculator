@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bias Binding Fabric Calculator — Free Strip Yardage Estimator</title>
+    <meta name="description" content="Calculate fabric yardage for bias binding strips. Enter binding length and width — get exact yards of fabric needed. Free online bias tape calculator.">
+    <link rel="canonical" href="https://yardage-calc.com/bias-binding-fabric-calculator.html">
+    <meta property="og:title" content="Bias Binding Fabric Calculator — Free Strip Yardage Estimator" />
+    <meta property="og:description" content="Calculate fabric yardage for bias binding strips. Enter binding length and width — get exact yards of fabric needed." />
+    <meta property="og:url" content="https://yardage-calc.com/bias-binding-fabric-calculator.html">
+    <meta property="og:image" content="https://yardage-calc.com/og-image.svg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Bias Binding Fabric Calculator",
+        "url": "https://yardage-calc.com/bias-binding-fabric-calculator.html",
+        "description": "Calculate fabric yardage for bias binding strips — enter finished binding length and width for exact yardage.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript",
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}
+    }
+    </script>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://yardage-calc.com/"},
+            {"@type": "ListItem", "position": 2, "name": "Bias Binding Fabric Calculator", "item": "https://yardage-calc.com/bias-binding-fabric-calculator.html"}
+        ]
+    }
+    </script>
+    <link rel="apple-touch-icon" href="/favicon.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="/site.webmanifest">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SEN10KVXHH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-SEN10KVXHH");
+</script>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo"><a href="/" title="Fabric Yardage Calculator">YardageCalc</a></div>
+                <nav>
+                    <a href="/" title="Fabric Yardage Calculator">Yardage Calc</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter">Converter</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter">Width</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator">Pillow</a>
+                    <a href="/cushion-fabric-yardage.html" title="Cushion Fabric Yardage">Cushion</a>
+                    <a href="/curtain-fabric-yardage.html" title="Curtain Fabric Yardage">Curtains</a>
+                    <a href="/upholstery-fabric-yardage.html" title="Upholstery Fabric Yardage">Upholstery</a>
+                    <a href="/clothing-fabric-yardage.html" title="Clothing Fabric Yardage">Clothing</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator">Quilt</a>
+                    <a href="/bias-binding-fabric-calculator.html" class="curr" title="Bias Binding Fabric Calculator">Bias Binding</a>
+                    <a href="/how-much-fabric.html" title="How Much Fabric Do I Need">Guide</a>
+                    <a href="/fabric-cost-calculator.html" title="Fabric Cost Calculator">Cost</a>
+                </nav>
+            </div>
+            <div class="hero">
+                <h1>Bias Binding Fabric Calculator</h1>
+                <p>Calculate how much fabric you need to make continuous bias binding strips. Enter your finished binding length and strip width — the calculator does the rest.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="/">Home</a> / <span>Bias Binding Fabric Calculator</span>
+            </div>
+
+            <div class="tool-card">
+                <div class="icon-heading">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#2d6a4f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 7V4h16v3"/>
+                        <rect x="2" y="7" width="20" height="10" rx="2"/>
+                        <path d="M6 17v3"/>
+                        <path d="M18 17v3"/>
+                        <path d="M9 10h6"/>
+                        <path d="M9 13h4"/>
+                    </svg>
+                    <h2>Calculate Bias Binding Yardage</h2>
+                </div>
+                <p>Enter the finished binding length you need and the strip width — get exact yardage for your fabric square or rectangle.</p>
+
+                <div class="unit-toggle-bar">
+                    <button class="unit-toggle-btn" id="unitToggle">Switch to Metric</button>
+                </div>
+
+                <div class="form-group">
+                    <label>Common Binding Presets</label>
+                    <div class="quick-presets" id="bindingPresets">
+                        <div class="quick-preset-card" data-len="168" data-wid="2.25" data-name="Baby Quilt">
+                            <div class="qpc-name">Baby Quilt (40x44")</div>
+                            <div class="qpc-desc">168" binding, 2.25" strips</div>
+                        </div>
+                        <div class="quick-preset-card" data-len="320" data-wid="2.25" data-name="Twin Quilt">
+                            <div class="qpc-name">Twin Quilt (70x90")</div>
+                            <div class="qpc-desc">320" binding, 2.25" strips</div>
+                        </div>
+                        <div class="quick-preset-card" data-len="396" data-wid="2.5" data-name="Queen Quilt">
+                            <div class="qpc-name">Queen Quilt (90x108")</div>
+                            <div class="qpc-desc">396" binding, 2.5" strips</div>
+                        </div>
+                        <div class="quick-preset-card" data-len="432" data-wid="2.5" data-name="King Quilt">
+                            <div class="qpc-name">King Quilt (108x108")</div>
+                            <div class="qpc-desc">432" binding, 2.5" strips</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bindLength">Binding Length Needed <span class="hint" data-unit="in">inches</span></label>
+                        <input type="number" id="bindLength" value="168" min="1" step="1" data-realtime="1" placeholder="Total binding length">
+                    </div>
+                    <div class="form-group">
+                        <label for="bindStripWid">Strip Width <span class="hint" data-unit="in">inches</span></label>
+                        <select id="bindStripWid">
+                            <option value="2">2" — Extra narrow</option>
+                            <option value="2.25" selected>2.25" — Standard quilting</option>
+                            <option value="2.5">2.5" — Standard binding</option>
+                            <option value="3">3" — Wide binding</option>
+                            <option value="3.5">3.5" — Extra wide</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bindFabWidth">Fabric Width <span class="hint">(inches)</span></label>
+                        <select id="bindFabWidth">
+                            <option value="42">42" — Quilting cotton</option>
+                            <option value="44">44" — Quilting cotton</option>
+                            <option value="45">45" — Cotton</option>
+                            <option value="54">54" — Wide fabric</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="bindWaste">Waste % <span class="hint">(seams, cutting)</span></label>
+                        <input type="number" id="bindWaste" value="10" min="0" max="50" data-realtime="1">
+                    </div>
+                </div>
+
+                <div class="callout info">
+                    <strong>How bias binding works:</strong> Traditional bias binding is cut at a 45-degree angle from the selvage, giving it stretch and flexibility to curve around shapes. This calculator estimates using the continuous bias binding method — start with a fabric square, cut it diagonally, and sew the ends to form a continuous strip. The result is the minimum fabric yardage needed.
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="calcBiasBinding()">Calculate Binding Fabric</button>
+                </div>
+
+                <div id="resultBox" class="result-box">
+                    <div class="result-value" id="biasResult"></div>
+                    <div class="result-detail" id="biasDetail"></div>
+                    <div id="biasSquareTable" style="margin-top:16px;padding:12px;background:var(--bg-secondary);border-radius:8px;"></div>
+                </div>
+                <div id="errorBox" class="error-box"></div>
+            </div>
+
+            <img src="https://images.unsplash.com/photo-1509319113486-40bb45b06a8e?w=960&q=80&fm=webp" alt="Colorful bias binding fabric strips folded and stacked" loading="lazy" decoding="async" style="width:100%;border-radius:12px;margin:16px 0;aspect-ratio:16/9;object-fit:cover;" width="960" height="540">
+<div class="content-section">
+                <h2>How to Calculate Fabric for Bias Binding</h2>
+                <p>Calculating fabric yardage for bias binding involves finding the total area of fabric needed, then working backward to determine the smallest square of fabric that can produce that binding. Here is the formula:</p>
+
+                <div class="formula-box">
+                    <strong>Step 1 — Required Binding Area:</strong><br>
+                    Total binding area = Binding length × Strip width<br><br>
+                    <strong>Step 2 — Fabric Square Size:</strong><br>
+                    Square side = √(Total binding area × (1 + Waste%))<br>
+                    Round up to the nearest inch<br><br>
+                    <strong>Step 3 — Yardage from Square:</strong><br>
+                    Since a square yard = 36" × 36", divide the square side by 36<br>
+                    (Then round up to nearest ⅛ or ¼ yard for purchasing)
+                </div>
+
+                <p>For example, you need 168" of 2.25"-wide binding for a baby quilt. Required area: 168 × 2.25 = 378 square inches. An ~19.5" square of fabric gives you ~380 sq in — about ½ yard of 42" wide fabric. Adding 10% waste: round up to ⅝ yard for safety.</p>
+
+                <h3>Continuous Bias Binding Method</h3>
+                <p>The most efficient way to make bias binding is the continuous method. Cut a square of fabric on the true bias (45°), sew the two cut edges together to form a tube, then cut a continuous spiral of binding. This method produces the longest continuous binding from the smallest piece of fabric — ideal for quilts with curved edges, necklines, or any project that needs flexible, stretchy binding.</p>
+
+                <p>The table below shows the recommended starting square size for common binding lengths and widths:</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Bias Binding Yardage Reference Chart</h2>
+                <table>
+                    <tr><th>Binding Length</th><th>Strip Width</th><th>Fabric Square</th><th>Yardage (42" wide)</th><th>Use Case</th></tr>
+                    <tr><td>120"</td><td>2.25"</td><td>16" × 16"</td><td>½ yard</td><td>Crib quilt, small project</td></tr>
+                    <tr><td>168"</td><td>2.25"</td><td>20" × 20"</td><td>½ yard</td><td>Baby quilt</td></tr>
+                    <tr><td>240"</td><td>2.25"</td><td>24" × 24"</td><td>⅔ yard</td><td>Lap quilt, table runner</td></tr>
+                    <tr><td>320"</td><td>2.25"</td><td>28" × 28"</td><td>¾ yard</td><td>Twin quilt</td></tr>
+                    <tr><td>320"</td><td>2.5"</td><td>30" × 30"</td><td>⅞ yard</td><td>Twin quilt</td></tr>
+                    <tr><td>396"</td><td>2.5"</td><td>33" × 33"</td><td>1 yard</td><td>Queen quilt</td></tr>
+                    <tr><td>432"</td><td>2.5"</td><td>35" × 35"</td><td>1 yard</td><td>King quilt</td></tr>
+                    <tr><td>600"</td><td>2.5"</td><td>42" × 42"</td><td>1¼ yards</td><td>Large quilt, long garment</td></tr>
+                    <tr><td>720"</td><td>3"</td><td>48" × 48"</td><td>1⅓ yards</td><td>Extra-large project</td></tr>
+                </table>
+                <p class="price-note">Square sizes are minimums for continuous bias binding. Add 10% for waste and seam allowances. Wider 54" fabric produces the same yardage from a shorter length.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>Bias Binding Strip Width Guide</h2>
+                <p>The strip width you choose depends on your project and how much fabric you want visible on the finished edge. Standard quilting binding uses 2.25" to 2.5" wide strips, which fold to roughly ⅜" to ½" finished width. Garment bias binding typically uses narrower strips — 1.5" to 2" — for a delicate finish on necklines and armholes. Heavy upholstery binding uses 3" or wider strips for a substantial edge.</p>
+
+                <table>
+                    <tr><th>Strip Width</th><th>Finished Width (doubled)</th><th>Best For</th></tr>
+                    <tr><td>2"</td><td>~⅜"</td><td>Fine garments, lightweight quilts, miniatures</td></tr>
+                    <tr><td>2.25"</td><td>~⅜"</td><td>Standard quilt binding, most projects</td></tr>
+                    <tr><td>2.5"</td><td>~½"</td><td>Quilt binding, scarves, home decor</td></tr>
+                    <tr><td>3"</td><td>~⅝"</td><td>Heavy quilts, upholstery, thick fabrics</td></tr>
+                    <tr><td>3.5"</td><td>~¾"</td><td>Extra-thick batting, display quilts</td></tr>
+                </table>
+            </div>
+
+            <div class="content-section">
+                <h2>Frequently Asked Questions</h2>
+
+                <div class="faq-item">
+                    <div class="faq-q">What's the difference between bias binding and straight-grain binding?</div>
+                    <div class="faq-a">Bias binding is cut at a 45-degree angle to the fabric grain, giving it stretch and flexibility to curve smoothly around rounded edges and corners. Straight-grain binding is cut parallel to the selvage — it's more economical but doesn't stretch, so it only works on straight edges. For quilts with curved edges, necklines, or armholes, always use bias binding. The bias binding fabric calculator above estimates for continuous bias strips, which are the most efficient way to make bias binding from a square piece of fabric.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How do I make continuous bias binding from a fabric square?</div>
+                    <div class="faq-a">Cut your fabric square on the diagonal (corner to corner). Sew the two triangles together along the straight-grain edges to form a parallelogram. Mark parallel lines at your strip width along the bias edge, then sew the two short ends together offset by one strip width. Cut along the marked lines in a continuous spiral — you'll get one long strip of bias binding with minimal waste. The calculator above estimates the minimum square size for your required binding length.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">How much binding do I need for a quilt?</div>
+                    <div class="faq-a">Measure the quilt perimeter: (length + width) x 2, then add 10" to account for mitered corners and joining the ends. For a queen quilt (90" x 108"), the binding length is (90 + 108) x 2 + 10 = 406 inches. Then decide your strip width — 2.25" is standard. Enter these into the bias binding calculator above to find the exact fabric yardage needed. For our queen example, you need roughly 1 yard of 42" wide fabric.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">Can I cut bias binding from a rectangle instead of a square?</div>
+                    <div class="faq-a">Yes. A rectangle cut on the bias produces more total binding length than a square of the same area because the diagonal is longer. The rectangle method is more fabric-efficient but requires more careful layout. For most home sewists, the square method is simpler and the calculator above is designed for square pieces. If you want to use a rectangle, enter your fabric dimensions into our <a href="/fabric-converter.html">fabric converter</a> and compare the area.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q">What is the best fabric for bias binding?</div>
+                    <div class="faq-a">Quilting-weight 100% cotton is the most common choice — it presses well, holds a crease, and has enough body to fold neatly. For garments, lightweight cotton, silk, or cotton-linen blends work well. Always prewash your fabric before cutting bias strips to prevent shrinkage after application. Avoid heavy upholstery fabric for bias binding — it's too thick to fold smoothly around corners unless you use a very wide strip (3.5"+) or a single-fold method.</div>
+                </div>
+            </div>
+
+            <!-- interlink -->
+            <div class="content-section"><h2>You Might Also Need</h2><p>Bias binding is a finishing technique used in many sewing projects. These related calculators and guides can help:</p>
+            <ul style="margin-left:24px;line-height:1.8;">
+                <li><a href="/quilt-fabric-calculator.html">Quilt Fabric Calculator</a> — calculate yardage for quilt tops and backing</li>
+                <li><a href="/fabric-converter.html">Fabric Converter</a> — convert between yards, inches, meters, and centimeters</li>
+                <li><a href="/how-much-fabric.html">How Much Fabric Do I Need</a> — general guide for all project types</li>
+                <li><a href="/clothing-fabric-yardage.html">Clothing Fabric Yardage</a> — bias binding is commonly used in garment sewing</li>
+            </ul></div>
+            <div class="related-tools">
+                <h2>Related Tools</h2>
+                <div class="related-tools-grid">
+                    <a href="/" title="Fabric Yardage Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M3 7l14 0"/><path d="M7 3l0 4"/><path d="M17 7l0 4"/><path d="M13 3l0 16a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2v2"/><path d="M14 14l4 4"/><path d="M18 14l4 4"/></svg> Yardage Calculator</a>
+                    <a href="/fabric-width-converter.html" title="Fabric Width Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg> Width Converter</a>
+                    <a href="/fabric-converter.html" title="Fabric Converter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 1 21 5"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 23 3 19"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg> Fabric Converter</a>
+                    <a href="/pillow-fabric-calculator.html" title="Pillow Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8a6 6 0 016-6h8a6 6 0 016 6v8a6 6 0 01-6 6H8a6 6 0 01-6-6V8z"/></svg> Pillow Fabric</a>
+                    <a href="/quilt-fabric-calculator.html" title="Quilt Fabric Calculator"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Quilt Fabric</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <span>&copy; 2026 <a href="/">YardageCalculator.com</a>. All rights reserved.</span>
+            <a href="/privacy.html">Privacy</a>
+            <a href="/about.html">About</a>
+        </div>
+    </footer>
+</div>
+
+<script src="/js/common.js"></script>
+<script>
+// Preset handler
+document.getElementById('bindingPresets').addEventListener('click', function(e) {
+    var card = e.target.closest('.quick-preset-card');
+    if (!card) return;
+    document.querySelectorAll('#bindingPresets .quick-preset-card').forEach(function(c) { c.classList.remove('active'); });
+    card.classList.add('active');
+    $('bindLength').value = card.dataset.len;
+    $('bindStripWid').value = card.dataset.wid;
+    calcBiasBinding();
+});
+
+function calcBiasBinding() {
+    var bindLen = parseFloat($('bindLength').value);
+    var stripWid = parseFloat($('bindStripWid').value);
+    var fw = parseFloat($('bindFabWidth').value);
+    var wastePct = parseFloat($('bindWaste').value) || 0;
+    var errEl = $('errorBox');
+    hide(errEl);
+
+    if (isNaN(bindLen) || bindLen <= 0) {
+        errEl.textContent = 'Enter a valid binding length.';
+        show(errEl);
+        return;
+    }
+    if (isNaN(stripWid) || stripWid <= 0) {
+        errEl.textContent = 'Enter a valid strip width.';
+        show(errEl);
+        return;
+    }
+
+    // Calculate required area
+    var reqArea = bindLen * stripWid;
+
+    // Minimum square size (continuous bias method)
+    var squareSide = Math.ceil(Math.sqrt(reqArea * (1 + wastePct / 100)));
+    // Ensure square fits in fabric width
+    if (squareSide > fw) {
+        // Need to piece — use rectangle method
+        // Width = fabric width, find length
+        var rectLen = Math.ceil(reqArea * (1 + wastePct / 100) / fw);
+        var yards = Math.ceil(rectLen * 4 / 36) / 4;
+        var totalInches = rectLen;
+        $('biasResult').textContent = yards + ' yards (pieced rectangle)';
+
+        var detail = 'Binding needed: ' + bindLen.toFixed(0) + '" long × ' + stripWid.toFixed(2) + '" wide';
+        detail += '<br>Fabric rectangle: ' + fw + '" wide × ' + rectLen + '" long';
+        detail += '<br>Area required: ' + reqArea.toFixed(0) + ' sq in + ' + wastePct + '% waste = ' + (reqArea * (1 + wastePct / 100)).toFixed(0) + ' sq in';
+        detail += '<br>Total yardage: ' + yards + ' yards';
+        detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ' + (totalInches * 2.54).toFixed(1) + ' cm | ' + (yards * 0.9144).toFixed(2) + ' m</span>';
+
+        $('biasDetail').innerHTML = detail;
+        $('biasSquareTable').innerHTML = '<strong>Square method not possible:</strong> Minimum square side (' + squareSide + '") exceeds fabric width (' + fw + '"). Using rectangle method instead — cut a ' + fw + '" × ' + rectLen + '" rectangle on the bias.';
+
+        show($('resultBox'));
+        return;
+    }
+
+    // Square exists in fabric width — use continuous method
+    var totalSqIn = squareSide * squareSide;
+    var yardsFromSquare = squareSide / 36;
+    // Round up to nearest 1/8 yard
+    var yardsRounded = Math.ceil(yardsFromSquare * 8) / 8;
+    var totalInches = squareSide;
+
+    // Also show width-length option
+    var fromWidth = Math.ceil(squareSide / (fw / squareSide));
+    var rectYards = (fromWidth * squareSide) / 36;
+    rectYards = Math.ceil(rectYards * 8) / 8;
+
+    $('biasResult').textContent = yardsRounded + ' yards';
+
+    var detail = 'Binding needed: ' + bindLen.toFixed(0) + '" long × ' + stripWid.toFixed(2) + '" wide strips';
+    detail += '<br>Area required: ' + reqArea.toFixed(0) + ' sq in + ' + wastePct + '% waste = ' + totalSqIn + ' sq in';
+    detail += '<br><strong>Recommended:</strong> ' + squareSide + '" × ' + squareSide + '" fabric square (continuous bias method)';
+    detail += '<br>Yards: ' + yardsRounded + ' yards of ' + fw + '" wide fabric';
+    detail += '<br><span class="multi-unit-row"><strong>Also:</strong> ' + (totalInches * 2.54).toFixed(1) + ' cm | ' + (yardsRounded * 0.9144).toFixed(2) + ' meters</span>';
+
+    // Effective binding length from this square
+    var effectiveLen = Math.floor(totalSqIn / stripWid);
+    detail += '<br><strong>Yield:</strong> ~' + effectiveLen.toFixed(0) + '" of continuous binding';
+
+    $('biasDetail').innerHTML = detail;
+
+    // Square size table
+    var altSizes = [12, 16, 20, 24, 28, 32, 36, 42, 48];
+    var tableHtml = '<strong style="display:block;margin-bottom:8px;color:var(--text-primary);">Quick Reference — Binding Yield by Square Size</strong>' +
+        '<table style="font-size:0.85rem;"><tr><th>Square Size</th><th>2" Strips</th><th>2.25" Strips</th><th>2.5" Strips</th><th>3" Strips</th></tr>';
+    for (var i = 0; i < altSizes.length; i++) {
+        var s = altSizes[i];
+        if (s > fw) continue;
+        var area = s * s;
+        tableHtml += '<tr><td>' + s + ' × ' + s + '"</td>';
+        tableHtml += '<td>~' + Math.floor(area / 2) + '"</td>';
+        tableHtml += '<td>~' + Math.floor(area / 2.25) + '"</td>';
+        tableHtml += '<td>~' + Math.floor(area / 2.5) + '"</td>';
+        tableHtml += '<td>~' + Math.floor(area / 3) + '"</td></tr>';
+    }
+    tableHtml += '</table>';
+    $('biasSquareTable').innerHTML = tableHtml;
+
+    show($('resultBox'));
+}
+
+// Realtime binding
+document.querySelectorAll('#mainCalc [data-realtime]').forEach(function(el) {
+    el.addEventListener('input', calcBiasBinding);
+    el.addEventListener('change', calcBiasBinding);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof initPage === 'function') initPage();
+    calcBiasBinding();
+});
+</script>
+</body>
+</html>

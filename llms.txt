@@ -1,0 +1,77 @@
+# Fabric Yardage Calculator — Free Sewing Fabric Estimator
+
+> Free fabric yardage calculator that estimates how much fabric you need for any sewing project: clothing (skirts, pants, blouses, jackets), home decor (curtains, cushions, quilts), and accessories. Supports inches, centimeters, and yards. No signup required.
+
+## Core Tools
+- [Fabric Yardage Calculator](https://yardage-calc.com/): Estimate fabric needed for any sewing project
+- [How to Calculate Fabric Yardage](https://yardage-calc.com/how-to-calculate-fabric-yardage): Complete guide with formulas and examples
+- [Calculate Fabric Yardage](https://yardage-calc.com/calculate-fabric-yardage): Step-by-step yardage calculator
+- [How Much Fabric](https://yardage-calc.com/how-much-fabric): Quick fabric estimation reference
+- [Fabric Yardage Reference Table](https://yardage-calc.com/fabric-yardage-reference-table): Standard yardage by project type
+- [Fabric Cost Calculator](https://yardage-calc.com/fabric-cost-calculator): Calculate total fabric cost
+- [Fabric Repeating Pattern Calculator](https://yardage-calc.com/fabric-repeating-pattern-calculator): Pattern repeat alignment and extra yardage
+- [Fabric Converter](https://yardage-calc.com/fabric-converter): Convert between yards, meters, and inches
+- [Fabric Width Converter](https://yardage-calc.com/fabric-width-converter): Convert patterns between fabric widths
+- [Bias Binding Fabric Calculator](https://yardage-calc.com/bias-binding-fabric-calculator): Calculate bias tape from fabric
+
+## Clothing by Category
+
+### Skirts
+- [Circle Skirt Yardage](https://yardage-calc.com/circle-skirt-yardage): Full, half, and quarter circle skirt fabric needs
+- [A-Line Skirt Yardage](https://yardage-calc.com/a-line-skirt-yardage): A-line skirt fabric estimator
+- [Pleated Skirt Yardage](https://yardage-calc.com/pleated-skirt-yardage): Pleated skirt fabric calculator
+- [Mini Skirt Yardage](https://yardage-calc.com/mini-skirt-yardage): Mini skirt fabric needs
+- [Maxi Skirt Yardage](https://yardage-calc.com/maxi-skirt-yardage): Maxi/long skirt fabric estimator
+
+### Tops & Dresses
+- [Blouse Yardage Calculator](https://yardage-calc.com/blouse-yardage-calculator): Blouse fabric requirements
+- [Jacket Yardage Calculator](https://yardage-calc.com/jacket-yardage-calculator): Jacket and coat fabric estimation
+
+### Pants
+- [Pants Yardage Calculator](https://yardage-calc.com/pants-yardage-calculator): Pants and trousers fabric needs
+
+### Accessories
+- [Bow Tie Yardage](https://yardage-calc.com/bow-tie-yardage): Bow tie fabric estimation
+- [Scarf Yardage](https://yardage-calc.com/scarf-yardage): Scarf fabric requirements
+- [Headband Yardage](https://yardage-calc.com/headband-yardage): Headband fabric calculator
+
+## Home Decor
+
+### Curtains & Drapes
+- [Curtain Fabric Yardage](https://yardage-calc.com/curtain-fabric-yardage): Curtain and drapery fabric calculator
+- [Curtain Fabric Calculator Inches](https://yardage-calc.com/curtain-fabric-calculator-inches): Curtain yardage in inches
+- [Curtain Fabric Calculator Free](https://yardage-calc.com/curtain-fabric-calculator-free): Free curtain fabric estimator
+- [Curtain Calculator Meters](https://yardage-calc.com/curtain-calculator-meters): Curtain yardage in meters
+- [Curtain Calculation Formula](https://yardage-calc.com/curtain-calculation-formula): Curtain fabric formula and examples
+- [Grommet Curtain Yardage](https://yardage-calc.com/grommet-curtain-yardage): Grommet top curtain fabric needs
+- [Cafe Curtain Yardage](https://yardage-calc.com/cafe-curtain-yardage): Cafe curtain fabric calculator
+- [Drapery Fabric Calculator](https://yardage-calc.com/drapery-fabric-calculator): Full drapery fabric estimation
+
+### Bedding
+- [Crib Sheet Yardage](https://yardage-calc.com/crib-sheet-yardage): Crib/baby sheet fabric needs
+- [Bed Skirt Yardage](https://yardage-calc.com/bed-skirt-yardage): Bed skirt fabric estimator
+- [Baby Blanket Yardage](https://yardage-calc.com/baby-blanket-yardage): Baby blanket fabric requirements
+- [Quilt Fabric Calculator](https://yardage-calc.com/quilt-fabric-calculator): Quilt backing and binding yardage
+
+### Pillows & Cushions
+- [Pillow Fabric Calculator](https://yardage-calc.com/pillow-fabric-calculator): Throw pillow and bed pillow yardage
+- [Cushion Fabric Yardage](https://yardage-calc.com/cushion-fabric-yardage): Seat cushion and sofa cushion fabric
+- [Changing Pad Cover Yardage](https://yardage-calc.com/changing-pad-cover-yardage): Diaper changing pad cover
+
+### Table & Kitchen
+- [Placemat Yardage](https://yardage-calc.com/placemat-yardage): Placemat fabric needs
+- [Napkin Yardage](https://yardage-calc.com/napkin-yardage): Fabric napkin estimation
+- [Apron Yardage](https://yardage-calc.com/apron-yardage): Apron fabric requirements
+
+## Sewing Guides
+- [Fabric Weight Guide](https://yardage-calc.com/fabric-weight-guide): Fabric weight classifications and uses
+- [Nylon vs Polyester](https://yardage-calc.com/nylon-vs-polyester): Comparison guide for fabric types
+- [Clothing Fabric Yardage](https://yardage-calc.com/clothing-fabric-yardage): General clothing yardage reference
+- [Home Decor Fabric Calculator](https://yardage-calc.com/home-decor-fabric-calculator): Home decor project yardage
+- [Baby Clothes Yardage](https://yardage-calc.com/baby-clothes-yardage): Baby clothing fabric needs
+- [Drawstring Bag Yardage](https://yardage-calc.com/drawstring-bag-yardage): Drawstring bag fabric calculator
+
+## Optional
+- [About](https://yardage-calc.com/about.html)
+- [Contact](https://yardage-calc.com/contact.html)
+- [Privacy Policy](https://yardage-calc.com/privacy-policy.html)
